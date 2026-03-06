@@ -1,9 +1,11 @@
-// Mode definitions and what each mode shows/prioritizes
+// Mode and layer configuration
+// Icons are referenced by Lucide icon name strings — components resolve them
+
 export const MODES = {
   wheelchair: {
     id: 'wheelchair',
     label: 'Wheelchair',
-    icon: '♿',
+    lucideIcon: 'Accessibility',
     layers: ['toilets', 'elevators', 'transport', 'hospitals'],
     highlight: ['elevators', 'toilets'],
     description: 'Accessible routes, elevators & toilets',
@@ -11,46 +13,36 @@ export const MODES = {
   senior: {
     id: 'senior',
     label: 'Senior',
-    icon: '👴',
+    lucideIcon: 'Heart',
     layers: ['benches', 'pharmacies', 'hospitals', 'toilets', 'aed'],
     highlight: ['benches', 'pharmacies'],
     description: 'Rest points, pharmacies & medical',
   },
-  parent: {
-    id: 'parent',
-    label: 'Parent',
-    icon: '👨‍👩‍👧',
-    layers: ['playgrounds', 'toilets', 'fountains', 'benches'],
-    highlight: ['playgrounds', 'toilets'],
-    description: 'Playgrounds, toilets & parks',
-  },
   tourist: {
     id: 'tourist',
     label: 'Tourist',
-    icon: '🧳',
-    layers: ['landmarks', 'transport', 'toilets', 'fountains'],
-    highlight: ['landmarks', 'transport'],
-    description: 'Landmarks, metro & water fountains',
+    lucideIcon: 'Map',
+    layers: ['transport', 'toilets', 'fountains', 'pharmacies'],
+    highlight: ['transport'],
+    description: 'Metro, toilets & water fountains',
   },
-  kidsafe: {
-    id: 'kidsafe',
-    label: 'Kid Safe',
-    icon: '🧒',
-    layers: ['playgrounds', 'hospitals', 'transport'],
-    highlight: ['playgrounds'],
-    description: 'Safe places & playgrounds',
+  standard: {
+    id: 'standard',
+    label: 'Standard',
+    lucideIcon: 'LayoutGrid',
+    layers: ['benches', 'toilets', 'elevators', 'aed', 'pharmacies', 'transport', 'fountains', 'hospitals'],
+    highlight: [],
+    description: 'All infrastructure layers',
   },
 };
 
 export const LAYER_CONFIG = {
-  benches: { icon: '🪑', label: 'Bench', color: '#8B6914' },
-  toilets: { icon: '🚻', label: 'Toilet', color: '#2563EB' },
-  elevators: { icon: '🛗', label: 'Elevator', color: '#7C3AED' },
-  aed: { icon: '❤️', label: 'AED', color: '#DC2626' },
-  pharmacies: { icon: '💊', label: 'Pharmacy', color: '#059669' },
-  transport: { icon: '🚋', label: 'Transport', color: '#EA580C' },
-  fountains: { icon: '⛲', label: 'Fountain', color: '#0891B2' },
-  hospitals: { icon: '🏥', label: 'Hospital', color: '#E11D48' },
-  playgrounds: { icon: '🛝', label: 'Playground', color: '#16A34A' },
-  landmarks: { icon: '🏛️', label: 'Landmark', color: '#CA8A04' },
+  benches:    { label: 'Bench',     color: '#8B6914', lucideIcon: 'Armchair' },
+  toilets:    { label: 'Toilet',    color: '#2563EB', lucideIcon: 'Bath' },
+  elevators:  { label: 'Elevator',  color: '#7C3AED', lucideIcon: 'ArrowUpDown' },
+  aed:        { label: 'AED',       color: '#DC2626', lucideIcon: 'HeartPulse' },
+  pharmacies: { label: 'Pharmacy',  color: '#059669', lucideIcon: 'Cross' },
+  transport:  { label: 'Transport', color: '#EA580C', lucideIcon: 'TrainFront' },
+  fountains:  { label: 'Fountain',  color: '#0891B2', lucideIcon: 'Droplets' },
+  hospitals:  { label: 'Hospital',  color: '#E11D48', lucideIcon: 'Hospital' },
 };

@@ -1,6 +1,15 @@
 import React, { useMemo } from 'react';
 import { MODES, LAYER_CONFIG } from '../../data/modes';
 import * as mockData from '../../data/mockData';
+import {
+  Armchair, Bath, ArrowUpDown, HeartPulse,
+  Cross, TrainFront, Droplets, Hospital,
+} from 'lucide-react';
+
+const ICON_COMP = {
+  Armchair, Bath, ArrowUpDown, HeartPulse,
+  Cross, TrainFront, Droplets, Hospital,
+};
 
 const DATA_MAP = {
   benches: mockData.benches,
@@ -11,11 +20,8 @@ const DATA_MAP = {
   transport: mockData.transport,
   fountains: mockData.fountains,
   hospitals: mockData.hospitals,
-  playgrounds: mockData.playgrounds,
-  landmarks: mockData.landmarks,
 };
 
-// Haversine distance in meters
 function distanceMeters(lat1, lng1, lat2, lng2) {
   const R = 6371000;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
@@ -29,8 +35,6 @@ function distanceMeters(lat1, lng1, lat2, lng2) {
 }
 
 export default function NearbyPanel({ activeMode, mapCenter }) {
-  const RADIUS = 200; // meters
-
   const nearby = useMemo(() => {
     if (!mapCenter) return [];
     const modeConfig = MODES[activeMode];
@@ -43,11 +47,12 @@ export default function NearbyPanel({ activeMode, mapCenter }) {
 
       data.forEach((item) => {
         const dist = distanceMeters(mapCenter.lat, mapCenter.lng, item.lat, item.lng);
-        if (dist <= RADIUS) {
+        if (dist <= 300) {
           results.push({
             ...item,
             layerKey,
-            icon: config.icon,
+            iconName: config.lucideIcon,
+            color: config.color,
             label: config.label,
             distance: Math.round(dist),
           });
@@ -62,17 +67,31 @@ export default function NearbyPanel({ activeMode, mapCenter }) {
   if (nearby.length === 0) return null;
 
   return (
-    <div className="nearby-panel" role="complementary" aria-label="Nearby services">
-      <div className="nearby-panel__title">Nearby</div>
-      <ul className="nearby-panel__list">
-        {nearby.map((item) => (
-          <li key={`${item.layerKey}-${item.id}`} className="nearby-item">
-            <span className="nearby-item__icon" aria-hidden="true">{item.icon}</span>
-            <span>{item.label}</span>
-            <span className="nearby-item__distance">{item.distance}m</span>
-          </li>
-        ))}
-      </ul>
+    <div className="floating-card floating-card--bl" role="complementary" aria-label="Nearby services">
+      <div className="floating-card__header">
+        <div className="floating-card__title">Nearby</div>
+      </div>
+      <div className="floating-card__body">
+        <ul className="floating-list">
+          {nearby.map((item) => {
+            const IconComp = ICON_COMP[item.iconName];
+            return (
+              <li key={`${item.layerKey}-${item.id}`} className="floating-list-item">
+                <div
+                  className="floating-list-item__icon"
+                  style={{ background: item.color }}
+                >
+                  {IconComp && <IconComp size={16} />}
+                </div>
+                <div className="floating-list-item__info">
+                  <div className="floating-list-item__name">{item.name}</div>
+                </div>
+                <span className="floating-list-item__distance">{item.distance}m</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
