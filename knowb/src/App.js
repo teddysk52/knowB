@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { Accessibility, Sun, Moon, ShieldAlert, Eye, EyeOff } from 'lucide-react';
+import React, { useState, useCallback, useEffect, useMemo } from 'react';
+import { Sun, Moon, ShieldAlert, Eye, EyeOff } from 'lucide-react';
 import Onboarding from './components/onboarding/Onboarding';
 import CityMap from './components/map/CityMap';
 import RoutePanel from './components/map/RoutePanel';
@@ -99,10 +99,12 @@ async function reverseGeocode(lat, lng, lang) {
   }
 }
 
+const ONBOARD_VERSION = '2';
+
 export default function App() {
   // Onboarding / user prefs (persisted in localStorage)
   const [onboarded, setOnboarded] = useState(() => {
-    try { return localStorage.getItem('knowb_onboarded') === '1'; } catch { return false; }
+    try { return localStorage.getItem('knowb_onboarded') === ONBOARD_VERSION; } catch { return false; }
   });
   const [lang, setLang] = useState(() => {
     try { return localStorage.getItem('knowb_lang') || 'cs'; } catch { return 'cs'; }
@@ -129,6 +131,7 @@ export default function App() {
   const [selectedRouteIndex, setSelectedRouteIndex] = useState(0);
   const [isLoadingRoute, setIsLoadingRoute] = useState(false);
   const [comfortData, setComfortData] = useState(null);
+  const [userPosition, setUserPosition] = useState(null);
 
   useEffect(() => { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
 
@@ -139,6 +142,34 @@ export default function App() {
   useEffect(() => {
     setPreferences(MODE_DEFAULT_PREFS[activeMode] || MODE_DEFAULT_PREFS.standard);
   }, [activeMode]);
+
+  // Get user geolocation
+  useEffect(() => {
+    if (!onboarded) return;
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+          setUserPosition(loc);
+        },
+        () => {},
+        { enableHighAccuracy: true, timeout: 10000 }
+      );
+    }
+  }, [onboarded]);
+
+  // Auto-set route start from geolocation
+  useEffect(() => {
+    if (!userPosition || route.start) return;
+    (async () => {
+      const address = await reverseGeocode(userPosition.lat, userPosition.lng, lang);
+      setRoute(prev => {
+        if (prev.start) return prev;
+        return { ...prev, start: { ...userPosition, address } };
+      });
+      setSettingPoint('end');
+    })();
+  }, [userPosition, lang, route.start]);
 
   useEffect(() => {
     if (!route.start || !route.end) { setRouteData([]); setComfortData(null); return; }
@@ -169,6 +200,19 @@ export default function App() {
     setComfortData(computeComfortAndJistota(routeData[selectedRouteIndex].coordinates, preferences));
   }, [routeData, selectedRouteIndex, preferences]);
 
+  const routeLabels = useMemo(() => {
+    if (!routeData || routeData.length === 0) return [];
+    if (routeData.length === 1) return [t.fastest];
+    const comforts = routeData.map(r => computeComfortAndJistota(r.coordinates, preferences));
+    const fastestIdx = routeData.reduce((min, r, i) => r.distance < routeData[min].distance ? i : min, 0);
+    const comfortIdx = comforts.reduce((max, c, i) => c.comfort > comforts[max].comfort ? i : max, 0);
+    return routeData.map((_, i) => {
+      if (i === fastestIdx) return t.fastest;
+      if (i === comfortIdx) return t.route_comfortable;
+      return null;
+    });
+  }, [routeData, preferences, t]);
+
   const toggleTheme = useCallback(() => {
     setTheme((t) => {
       const next = t === 'dark' ? 'light' : 'dark';
@@ -183,7 +227,7 @@ export default function App() {
     setFontSize(fs);
     setOnboarded(true);
     try {
-      localStorage.setItem('knowb_onboarded', '1');
+      localStorage.setItem('knowb_onboarded', ONBOARD_VERSION);
       localStorage.setItem('knowb_lang', l);
       localStorage.setItem('knowb_mode', userType);
       localStorage.setItem('knowb_fontsize', String(fs));
@@ -212,12 +256,19 @@ export default function App() {
   );
 
   const handleClearRoute = useCallback(() => {
-    setRoute({ start: null, end: null });
     setRouteData([]);
     setComfortData(null);
-    setSettingPoint('start');
     setSelectedRouteIndex(0);
-  }, []);
+    if (userPosition) {
+      reverseGeocode(userPosition.lat, userPosition.lng, lang).then(address => {
+        setRoute({ start: { ...userPosition, address }, end: null });
+      });
+      setSettingPoint('end');
+    } else {
+      setRoute({ start: null, end: null });
+      setSettingPoint('start');
+    }
+  }, [userPosition, lang]);
 
   const handleTogglePref = useCallback((key) => {
     setPreferences((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -247,10 +298,16 @@ export default function App() {
     <div className="app-map">
       <header className="float-header">
         <div className="float-header__brand">
-          <div className="float-header__logo">
-            <Accessibility size={18} />
-          </div>
-          <span className="float-header__name">{t.app_name}</span>
+          <img
+            src="/mobile-logo.png"
+            alt="KnowB"
+            className="float-header__logo-img float-header__logo-img--mobile"
+          />
+          <img
+            src="/pc-logo.png"
+            alt="KnowB"
+            className="float-header__logo-img float-header__logo-img--pc"
+          />
         </div>
         <div className="float-header__right">
           <button
@@ -287,6 +344,8 @@ export default function App() {
         showPOIs={showPOIs}
         isLoadingRoute={isLoadingRoute}
         t={t}
+        userPosition={userPosition}
+        routeLabels={routeLabels}
       />
 
       {showHelp && <HelpNearbyPanel mapCenter={mapCenter} t={t} />}

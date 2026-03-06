@@ -1,12 +1,12 @@
-import React, { useMemo, useCallback, useState } from 'react';
-import MapGL, { Marker, Popup, Source, Layer, NavigationControl } from 'react-map-gl/maplibre';
+import React, { useMemo, useCallback, useState, useEffect, useRef } from 'react';
+import MapGL, { Marker, Popup, Source, Layer, NavigationControl, GeolocateControl } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MODES, LAYER_CONFIG } from '../../data/modes';
 import * as mockData from '../../data/mockData';
 import {
   Armchair, Bath, ArrowUpDown, HeartPulse,
   Cross, TrainFront, Droplets, Hospital,
-  Navigation as NavIcon, MapPin, Loader2, Clock, Route,
+  Navigation as NavIcon, MapPin, Loader2, Route,
 } from 'lucide-react';
 
 const MAP_STYLES = {
@@ -36,14 +36,6 @@ function scoreToColor(score) {
   return '#dc2626';
 }
 
-function formatDuration(seconds) {
-  const mins = Math.round(seconds / 60);
-  if (mins < 60) return `${mins} min`;
-  const h = Math.floor(mins / 60);
-  const m = mins % 60;
-  return `${h}h ${m}m`;
-}
-
 function formatDistance(meters) {
   if (meters < 1000) return `${Math.round(meters)} m`;
   return `${(meters / 1000).toFixed(1)} km`;
@@ -52,6 +44,7 @@ function formatDistance(meters) {
 export default function CityMap({
   theme, activeMode, route, routeData, selectedRouteIndex, onRouteSelect,
   onMapClick, settingPoint, showHeatmap, showHelp, showPOIs, isLoadingRoute, t,
+  userPosition, routeLabels,
 }) {
   const [popupInfo, setPopupInfo] = useState(null);
   const [viewState, setViewState] = useState({
@@ -59,6 +52,18 @@ export default function CityMap({
     latitude: 50.0755,
     zoom: 14,
   });
+
+  const centeredOnUser = useRef(false);
+  useEffect(() => {
+    if (userPosition && !centeredOnUser.current) {
+      setViewState(prev => ({
+        ...prev,
+        longitude: userPosition.lng,
+        latitude: userPosition.lat,
+      }));
+      centeredOnUser.current = true;
+    }
+  }, [userPosition]);
 
   const modeConfig = MODES[activeMode];
   const activeLayers = modeConfig.layers;
@@ -148,6 +153,7 @@ export default function CityMap({
         attributionControl={true}
       >
         <NavigationControl position="top-left" />
+        <GeolocateControl position="top-left" trackUserLocation />
 
         {heatmapGeoJson && (
           <Source id="heatmap-zones" type="geojson" data={heatmapGeoJson}>
@@ -240,6 +246,12 @@ export default function CityMap({
           </Marker>
         )}
 
+        {userPosition && (
+          <Marker longitude={userPosition.lng} latitude={userPosition.lat} anchor="center">
+            <div className="user-position-dot" />
+          </Marker>
+        )}
+
         {popupInfo && (
           <Popup
             longitude={popupInfo.lng}
@@ -264,12 +276,12 @@ export default function CityMap({
               onClick={() => onRouteSelect(i)}
             >
               <div className="route-alt-btn__info">
-                <Clock size={14} />
-                <span className="route-alt-btn__time">{formatDuration(r.duration)}</span>
-                <Route size={12} />
-                <span className="route-alt-btn__dist">{formatDistance(r.distance)}</span>
+                <Route size={14} />
+                <span className="route-alt-btn__time">{formatDistance(r.distance)}</span>
               </div>
-              {i === 0 && <span className="route-alt-btn__badge">{t.fastest}</span>}
+              {routeLabels && routeLabels[i] && (
+                <span className="route-alt-btn__badge">{routeLabels[i]}</span>
+              )}
             </button>
           ))}
         </div>

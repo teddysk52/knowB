@@ -61,7 +61,7 @@ export default function RoutePanel({
                 {comfortData.comfort}%
               </span>
               <span className="sheet__info">
-                {(selected.distance / 1000).toFixed(1)} km · {Math.round(selected.duration / 60)} min
+                {(selected.distance / 1000).toFixed(1)} km
               </span>
               <ChevronUp size={18} className="sheet__chevron" />
             </button>
@@ -152,10 +152,6 @@ export default function RoutePanel({
                 <div className="sheet__sc">
                   <span className="sheet__num">{(selected.distance / 1000).toFixed(1)}</span>
                   <span className="sheet__lbl">km</span>
-                </div>
-                <div className="sheet__sc">
-                  <span className="sheet__num">{Math.round(selected.duration / 60)}</span>
-                  <span className="sheet__lbl">min</span>
                 </div>
               </div>
 

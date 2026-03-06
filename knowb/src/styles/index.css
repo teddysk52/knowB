@@ -1198,6 +1198,16 @@ body {
 
 .float-header__logo svg { width: 18px; height: 18px; }
 
+.float-header__logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.float-header__logo-img--pc {
+  display: none;
+}
+
 .float-header__name {
   font-size: 1.1rem;
   font-weight: 700;
@@ -1449,7 +1459,7 @@ body {
 
 .sheet__scores {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 
@@ -1556,16 +1566,18 @@ body {
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  border-radius: 100px;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface-raised);
-  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  border: 1.5px dashed var(--color-text-muted);
+  background: transparent;
+  color: var(--color-text-muted);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
   -webkit-tap-highlight-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .sheet__bulk-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
@@ -1653,6 +1665,11 @@ body {
   .scores-row { grid-template-columns: 1fr 1fr; }
 }
 
+@media (min-width: 769px) {
+  .float-header__logo-img--mobile { display: none; }
+  .float-header__logo-img--pc { display: block; }
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
@@ -1667,6 +1684,22 @@ body {
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* ===== USER POSITION DOT ===== */
+.user-position-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #4285f4;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: pulse-position 2s infinite;
+}
+
+@keyframes pulse-position {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2); }
+  50% { box-shadow: 0 0 0 8px rgba(66, 133, 244, 0.15), 0 2px 8px rgba(0, 0, 0, 0.2); }
 }
 
 /* ===== ONBOARDING ===== */
