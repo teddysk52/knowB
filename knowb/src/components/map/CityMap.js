@@ -6,10 +6,13 @@ import * as mockData from '../../data/mockData';
 import {
   Armchair, Bath, ArrowUpDown, HeartPulse,
   Cross, TrainFront, Droplets, Hospital,
-  Flag, MapPin,
+  Navigation as NavIcon, MapPin, Loader2, Clock, Route,
 } from 'lucide-react';
 
-const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
+const MAP_STYLES = {
+  dark: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+  light: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+};
 
 const ICON_COMP = {
   Armchair, Bath, ArrowUpDown, HeartPulse,
@@ -33,14 +36,36 @@ function scoreToColor(score) {
   return '#dc2626';
 }
 
-export default function CityMap({ activeMode, route, onMapClick, showHeatmap, showHelp }) {
+function formatDuration(seconds) {
+  const mins = Math.round(seconds / 60);
+  if (mins < 60) return `${mins} min`;
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return `${h}h ${m}m`;
+}
+
+function formatDistance(meters) {
+  if (meters < 1000) return `${Math.round(meters)} m`;
+  return `${(meters / 1000).toFixed(1)} km`;
+}
+
+export default function CityMap({
+  theme, activeMode, route, routeData, selectedRouteIndex, onRouteSelect,
+  onMapClick, settingPoint, showHeatmap, showHelp, showPOIs, isLoadingRoute,
+}) {
   const [popupInfo, setPopupInfo] = useState(null);
+  const [viewState, setViewState] = useState({
+    longitude: 14.4378,
+    latitude: 50.0755,
+    zoom: 14,
+  });
 
   const modeConfig = MODES[activeMode];
   const activeLayers = modeConfig.layers;
   const highlightLayers = modeConfig.highlight;
 
   const markers = useMemo(() => {
+    if (!showPOIs) return [];
     const result = [];
     activeLayers.forEach((layerKey) => {
       const data = DATA_MAP[layerKey];
@@ -49,17 +74,13 @@ export default function CityMap({ activeMode, route, onMapClick, showHeatmap, sh
       const isHighlight = highlightLayers.includes(layerKey);
       data.forEach((item) => {
         result.push({
-          ...item,
-          layerKey,
-          iconName: config.lucideIcon,
-          color: config.color,
-          label: config.label,
-          isHighlight,
+          ...item, layerKey, iconName: config.lucideIcon,
+          color: config.color, label: config.label, isHighlight,
         });
       });
     });
     return result;
-  }, [activeLayers, highlightLayers]);
+  }, [activeLayers, highlightLayers, showPOIs]);
 
   const helpMarkers = useMemo(() => {
     if (!showHelp) return [];
@@ -72,12 +93,8 @@ export default function CityMap({ activeMode, route, onMapClick, showHeatmap, sh
       if (activeLayers.includes(layerKey)) return;
       data.forEach((item) => {
         result.push({
-          ...item,
-          layerKey,
-          iconName: config.lucideIcon,
-          color: config.color,
-          label: config.label,
-          isHighlight: true,
+          ...item, layerKey, iconName: config.lucideIcon,
+          color: config.color, label: config.label, isHighlight: true,
         });
       });
     });
@@ -86,66 +103,52 @@ export default function CityMap({ activeMode, route, onMapClick, showHeatmap, sh
 
   const handleClick = useCallback(
     (e) => {
-      if (onMapClick) {
+      if (onMapClick && settingPoint) {
         onMapClick({ lat: e.lngLat.lat, lng: e.lngLat.lng });
       }
     },
-    [onMapClick]
+    [onMapClick, settingPoint]
   );
 
-  // Heatmap GeoJSON
   const heatmapGeoJson = useMemo(() => {
     if (!showHeatmap) return null;
     return {
       type: 'FeatureCollection',
-      features: mockData.heatmapZones.map((zone) => ({
+      features: mockData.heatmapZones.map((z) => ({
         type: 'Feature',
-        geometry: { type: 'Point', coordinates: [zone.lng, zone.lat] },
-        properties: {
-          radius: zone.radius,
-          score: zone.score,
-          color: scoreToColor(zone.score),
-        },
+        geometry: { type: 'Point', coordinates: [z.lng, z.lat] },
+        properties: { radius: z.radius, score: z.score, color: scoreToColor(z.score) },
       })),
     };
   }, [showHeatmap]);
 
-  // Route GeoJSON
-  const routeGeoJson = useMemo(() => {
-    if (!route.start || !route.end) return null;
-    const midLat = (route.start.lat + route.end.lat) / 2 + 0.002;
-    const midLng = (route.start.lng + route.end.lng) / 2 - 0.001;
-    return {
-      type: 'Feature',
-      geometry: {
-        type: 'LineString',
-        coordinates: [
-          [route.start.lng, route.start.lat],
-          [midLng, midLat],
-          [route.end.lng, route.end.lat],
-        ],
-      },
-    };
-  }, [route]);
+  const sortedRoutes = useMemo(() => {
+    if (!routeData || routeData.length === 0) return [];
+    return routeData
+      .map((r, i) => ({ ...r, index: i }))
+      .sort((a, b) => {
+        if (a.index === selectedRouteIndex) return 1;
+        if (b.index === selectedRouteIndex) return -1;
+        return 0;
+      });
+  }, [routeData, selectedRouteIndex]);
 
   const allMarkers = [...markers, ...helpMarkers];
+  const cursorStyle = settingPoint ? 'crosshair' : 'grab';
 
   return (
     <div className="map-container">
       <MapGL
-        initialViewState={{
-          longitude: 14.4378,
-          latitude: 50.0755,
-          zoom: 14,
-        }}
+        {...viewState}
+        onMove={(e) => setViewState(e.viewState)}
         style={{ width: '100%', height: '100%' }}
-        mapStyle={MAP_STYLE}
+        mapStyle={MAP_STYLES[theme]}
         onClick={handleClick}
+        cursor={cursorStyle}
         attributionControl={true}
       >
         <NavigationControl position="top-left" />
 
-        {/* Heatmap circles */}
         {heatmapGeoJson && (
           <Source id="heatmap-zones" type="geojson" data={heatmapGeoJson}>
             <Layer
@@ -168,76 +171,75 @@ export default function CityMap({ activeMode, route, onMapClick, showHeatmap, sh
           </Source>
         )}
 
-        {/* Route line */}
-        {routeGeoJson && (
-          <Source id="route-line" type="geojson" data={routeGeoJson}>
-            <Layer
-              id="route-line-glow"
-              type="line"
-              paint={{
-                'line-color': '#6366f1',
-                'line-width': 12,
-                'line-opacity': 0.15,
-                'line-blur': 8,
-              }}
-              layout={{ 'line-cap': 'round', 'line-join': 'round' }}
-            />
-            <Layer
-              id="route-line-main"
-              type="line"
-              paint={{
-                'line-color': '#6366f1',
-                'line-width': 4,
-                'line-opacity': 0.9,
-              }}
-              layout={{ 'line-cap': 'round', 'line-join': 'round' }}
-            />
-          </Source>
-        )}
-
-        {/* Infrastructure markers */}
-        {allMarkers.map((item) => {
-          const IconComp = ICON_COMP[item.iconName];
+        {sortedRoutes.map(({ coordinates, index }) => {
+          const isSelected = index === selectedRouteIndex;
+          const geojson = {
+            type: 'Feature',
+            geometry: { type: 'LineString', coordinates },
+          };
           return (
-            <Marker
-              key={`${item.layerKey}-${item.id}`}
-              longitude={item.lng}
-              latitude={item.lat}
-              anchor="center"
-              onClick={(e) => {
-                e.originalEvent.stopPropagation();
-                setPopupInfo(item);
-              }}
-            >
-              <div
-                className={`map-marker ${item.isHighlight ? 'map-marker--highlight' : ''}`}
-                style={{ '--marker-color': item.color }}
-              >
-                {IconComp && <IconComp size={item.isHighlight ? 18 : 14} />}
-              </div>
-            </Marker>
+            <Source key={`route-${index}`} id={`route-${index}`} type="geojson" data={geojson}>
+              {isSelected && (
+                <Layer
+                  id={`route-glow-${index}`}
+                  type="line"
+                  paint={{
+                    'line-color': '#6366f1',
+                    'line-width': 14,
+                    'line-opacity': 0.12,
+                    'line-blur': 10,
+                  }}
+                  layout={{ 'line-cap': 'round', 'line-join': 'round' }}
+                />
+              )}
+              <Layer
+                id={`route-line-${index}`}
+                type="line"
+                paint={{
+                  'line-color': isSelected ? '#6366f1' : '#94a3b8',
+                  'line-width': isSelected ? 5 : 4,
+                  'line-opacity': isSelected ? 1 : 0.5,
+                }}
+                layout={{ 'line-cap': 'round', 'line-join': 'round' }}
+              />
+            </Source>
           );
         })}
 
-        {/* Route start marker */}
+        {allMarkers.map((item) => (
+          <Marker
+            key={`${item.layerKey}-${item.id}`}
+            longitude={item.lng}
+            latitude={item.lat}
+            anchor="center"
+            onClick={(e) => {
+              e.originalEvent.stopPropagation();
+              setPopupInfo(item);
+            }}
+          >
+            <div
+              className={`poi-dot ${item.isHighlight ? 'poi-dot--highlight' : ''}`}
+              style={{ '--dot-color': item.color }}
+            />
+          </Marker>
+        ))}
+
         {route.start && (
           <Marker longitude={route.start.lng} latitude={route.start.lat} anchor="center">
-            <div className="map-marker map-marker--start">
-              <Flag size={16} />
+            <div className="route-marker route-marker--start">
+              <NavIcon size={16} />
             </div>
           </Marker>
         )}
 
-        {/* Route end marker */}
         {route.end && (
           <Marker longitude={route.end.lng} latitude={route.end.lat} anchor="center">
-            <div className="map-marker map-marker--end">
+            <div className="route-marker route-marker--end">
               <MapPin size={16} />
             </div>
           </Marker>
         )}
 
-        {/* Popup */}
         {popupInfo && (
           <Popup
             longitude={popupInfo.lng}
@@ -245,13 +247,45 @@ export default function CityMap({ activeMode, route, onMapClick, showHeatmap, sh
             anchor="bottom"
             onClose={() => setPopupInfo(null)}
             closeOnClick={false}
-            offset={20}
+            offset={14}
           >
             <div className="popup-name">{popupInfo.name}</div>
             <div className="popup-type">{popupInfo.label}</div>
           </Popup>
         )}
       </MapGL>
+
+      {routeData.length > 0 && (
+        <div className="route-alternatives">
+          {routeData.map((r, i) => (
+            <button
+              key={i}
+              className={`route-alt-btn ${i === selectedRouteIndex ? 'route-alt-btn--active' : ''}`}
+              onClick={() => onRouteSelect(i)}
+            >
+              <div className="route-alt-btn__info">
+                <Clock size={14} />
+                <span className="route-alt-btn__time">{formatDuration(r.duration)}</span>
+                <Route size={12} />
+                <span className="route-alt-btn__dist">{formatDistance(r.distance)}</span>
+              </div>
+              {i === 0 && <span className="route-alt-btn__badge">Fastest</span>}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {settingPoint && (
+        <div className="map-cursor-hint">
+          Click map: {settingPoint === 'start' ? 'Start point' : 'Destination'}
+        </div>
+      )}
+
+      {isLoadingRoute && (
+        <div className="map-loading">
+          <Loader2 size={18} className="spin" />
+        </div>
+      )}
     </div>
   );
 }

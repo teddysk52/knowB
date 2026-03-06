@@ -12,7 +12,22 @@ function scoreColor(score) {
   return '#dc2626';
 }
 
-export default function AnalyticsSection() {
+export default function AnalyticsSection({ theme }) {
+  const isDark = theme === 'dark';
+  const tickFill = isDark ? '#555d75' : '#8b92a8';
+  const gridStroke = isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.06)';
+  const axisStroke = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)';
+  const tooltipStyle = {
+    borderRadius: '10px',
+    border: isDark ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(0,0,0,0.08)',
+    background: isDark ? 'rgba(17,19,24,0.95)' : 'rgba(255,255,255,0.95)',
+    boxShadow: isDark ? '0 8px 24px rgba(0,0,0,0.4)' : '0 8px 24px rgba(0,0,0,0.1)',
+    fontSize: '12px',
+    color: isDark ? '#f1f3f9' : '#1a1d2e',
+    backdropFilter: 'blur(12px)',
+  };
+  const itemStyle = { color: isDark ? '#f1f3f9' : '#1a1d2e' };
+  const labelStyle = { color: isDark ? '#8b92a8' : '#555d75', fontWeight: 600, marginBottom: 4 };
   return (
     <section className="analytics-section" aria-label="Analytics">
       <div className="analytics-section__inner">
@@ -30,30 +45,22 @@ export default function AnalyticsSection() {
             <div className="chart-card__title">Infrastructure Coverage</div>
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={infrastructureCounts} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
+                <CartesianGrid strokeDasharray="3 3" stroke={gridStroke} />
                 <XAxis
                   dataKey="name"
-                  tick={{ fontSize: 11, fill: '#555d75' }}
-                  axisLine={{ stroke: 'rgba(255,255,255,0.06)' }}
+                  tick={{ fontSize: 11, fill: tickFill }}
+                  axisLine={{ stroke: axisStroke }}
                   tickLine={false}
                 />
                 <YAxis
-                  tick={{ fontSize: 11, fill: '#555d75' }}
+                  tick={{ fontSize: 11, fill: tickFill }}
                   axisLine={false}
                   tickLine={false}
                 />
                 <Tooltip
-                  contentStyle={{
-                    borderRadius: '10px',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    background: 'rgba(17,19,24,0.95)',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-                    fontSize: '12px',
-                    color: '#f1f3f9',
-                    backdropFilter: 'blur(12px)',
-                  }}
-                  itemStyle={{ color: '#f1f3f9' }}
-                  labelStyle={{ color: '#8b92a8', fontWeight: 600, marginBottom: 4 }}
+                  contentStyle={tooltipStyle}
+                  itemStyle={itemStyle}
+                  labelStyle={labelStyle}
                 />
                 <Bar dataKey="count" radius={[4, 4, 0, 0]}>
                   {infrastructureCounts.map((_, i) => (
@@ -72,31 +79,23 @@ export default function AnalyticsSection() {
             <div className="chart-card__title">Accessibility by District</div>
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={districtScores} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
+                <CartesianGrid strokeDasharray="3 3" stroke={gridStroke} />
                 <XAxis
                   dataKey="name"
-                  tick={{ fontSize: 11, fill: '#555d75' }}
-                  axisLine={{ stroke: 'rgba(255,255,255,0.06)' }}
+                  tick={{ fontSize: 11, fill: tickFill }}
+                  axisLine={{ stroke: axisStroke }}
                   tickLine={false}
                 />
                 <YAxis
                   domain={[0, 100]}
-                  tick={{ fontSize: 11, fill: '#555d75' }}
+                  tick={{ fontSize: 11, fill: tickFill }}
                   axisLine={false}
                   tickLine={false}
                 />
                 <Tooltip
-                  contentStyle={{
-                    borderRadius: '10px',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    background: 'rgba(17,19,24,0.95)',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-                    fontSize: '12px',
-                    color: '#f1f3f9',
-                    backdropFilter: 'blur(12px)',
-                  }}
-                  itemStyle={{ color: '#f1f3f9' }}
-                  labelStyle={{ color: '#8b92a8', fontWeight: 600, marginBottom: 4 }}
+                  contentStyle={tooltipStyle}
+                  itemStyle={itemStyle}
+                  labelStyle={labelStyle}
                 />
                 <Bar dataKey="score" radius={[4, 4, 0, 0]}>
                   {districtScores.map((entry, i) => (
