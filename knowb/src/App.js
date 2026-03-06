@@ -1,12 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Accessibility, Sun, Moon, ShieldAlert, Layers, Eye, EyeOff, Activity } from 'lucide-react';
-import ModeSwitcher from './components/modes/ModeSwitcher';
+import { Accessibility, Sun, Moon, ShieldAlert, Eye, EyeOff } from 'lucide-react';
+import Onboarding from './components/onboarding/Onboarding';
 import CityMap from './components/map/CityMap';
 import RoutePanel from './components/map/RoutePanel';
-import NearbyPanel from './components/map/NearbyPanel';
 import HelpNearbyPanel from './components/map/HelpNearbyPanel';
-import AnalyticsSection from './components/analytics/AnalyticsSection';
-import DataSourcesSection from './components/analytics/DataSourcesSection';
+import translations from './data/i18n';
 import * as mockData from './data/mockData';
 
 const PRAGUE_CENTER = { lat: 50.0755, lng: 14.4378 };
@@ -79,11 +77,12 @@ function computeComfortAndJistota(routeCoords, preferences) {
   return { comfort, jistota, factors };
 }
 
-async function reverseGeocode(lat, lng) {
+async function reverseGeocode(lat, lng, lang) {
   try {
+    const acceptLang = lang === 'cs' ? 'cs,en' : 'en,cs';
     const res = await fetch(
       `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&addressdetails=1&zoom=18`,
-      { headers: { 'Accept-Language': 'cs,en' } }
+      { headers: { 'Accept-Language': acceptLang } }
     );
     const data = await res.json();
     if (data.address) {
@@ -101,12 +100,28 @@ async function reverseGeocode(lat, lng) {
 }
 
 export default function App() {
-  const [theme, setTheme] = useState('dark');
-  const [activeMode, setActiveMode] = useState('wheelchair');
+  // Onboarding / user prefs (persisted in localStorage)
+  const [onboarded, setOnboarded] = useState(() => {
+    try { return localStorage.getItem('knowb_onboarded') === '1'; } catch { return false; }
+  });
+  const [lang, setLang] = useState(() => {
+    try { return localStorage.getItem('knowb_lang') || 'cs'; } catch { return 'cs'; }
+  });
+  const [fontSize, setFontSize] = useState(() => {
+    try { return parseInt(localStorage.getItem('knowb_fontsize'), 10) || 17; } catch { return 17; }
+  });
+
+  const t = translations[lang] || translations.cs;
+
+  const [theme, setTheme] = useState(() => {
+    try { return localStorage.getItem('knowb_theme') || 'light'; } catch { return 'light'; }
+  });
+  const [activeMode, setActiveMode] = useState(() => {
+    try { return localStorage.getItem('knowb_mode') || 'wheelchair'; } catch { return 'wheelchair'; }
+  });
   const [route, setRoute] = useState({ start: null, end: null });
-  const [settingPoint, setSettingPoint] = useState(null);
+  const [settingPoint, setSettingPoint] = useState('start');
   const [showHelp, setShowHelp] = useState(false);
-  const [showHeatmap, setShowHeatmap] = useState(false);
   const [showPOIs, setShowPOIs] = useState(true);
   const [mapCenter] = useState(PRAGUE_CENTER);
   const [preferences, setPreferences] = useState(MODE_DEFAULT_PREFS.wheelchair);
@@ -116,6 +131,10 @@ export default function App() {
   const [comfortData, setComfortData] = useState(null);
 
   useEffect(() => { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
+
+  useEffect(() => {
+    document.documentElement.style.fontSize = `${fontSize}px`;
+  }, [fontSize]);
 
   useEffect(() => {
     setPreferences(MODE_DEFAULT_PREFS[activeMode] || MODE_DEFAULT_PREFS.standard);
@@ -150,12 +169,37 @@ export default function App() {
     setComfortData(computeComfortAndJistota(routeData[selectedRouteIndex].coordinates, preferences));
   }, [routeData, selectedRouteIndex, preferences]);
 
-  const toggleTheme = useCallback(() => setTheme((t) => (t === 'dark' ? 'light' : 'dark')), []);
+  const toggleTheme = useCallback(() => {
+    setTheme((t) => {
+      const next = t === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('knowb_theme', next); } catch {}
+      return next;
+    });
+  }, []);
+
+  const handleOnboardComplete = useCallback(({ lang: l, userType, fontSize: fs }) => {
+    setLang(l);
+    setActiveMode(userType);
+    setFontSize(fs);
+    setOnboarded(true);
+    try {
+      localStorage.setItem('knowb_onboarded', '1');
+      localStorage.setItem('knowb_lang', l);
+      localStorage.setItem('knowb_mode', userType);
+      localStorage.setItem('knowb_fontsize', String(fs));
+    } catch {}
+  }, []);
 
   const handleMapClick = useCallback(
     async (latlng) => {
-      if (!settingPoint) return;
-      const address = await reverseGeocode(latlng.lat, latlng.lng);
+      if (!settingPoint) {
+        // First click starts route automatically
+        const address = await reverseGeocode(latlng.lat, latlng.lng, lang);
+        setRoute((prev) => ({ ...prev, start: { ...latlng, address } }));
+        setSettingPoint('end');
+        return;
+      }
+      const address = await reverseGeocode(latlng.lat, latlng.lng, lang);
       if (settingPoint === 'start') {
         setRoute((prev) => ({ ...prev, start: { ...latlng, address } }));
         setSettingPoint('end');
@@ -164,16 +208,14 @@ export default function App() {
         setSettingPoint(null);
       }
     },
-    [settingPoint]
+    [settingPoint, lang]
   );
-
-  const handleSetRoute = useCallback(() => setSettingPoint('start'), []);
 
   const handleClearRoute = useCallback(() => {
     setRoute({ start: null, end: null });
     setRouteData([]);
     setComfortData(null);
-    setSettingPoint(null);
+    setSettingPoint('start');
     setSelectedRouteIndex(0);
   }, []);
 
@@ -181,84 +223,77 @@ export default function App() {
     setPreferences((prev) => ({ ...prev, [key]: !prev[key] }));
   }, []);
 
+  const handleSelectAll = useCallback(() => {
+    setPreferences((prev) => {
+      const next = { ...prev };
+      Object.keys(next).forEach((k) => { next[k] = true; });
+      return next;
+    });
+  }, []);
+
+  const handleClearAll = useCallback(() => {
+    setPreferences((prev) => {
+      const next = { ...prev };
+      Object.keys(next).forEach((k) => { next[k] = false; });
+      return next;
+    });
+  }, []);
+
+  if (!onboarded) {
+    return <Onboarding onComplete={handleOnboardComplete} />;
+  }
+
   return (
-    <div className="app">
-      <header className="header">
-        <div className="header__brand">
-          <div className="header__logo-icon">
+    <div className="app-map">
+      <header className="float-header">
+        <div className="float-header__brand">
+          <div className="float-header__logo">
             <Accessibility size={18} />
           </div>
-          <h1 className="header__title">KnowB</h1>
+          <span className="float-header__name">{t.app_name}</span>
         </div>
-        <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-        </button>
+        <div className="float-header__right">
+          <button
+            className={`fab ${showPOIs ? 'fab--active' : ''}`}
+            onClick={() => setShowPOIs((v) => !v)}
+            aria-label={t.ctrl_pois}
+          >
+            {showPOIs ? <Eye size={18} /> : <EyeOff size={18} />}
+          </button>
+          <button
+            className={`fab ${showHelp ? 'fab--active' : 'fab--alert'}`}
+            onClick={() => setShowHelp((v) => !v)}
+            aria-label={t.ctrl_help}
+          >
+            <ShieldAlert size={18} />
+          </button>
+          <button className="fab" onClick={toggleTheme} aria-label="Theme">
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+        </div>
       </header>
 
-      <ModeSwitcher activeMode={activeMode} onModeChange={setActiveMode} />
+      <CityMap
+        theme={theme}
+        activeMode={activeMode}
+        route={route}
+        routeData={routeData}
+        selectedRouteIndex={selectedRouteIndex}
+        onRouteSelect={setSelectedRouteIndex}
+        onMapClick={handleMapClick}
+        settingPoint={settingPoint}
+        showHeatmap={false}
+        showHelp={showHelp}
+        showPOIs={showPOIs}
+        isLoadingRoute={isLoadingRoute}
+        t={t}
+      />
 
-      <section className="map-section">
-        <CityMap
-          theme={theme}
-          activeMode={activeMode}
-          route={route}
-          routeData={routeData}
-          selectedRouteIndex={selectedRouteIndex}
-          onRouteSelect={setSelectedRouteIndex}
-          onMapClick={handleMapClick}
-          settingPoint={settingPoint}
-          showHeatmap={showHeatmap}
-          showHelp={showHelp}
-          showPOIs={showPOIs}
-          isLoadingRoute={isLoadingRoute}
-        />
-        <div className="map-controls">
-          <button
-            className={`map-control-btn ${showPOIs ? 'map-control-btn--active' : ''}`}
-            onClick={() => setShowPOIs((v) => !v)}
-          >
-            {showPOIs ? <Eye size={16} /> : <EyeOff size={16} />}
-            POIs
-          </button>
-          <button
-            className={`map-control-btn ${showHelp ? 'map-control-btn--active' : 'map-control-btn--danger'}`}
-            onClick={() => setShowHelp((v) => !v)}
-          >
-            <ShieldAlert size={16} />
-            Help
-          </button>
-          <button
-            className={`map-control-btn ${showHeatmap ? 'map-control-btn--active' : ''}`}
-            onClick={() => setShowHeatmap((v) => !v)}
-          >
-            <Layers size={16} />
-            Heatmap
-          </button>
-        </div>
-        <NearbyPanel activeMode={activeMode} mapCenter={mapCenter} />
-        {showHelp && <HelpNearbyPanel mapCenter={mapCenter} />}
-        {showHeatmap && (
-          <div className="heatmap-legend">
-            <div className="heatmap-legend__item">
-              <div className="heatmap-legend__dot" style={{ background: '#059669' }} />
-              High
-            </div>
-            <div className="heatmap-legend__item">
-              <div className="heatmap-legend__dot" style={{ background: '#f59e0b' }} />
-              Medium
-            </div>
-            <div className="heatmap-legend__item">
-              <div className="heatmap-legend__dot" style={{ background: '#dc2626' }} />
-              Low
-            </div>
-          </div>
-        )}
-      </section>
+      {showHelp && <HelpNearbyPanel mapCenter={mapCenter} t={t} />}
 
       <RoutePanel
         route={route}
         settingPoint={settingPoint}
-        onStartClick={handleSetRoute}
         onClear={handleClearRoute}
         routeData={routeData}
         selectedRouteIndex={selectedRouteIndex}
@@ -267,18 +302,10 @@ export default function App() {
         comfortData={comfortData}
         preferences={preferences}
         onTogglePref={handleTogglePref}
+        onSelectAll={handleSelectAll}
+        onClearAll={handleClearAll}
+        t={t}
       />
-
-      <AnalyticsSection theme={theme} />
-      <DataSourcesSection />
-
-      <footer className="footer">
-        <div className="footer__left">
-          <Activity size={14} />
-          KnowB — Accessible Prague
-        </div>
-        <div className="footer__right">Open city data &middot; 2026</div>
-      </footer>
     </div>
   );
 }

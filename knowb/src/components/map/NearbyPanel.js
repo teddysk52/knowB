@@ -34,7 +34,7 @@ function distanceMeters(lat1, lng1, lat2, lng2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-export default function NearbyPanel({ activeMode, mapCenter }) {
+export default function NearbyPanel({ activeMode, mapCenter, t }) {
   const nearby = useMemo(() => {
     if (!mapCenter) return [];
     const modeConfig = MODES[activeMode];
@@ -69,7 +69,7 @@ export default function NearbyPanel({ activeMode, mapCenter }) {
   return (
     <div className="floating-card floating-card--bl" role="complementary" aria-label="Nearby services">
       <div className="floating-card__header">
-        <div className="floating-card__title">Nearby</div>
+        <div className="floating-card__title">{t.nearby}</div>
       </div>
       <div className="floating-card__body">
         <ul className="floating-list">

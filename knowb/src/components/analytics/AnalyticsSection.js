@@ -12,7 +12,7 @@ function scoreColor(score) {
   return '#dc2626';
 }
 
-export default function AnalyticsSection({ theme }) {
+export default function AnalyticsSection({ theme, t }) {
   const isDark = theme === 'dark';
   const tickFill = isDark ? '#555d75' : '#8b92a8';
   const gridStroke = isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.06)';
@@ -32,17 +32,17 @@ export default function AnalyticsSection({ theme }) {
     <section className="analytics-section" aria-label="Analytics">
       <div className="analytics-section__inner">
         <div className="section-header">
-          <div className="section-header__eyebrow">Analytics</div>
-          <h2 className="section-header__title">City Accessibility Overview</h2>
+          <div className="section-header__eyebrow">{t.analytics}</div>
+          <h2 className="section-header__title">{t.analytics_title}</h2>
           <p className="section-header__subtitle">
-            Aggregated infrastructure data across Prague districts
+            {t.analytics_subtitle}
           </p>
         </div>
 
         <div className="charts-grid">
           {/* Infrastructure Coverage */}
           <div className="chart-card">
-            <div className="chart-card__title">Infrastructure Coverage</div>
+            <div className="chart-card__title">{t.chart_infra}</div>
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={infrastructureCounts} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke={gridStroke} />
@@ -70,13 +70,13 @@ export default function AnalyticsSection({ theme }) {
               </BarChart>
             </ResponsiveContainer>
             <div className="chart-card__desc">
-              Total infrastructure points available in open city datasets.
+              {t.chart_infra_desc}
             </div>
           </div>
 
           {/* Accessibility by District */}
           <div className="chart-card">
-            <div className="chart-card__title">Accessibility by District</div>
+            <div className="chart-card__title">{t.chart_district}</div>
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={districtScores} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke={gridStroke} />
@@ -105,7 +105,7 @@ export default function AnalyticsSection({ theme }) {
               </BarChart>
             </ResponsiveContainer>
             <div className="chart-card__desc">
-              Composite score based on density of benches, toilets, elevators, and AEDs per district.
+              {t.chart_district_desc}
             </div>
           </div>
         </div>

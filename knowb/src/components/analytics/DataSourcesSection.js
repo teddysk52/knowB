@@ -19,13 +19,13 @@ const sources = [
   },
 ];
 
-export default function DataSourcesSection() {
+export default function DataSourcesSection({ t }) {
   return (
     <section className="data-section" aria-label="Data sources">
       <div className="data-section__inner">
         <div className="section-header">
-          <div className="section-header__eyebrow">Data Integration</div>
-          <h2 className="section-header__title">Data Sources</h2>
+          <div className="section-header__eyebrow">{t.data_sources}</div>
+          <h2 className="section-header__title">{t.data_sources}</h2>
           <p className="section-header__subtitle">
             KnowB aggregates public city datasets to improve urban accessibility
           </p>

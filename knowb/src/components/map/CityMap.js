@@ -51,7 +51,7 @@ function formatDistance(meters) {
 
 export default function CityMap({
   theme, activeMode, route, routeData, selectedRouteIndex, onRouteSelect,
-  onMapClick, settingPoint, showHeatmap, showHelp, showPOIs, isLoadingRoute,
+  onMapClick, settingPoint, showHeatmap, showHelp, showPOIs, isLoadingRoute, t,
 }) {
   const [popupInfo, setPopupInfo] = useState(null);
   const [viewState, setViewState] = useState({
@@ -269,7 +269,7 @@ export default function CityMap({
                 <Route size={12} />
                 <span className="route-alt-btn__dist">{formatDistance(r.distance)}</span>
               </div>
-              {i === 0 && <span className="route-alt-btn__badge">Fastest</span>}
+              {i === 0 && <span className="route-alt-btn__badge">{t.fastest}</span>}
             </button>
           ))}
         </div>
@@ -277,7 +277,7 @@ export default function CityMap({
 
       {settingPoint && (
         <div className="map-cursor-hint">
-          Click map: {settingPoint === 'start' ? 'Start point' : 'Destination'}
+          {settingPoint === 'start' ? t.map_click_start : t.map_click_end}
         </div>
       )}
 

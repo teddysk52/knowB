@@ -27,21 +27,21 @@ function findNearest(data, center) {
   return nearest;
 }
 
-export default function HelpNearbyPanel({ mapCenter }) {
+export default function HelpNearbyPanel({ mapCenter, t }) {
   const nearestAed = useMemo(() => findNearest(mockData.aed, mapCenter), [mapCenter]);
   const nearestPharmacy = useMemo(() => findNearest(mockData.pharmacies, mapCenter), [mapCenter]);
   const nearestHospital = useMemo(() => findNearest(mockData.hospitals, mapCenter), [mapCenter]);
 
   const items = [
-    { data: nearestAed, Icon: HeartPulse, label: 'Nearest AED', color: '#DC2626' },
-    { data: nearestPharmacy, Icon: Cross, label: 'Nearest Pharmacy', color: '#059669' },
-    { data: nearestHospital, Icon: Hospital, label: 'Nearest Hospital', color: '#E11D48' },
+    { data: nearestAed, Icon: HeartPulse, label: t.nearest_aed, color: '#DC2626' },
+    { data: nearestPharmacy, Icon: Cross, label: t.nearest_pharmacy, color: '#059669' },
+    { data: nearestHospital, Icon: Hospital, label: t.nearest_hospital, color: '#E11D48' },
   ];
 
   return (
     <div className="floating-card floating-card--br" role="complementary" aria-label="Help nearby">
       <div className="floating-card__header">
-        <div className="floating-card__title">Help Nearby</div>
+        <div className="floating-card__title">{t.help_nearby}</div>
       </div>
       <div className="floating-card__body">
         <ul className="floating-list">
