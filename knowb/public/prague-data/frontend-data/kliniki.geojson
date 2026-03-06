@@ -1,0 +1,643 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-03-06T22:12:31Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/337169",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Vojenská nemocnice",
+        "type": "multipolygon",
+        "wikidata": "Q11088520",
+        "wikipedia": "cs:Ústřední vojenská nemocnice",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3610606,
+          50.0896654
+        ]
+      },
+      "id": "relation/337169"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/1561811",
+        "alt_name": "VFN Praha",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "layer": "-1",
+        "name": "Všeobecná fakultní nemocnice",
+        "name:en": "General University Hospital Prague",
+        "official_name": "Všeobecná fakutlní nemocnice Praha",
+        "source": "cuzk:km",
+        "type": "multipolygon",
+        "website": "https://www.vfn.cz/",
+        "wikidata": "Q11863284",
+        "wikimedia_commons": "Category:Všeobecná fakultní nemocnice v Praze",
+        "wikipedia": "cs:Všeobecná fakultní nemocnice v Praze",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.423411,
+          50.0722969
+        ]
+      },
+      "id": "relation/1561811"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/3279059",
+        "amenity": "hospital",
+        "loc_name": "Krčská nemocnice",
+        "name": "Thomayerova nemocnice",
+        "old_name": "Masarykovy domovy",
+        "type": "site",
+        "website": "https://www.ftn.cz/",
+        "wikidata": "Q12058918",
+        "wikipedia": "cs:Thomayerova nemocnice",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.459971,
+          50.0280995
+        ]
+      },
+      "id": "relation/3279059"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/5455652",
+        "alt_name": "Klinika dětského a dorostového lékařství VFN a 1. LF UK v Praze",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Dětský areál Karlov",
+        "source": "cuzk:km",
+        "type": "multipolygon",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.428892,
+          50.0700357
+        ]
+      },
+      "id": "relation/5455652"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/13062842",
+        "amenity": "hospital",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "language:physicians:cs": "yes",
+        "language:physicians:en": "yes",
+        "name": "Fakultní Nemocnice Motol a Homolka",
+        "name:de": "Universitätskrankenhaus Motol und Homolka",
+        "short_name": "FN Motol a Homolka",
+        "start_date": "2026-01-01",
+        "type": "multipolygon",
+        "website": "https://fnmotol.cz/",
+        "wheelchair": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3466415,
+          50.072772
+        ]
+      },
+      "id": "relation/13062842"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/17333566",
+        "amenity": "hospital",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "internet_access:ssid": "bulovkafree",
+        "name": "Fakultní nemocnice Bulovka",
+        "old_name": "Nemocnice Na Bulovce",
+        "start_date": "1931-06-21",
+        "type": "multipolygon",
+        "website": "https://bulovka.cz/",
+        "wikidata": "Q12040654",
+        "wikipedia": "cs:Fakultní nemocnice Bulovka",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4615366,
+          50.1155695
+        ]
+      },
+      "id": "relation/17333566"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/23093458",
+        "addr:city": "Praha",
+        "addr:housenumber": "1958/9",
+        "addr:postcode": "140 21",
+        "addr:street": "Vídeňská",
+        "alt_name": "Institut Klinické a Experimentální Medicíny",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "layer": "-1",
+        "name": "IKEM",
+        "name:etymology:wikidata": "Q12021666",
+        "phone": "+420 23 605 1111",
+        "website": "https://www.ikem.cz/cs/",
+        "wikidata": "Q12021666",
+        "wikipedia": "cs:IKEM",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4635615,
+          50.0231513
+        ]
+      },
+      "id": "way/23093458"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/24376651",
+        "addr:city": "Praha 4",
+        "addr:housenumber": "157",
+        "addr:postcode": "14700",
+        "addr:street": "Podolské nábřeží",
+        "alt_name": "ÚPMD",
+        "amenity": "hospital",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "healthcare:speciality": "maternity",
+        "name": "Ústav pro péči o matku a dítě",
+        "name:ru": "Институт здоровья матери и ребенка Подоли",
+        "phone": "+420 296 511 111",
+        "start_date": "1914",
+        "website": "https://www.upmd.cz/",
+        "wikidata": "Q11087656",
+        "wikipedia": "cs:Ústav pro péči o matku a dítě",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4197353,
+          50.0623041
+        ]
+      },
+      "id": "way/24376651"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/33830251",
+        "addr:city": "Praha 9",
+        "addr:conscriptionnumber": "343",
+        "addr:housenumber": "343/6",
+        "addr:place": "Vysočany",
+        "addr:postcode": "19000",
+        "addr:street": "K Moravině",
+        "addr:streetnumber": "6",
+        "amenity": "hospital",
+        "building": "civic",
+        "building:levels": "6",
+        "building:ruian:type": "5",
+        "email": "info@mnnp.cz",
+        "healthcare": "hospital",
+        "healthcare:speciality": "cardiology;psychology;internal",
+        "name": "Městská nemocnice následné péče",
+        "operator": "Hlavní město Praha",
+        "operator:type": "public",
+        "ref:ruian:building": "22242813",
+        "roof:shape": "flat",
+        "source": "cuzk:ruian",
+        "website": "https://www.mnnp.cz",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4950603,
+          50.1075442
+        ]
+      },
+      "id": "way/33830251"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/38585515",
+        "addr:city": "Praha",
+        "addr:housenumber": "50",
+        "addr:postcode": "10000",
+        "addr:street": "Ruská",
+        "amenity": "hospital",
+        "beds": "1250",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "healthcare:counselling": "nutrition",
+        "healthcare:speciality": "dermatology;dermatovenereology;emergency;diagnostic_radiology;gastroenterology;infectious_diseases;internal;intensive;occupational;palliative;plastic_surgery;radiology;",
+        "layer": "-1",
+        "loc_name": "Vinohradská nemocnice",
+        "name": "Fakultní nemocnice Královské Vinohrady",
+        "name:ru": "больницы Королевского университета",
+        "wikidata": "Q11989336",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4789249,
+          50.074638
+        ]
+      },
+      "id": "way/38585515"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/115973658",
+        "addr:city": "Praha",
+        "addr:conscriptionnumber": "1921",
+        "addr:country": "CZ",
+        "addr:housenumber": "1921/4",
+        "addr:place": "Břevnov",
+        "addr:postcode": "16900",
+        "addr:street": "Šermířská",
+        "addr:streetnumber": "4",
+        "addr:suburb": "Praha 6",
+        "amenity": "hospital",
+        "building": "civic",
+        "building:levels": "4",
+        "building:ruian:type": "5",
+        "emergency": "no",
+        "healthcare": "hospital",
+        "healthcare:speciality": "dialysis",
+        "name": "Nemocnice Na Strahově",
+        "operator": "Všeobecná fakultní nemocnice v Praze",
+        "operator:type": "state_primary_health_care",
+        "phone": "+420 225 003 111",
+        "ref:ruian:building": "22041630",
+        "roof:colour": "gray",
+        "roof:shape": "flat",
+        "source": "cuzk:ruian",
+        "website": "http://www.dialyza-strahov.cz/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3913534,
+          50.0791993
+        ]
+      },
+      "id": "way/115973658"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/242634456",
+        "amenity": "hospital",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "name": "Thomayerova nemocnice",
+        "old_name": "Masarykovy domovy",
+        "start_date": "1928",
+        "website": "https://www.ftn.cz/",
+        "wikidata": "Q12058918",
+        "wikipedia": "cs:Thomayerova nemocnice",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.459971,
+          50.0280995
+        ]
+      },
+      "id": "way/242634456"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/296788406",
+        "addr:city": "Praha 6",
+        "addr:conscriptionnumber": "229",
+        "addr:housenumber": "229/1",
+        "addr:postcode": "16000",
+        "addr:street": "Generála Píky",
+        "addr:streetnumber": "1",
+        "amenity": "hospital",
+        "full_name": "Ústav leteckého zdravotnictví",
+        "healthcare": "hospital",
+        "name": "Ústav leteckého zdravotnictví Praha",
+        "name:en": "Institute of Aviation Medicine",
+        "source:addr": "cuzk:ruian",
+        "website": "https://www.ulc.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3940382,
+          50.0980038
+        ]
+      },
+      "id": "node/296788406"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/319062309",
+        "addr:housenumber": "91",
+        "addr:postcode": "18102",
+        "addr:street": "Ústavní",
+        "alt_name": "Psychiatrická léčebna Bohnice",
+        "amenity": "hospital",
+        "barrier": "fence",
+        "email": "podatelna@bohnice.cz",
+        "emergency": "no",
+        "healthcare": "hospital",
+        "healthcare:speciality": "psychiatry;child_psychiatry",
+        "heritage": "3",
+        "heritage:operator": "NPU",
+        "historic": "heritage",
+        "name": "Psychiatrická nemocnice Bohnice",
+        "phone": "+420284016111",
+        "ref:NPU": "152683",
+        "website": "http://www.plbohnice.cz",
+        "wheelchair": "yes",
+        "wikidata": "Q12047504",
+        "wikipedia": "cs:Psychiatrická nemocnice Bohnice",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4217757,
+          50.1362797
+        ]
+      },
+      "id": "way/319062309"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/476073804",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Ústav hematologie a krevní transfuze",
+        "website": "https://www.uhkt.cz/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4211421,
+          50.0744806
+        ]
+      },
+      "id": "way/476073804"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/611667003",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3922687,
+          49.9705963
+        ]
+      },
+      "id": "way/611667003"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/850446593",
+        "addr:city": "Praha 1",
+        "addr:housenumber": "847/8",
+        "addr:postcode": "11000",
+        "addr:street": "Na Františku",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Nemocnice Na Františku",
+        "ref:vatin": "CZ00879444",
+        "website": "https://www.nnfp.cz/",
+        "wheelchair": "yes",
+        "wikidata": "Q23770558",
+        "wikimedia_commons": "Category:Nemocnice Na Františku",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4212035,
+          50.0924002
+        ]
+      },
+      "id": "way/850446593"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/920067909",
+        "addr:city": "Praha",
+        "addr:conscriptionnumber": "1250",
+        "addr:country": "CZ",
+        "addr:housenumber": "1250/16",
+        "addr:place": "Žižkov",
+        "addr:postcode": "13000",
+        "addr:street": "Kubelíkova",
+        "addr:streetnumber": "16",
+        "addr:suburb": "Praha 3",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Nemocnice na Žižkově",
+        "operator": "řádu Milosrdných sester sv. Kříže",
+        "phone": "+420 221 012 211",
+        "source:addr": "cuzk:ruian",
+        "source:loc": "survey",
+        "website": "https://www.nskz.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4478868,
+          50.0817424
+        ]
+      },
+      "id": "node/920067909"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/970426563",
+        "amenity": "hospital",
+        "emergency": "no",
+        "healthcare": "hospital",
+        "healthcare:speciality": "rehabilitation",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3957572,
+          50.063918
+        ]
+      },
+      "id": "way/970426563"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1017845225",
+        "addr:city": "Praha 1",
+        "addr:conscriptionnumber": "336",
+        "addr:country": "CZ",
+        "addr:housenumber": "336/36",
+        "addr:place": "Malá Strana",
+        "addr:postcode": "11800",
+        "addr:street": "Vlašská",
+        "addr:streetnumber": "36",
+        "addr:suburb": "Praha 1",
+        "amenity": "hospital",
+        "email": "nmskb@nmskb.cz",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "healthcare:speciality": "internal;lenitive;surgery",
+        "loc_name": "Nemocnice pod Petřínem",
+        "name": "Nemocnice Milosrdných sester sv. Karla Boromejského v Praze",
+        "opening_hours": "24/7",
+        "operator": "Kongregace Milosrdných sester sv. Karla Boromejského",
+        "operator:type": "religious",
+        "phone": "+420 257 197 111",
+        "short_name": "Nemocnice Milosrdných sester sv. Karla Boromejského",
+        "source:addr": "cuzk:ruian",
+        "source:loc": "survey",
+        "website": "https://www.nmskb.cz/",
+        "wikidata": "Q12040652",
+        "wikimedia_commons": "Category:Nemocnice pod Petřínem",
+        "wikipedia": "cs:Nemocnice Milosrdných sester sv. Karla Boromejského",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3955826,
+          50.0868882
+        ]
+      },
+      "id": "way/1017845225"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1056949848",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4864516,
+          50.0929572
+        ]
+      },
+      "id": "way/1056949848"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1138466034",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4112298,
+          50.0345752
+        ]
+      },
+      "id": "way/1138466034"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1174575416",
+        "addr:city": "Praha 2",
+        "addr:housenumber": "448/6",
+        "addr:postcode": "12800",
+        "addr:street": "Na Slupi",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Nemocnice svaté Alžběty",
+        "name:de": "Krankenhaus St. Elisabeth",
+        "website": "https://www.alzbeta.cz/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4215384,
+          50.0692895
+        ]
+      },
+      "id": "way/1174575416"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13274425855",
+        "addr:city": "Praha 9",
+        "addr:housenumber": "810/304",
+        "addr:postcode": "190 00",
+        "addr:street": "Sokolovská",
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Centrum nukleární medicíny",
+        "website": "https://www.nuklearnimedicina.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4953524,
+          50.1079567
+        ]
+      },
+      "id": "node/13274425855"
+    }
+  ]
+}

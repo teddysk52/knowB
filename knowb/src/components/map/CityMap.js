@@ -1,5 +1,5 @@
 import React, { useMemo, useCallback, useState, useEffect, useRef } from 'react';
-import MapGL, { Marker, Popup, Source, Layer, NavigationControl, GeolocateControl } from 'react-map-gl/maplibre';
+import MapGL, { Marker, Popup, Source, Layer, NavigationControl } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MODES, LAYER_CONFIG } from '../../data/modes';
 import * as mockData from '../../data/mockData';
@@ -162,7 +162,6 @@ export default function CityMap({
         attributionControl={true}
       >
         <NavigationControl position="top-left" />
-        <GeolocateControl position="top-left" trackUserLocation />
 
         {heatmapGeoJson && (
           <Source id="heatmap-zones" type="geojson" data={heatmapGeoJson}>

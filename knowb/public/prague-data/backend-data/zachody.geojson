@@ -1,0 +1,3743 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-03-06T16:36:46Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/30747928",
+        "access": "yes",
+        "amenity": "toilets",
+        "building": "yes",
+        "building:ruian:type": "19",
+        "drinking_water": "yes",
+        "fee": "no",
+        "layer": "2",
+        "ref:ruian:building": "40445984",
+        "roof:colour": "darkgray",
+        "roof:shape": "pyramidal",
+        "source": "cuzk:ruian;survey",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4035611,
+              50.0791875
+            ],
+            [
+              14.4034896,
+              50.0792209
+            ],
+            [
+              14.4034366,
+              50.0791733
+            ],
+            [
+              14.4035099,
+              50.0791408
+            ],
+            [
+              14.4035611,
+              50.0791875
+            ]
+          ]
+        ]
+      },
+      "id": "way/30747928"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/43285124",
+        "access": "customers",
+        "amenity": "toilets",
+        "building": "yes",
+        "building:ruian:type": "19",
+        "fee": "no",
+        "ref:ruian:building": "46821937",
+        "source": "cuzk:ruian",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4089151,
+              50.1151776
+            ],
+            [
+              14.4089205,
+              50.1151885
+            ],
+            [
+              14.4089151,
+              50.1152061
+            ],
+            [
+              14.4088996,
+              50.1152208
+            ],
+            [
+              14.4088805,
+              50.1152303
+            ],
+            [
+              14.4088447,
+              50.1152397
+            ],
+            [
+              14.4088221,
+              50.115241
+            ],
+            [
+              14.4087939,
+              50.1152374
+            ],
+            [
+              14.4087728,
+              50.1152284
+            ],
+            [
+              14.4087635,
+              50.1152172
+            ],
+            [
+              14.4087581,
+              50.115205
+            ],
+            [
+              14.4087633,
+              50.1151892
+            ],
+            [
+              14.4087796,
+              50.1151739
+            ],
+            [
+              14.4087972,
+              50.1151647
+            ],
+            [
+              14.4087985,
+              50.1151643
+            ],
+            [
+              14.4088331,
+              50.1151552
+            ],
+            [
+              14.4088571,
+              50.1151534
+            ],
+            [
+              14.4088841,
+              50.115157
+            ],
+            [
+              14.4089072,
+              50.1151673
+            ],
+            [
+              14.4089151,
+              50.1151776
+            ]
+          ]
+        ]
+      },
+      "id": "way/43285124"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/108275247",
+        "access": "yes",
+        "amenity": "toilets",
+        "building": "civic",
+        "building:levels": "1",
+        "fee": "no",
+        "ref:ruian:building": "46701591",
+        "roof:levels": "0",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4583838,
+              50.0844233
+            ],
+            [
+              14.4583535,
+              50.0844361
+            ],
+            [
+              14.4583485,
+              50.084431
+            ],
+            [
+              14.4583224,
+              50.0844422
+            ],
+            [
+              14.458315,
+              50.084433
+            ],
+            [
+              14.4583124,
+              50.0844237
+            ],
+            [
+              14.4583136,
+              50.0844147
+            ],
+            [
+              14.4583189,
+              50.0844058
+            ],
+            [
+              14.4583277,
+              50.0843988
+            ],
+            [
+              14.4583396,
+              50.0843937
+            ],
+            [
+              14.4583536,
+              50.0843909
+            ],
+            [
+              14.4583675,
+              50.0843909
+            ],
+            [
+              14.4583809,
+              50.0843934
+            ],
+            [
+              14.4583934,
+              50.0843981
+            ],
+            [
+              14.4584041,
+              50.0844071
+            ],
+            [
+              14.4583786,
+              50.0844186
+            ],
+            [
+              14.4583838,
+              50.0844233
+            ]
+          ]
+        ]
+      },
+      "id": "way/108275247"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/112290363",
+        "access": "customers",
+        "amenity": "toilets",
+        "building": "yes",
+        "building:ruian:type": "19",
+        "check_date:wheelchair": "2024-03-27",
+        "fee": "no",
+        "ref:ruian:building": "43488218",
+        "source": "cuzk:ruian",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4093891,
+              50.1178818
+            ],
+            [
+              14.4093177,
+              50.1178873
+            ],
+            [
+              14.4092965,
+              50.1177792
+            ],
+            [
+              14.4093663,
+              50.117773
+            ],
+            [
+              14.4093891,
+              50.1178818
+            ]
+          ]
+        ]
+      },
+      "id": "way/112290363"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/113526103",
+        "access": "customers",
+        "amenity": "toilets",
+        "building": "yes",
+        "building:ruian:type": "19",
+        "changing_table": "yes",
+        "fee": "no",
+        "female": "yes",
+        "male": "yes",
+        "portable": "no",
+        "ref:ruian:building": "50063448",
+        "roof:shape": "flat",
+        "source": "cuzk:ruian",
+        "surface": "survey",
+        "toilets:disposal": "flush",
+        "unisex": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4105849,
+              50.1157108
+            ],
+            [
+              14.4104868,
+              50.1157269
+            ],
+            [
+              14.410496,
+              50.1157502
+            ],
+            [
+              14.4103258,
+              50.1157782
+            ],
+            [
+              14.4103161,
+              50.1157538
+            ],
+            [
+              14.410258,
+              50.1157634
+            ],
+            [
+              14.4102368,
+              50.1157103
+            ],
+            [
+              14.410302,
+              50.1156996
+            ],
+            [
+              14.4102904,
+              50.1156706
+            ],
+            [
+              14.4104839,
+              50.1156388
+            ],
+            [
+              14.4104954,
+              50.1156678
+            ],
+            [
+              14.4105633,
+              50.1156566
+            ],
+            [
+              14.4105849,
+              50.1157108
+            ]
+          ]
+        ]
+      },
+      "id": "way/113526103"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/155743944",
+        "access": "yes",
+        "amenity": "toilets",
+        "building": "yes",
+        "building:colour": "silver",
+        "building:levels": "1",
+        "charge": "1 EUR/person;20 CZK/person",
+        "check_date:opening_hours": "2024-09-06",
+        "currency:CZK": "yes",
+        "currency:EUR": "yes",
+        "currency:others": "no",
+        "fee": "yes",
+        "opening_hours": "Apr-Oct PH,Mo-Su 09:15-20:00; Nov-Mar PH,Mo-Su 09:15-18:00",
+        "payment:cash": "yes",
+        "payment:others": "no",
+        "roof:shape": "flat",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.3945448,
+              50.0831784
+            ],
+            [
+              14.3943391,
+              50.0831813
+            ],
+            [
+              14.3943372,
+              50.0831277
+            ],
+            [
+              14.3945429,
+              50.0831248
+            ],
+            [
+              14.3945448,
+              50.0831784
+            ]
+          ]
+        ]
+      },
+      "id": "way/155743944"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/268457490",
+        "access": "yes",
+        "amenity": "toilets",
+        "building": "yes",
+        "drinking_water": "yes",
+        "fee": "no",
+        "source": "CZ:IPRPraha:ortofoto",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.3971342,
+              50.0776527
+            ],
+            [
+              14.3971836,
+              50.0776959
+            ],
+            [
+              14.3971147,
+              50.0777283
+            ],
+            [
+              14.3970653,
+              50.077685
+            ],
+            [
+              14.3971342,
+              50.0776527
+            ]
+          ]
+        ]
+      },
+      "id": "way/268457490"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/371402648",
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2025-04-27",
+        "fee": "no",
+        "level": "1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.270001,
+              50.1087373
+            ],
+            [
+              14.2698193,
+              50.1086829
+            ],
+            [
+              14.2698578,
+              50.1086287
+            ],
+            [
+              14.2700186,
+              50.1086786
+            ],
+            [
+              14.2700389,
+              50.1086849
+            ],
+            [
+              14.270001,
+              50.1087373
+            ]
+          ]
+        ]
+      },
+      "id": "way/371402648"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/419267428",
+        "amenity": "toilets",
+        "building": "civic",
+        "building:levels": "1",
+        "building:ruian:type": "5",
+        "drinking_water": "yes",
+        "fee": "yes",
+        "female": "yes",
+        "male": "yes",
+        "ref:ruian:building": "44022549",
+        "roof:levels": "0",
+        "roof:shape": "flat",
+        "source": "cuzk:ruian;survey",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4468681,
+              50.0928246
+            ],
+            [
+              14.4469083,
+              50.0928757
+            ],
+            [
+              14.4468019,
+              50.0929103
+            ],
+            [
+              14.4467622,
+              50.0928591
+            ],
+            [
+              14.4468453,
+              50.092832
+            ],
+            [
+              14.4468681,
+              50.0928246
+            ]
+          ]
+        ]
+      },
+      "id": "way/419267428"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/894682101",
+        "access": "permissive",
+        "amenity": "toilets",
+        "building": "yes",
+        "changing_table": "yes",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.481174,
+              50.0812772
+            ],
+            [
+              14.4811698,
+              50.0812708
+            ],
+            [
+              14.481169,
+              50.0812638
+            ],
+            [
+              14.4811718,
+              50.0812571
+            ],
+            [
+              14.4811779,
+              50.0812513
+            ],
+            [
+              14.4811866,
+              50.0812471
+            ],
+            [
+              14.4811969,
+              50.0812449
+            ],
+            [
+              14.4812078,
+              50.081245
+            ],
+            [
+              14.481218,
+              50.0812473
+            ],
+            [
+              14.4812265,
+              50.0812517
+            ],
+            [
+              14.4812323,
+              50.0812576
+            ],
+            [
+              14.4812348,
+              50.0812644
+            ],
+            [
+              14.4812338,
+              50.0812713
+            ],
+            [
+              14.4812293,
+              50.0812777
+            ],
+            [
+              14.4812218,
+              50.0812828
+            ],
+            [
+              14.4812122,
+              50.081286
+            ],
+            [
+              14.4812014,
+              50.081287
+            ],
+            [
+              14.4811907,
+              50.0812858
+            ],
+            [
+              14.4811812,
+              50.0812824
+            ],
+            [
+              14.481174,
+              50.0812772
+            ]
+          ]
+        ]
+      },
+      "id": "way/894682101"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1007391006",
+        "access": "yes",
+        "amenity": "toilets",
+        "drinking_water": "yes",
+        "fee": "yes",
+        "female": "yes",
+        "indoor": "room",
+        "level": "0",
+        "male": "yes",
+        "room": "toilet",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4329312,
+              50.0875642
+            ],
+            [
+              14.4328633,
+              50.0875639
+            ],
+            [
+              14.4327969,
+              50.0875637
+            ],
+            [
+              14.4327975,
+              50.0874777
+            ],
+            [
+              14.4328195,
+              50.0874778
+            ],
+            [
+              14.4329321,
+              50.087478
+            ],
+            [
+              14.4329312,
+              50.0875642
+            ]
+          ]
+        ]
+      },
+      "id": "way/1007391006"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1114904980",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "indoor": "room",
+        "level": "0",
+        "room": "toilets",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.3898475,
+              50.1049655
+            ],
+            [
+              14.3899062,
+              50.1050088
+            ],
+            [
+              14.3899231,
+              50.1050213
+            ],
+            [
+              14.3898646,
+              50.1050527
+            ],
+            [
+              14.3898105,
+              50.105011
+            ],
+            [
+              14.3897919,
+              50.1049966
+            ],
+            [
+              14.3898475,
+              50.1049655
+            ]
+          ]
+        ]
+      },
+      "id": "way/1114904980"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1114904981",
+        "amenity": "toilets",
+        "fee": "no",
+        "indoor": "room",
+        "level": "0",
+        "male": "yes",
+        "room": "toilets",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.3899231,
+              50.1050213
+            ],
+            [
+              14.3899429,
+              50.1050359
+            ],
+            [
+              14.3900018,
+              50.1050795
+            ],
+            [
+              14.3899419,
+              50.1051114
+            ],
+            [
+              14.3899192,
+              50.1050942
+            ],
+            [
+              14.3898646,
+              50.1050527
+            ],
+            [
+              14.3899231,
+              50.1050213
+            ]
+          ]
+        ]
+      },
+      "id": "way/1114904981"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1115005653",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "no",
+        "indoor": "room",
+        "level": "1",
+        "male": "yes",
+        "repeat_on": "2",
+        "room": "toilets",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.3895119,
+              50.1050601
+            ],
+            [
+              14.3895601,
+              50.1050971
+            ],
+            [
+              14.3895654,
+              50.1051012
+            ],
+            [
+              14.3895416,
+              50.1051141
+            ],
+            [
+              14.3895186,
+              50.1051266
+            ],
+            [
+              14.3894646,
+              50.1050857
+            ],
+            [
+              14.3894697,
+              50.105083
+            ],
+            [
+              14.3895119,
+              50.1050601
+            ]
+          ]
+        ]
+      },
+      "id": "way/1115005653"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1115005654",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "indoor": "room",
+        "level": "1",
+        "male": "no",
+        "repeat_on": "2",
+        "room": "toilets",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.3895119,
+              50.1050601
+            ],
+            [
+              14.3895647,
+              50.1050313
+            ],
+            [
+              14.3896027,
+              50.1050593
+            ],
+            [
+              14.3896197,
+              50.1050719
+            ],
+            [
+              14.3895927,
+              50.1050865
+            ],
+            [
+              14.3895863,
+              50.1050899
+            ],
+            [
+              14.389581,
+              50.1050857
+            ],
+            [
+              14.3895601,
+              50.1050971
+            ],
+            [
+              14.3895119,
+              50.1050601
+            ]
+          ]
+        ]
+      },
+      "id": "way/1115005654"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1115005658",
+        "amenity": "toilets",
+        "fee": "no",
+        "indoor": "room",
+        "level": "2",
+        "room": "toilets",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.3896027,
+              50.1050593
+            ],
+            [
+              14.3896286,
+              50.1050453
+            ],
+            [
+              14.3896459,
+              50.1050577
+            ],
+            [
+              14.3896197,
+              50.1050719
+            ],
+            [
+              14.3896027,
+              50.1050593
+            ]
+          ]
+        ]
+      },
+      "id": "way/1115005658"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1175138777",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "fee": "no",
+        "indoor": "room",
+        "level": "1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.441219,
+              50.0826735
+            ],
+            [
+              14.4412668,
+              50.0826676
+            ],
+            [
+              14.4412709,
+              50.0826824
+            ],
+            [
+              14.4412981,
+              50.0826792
+            ],
+            [
+              14.4413128,
+              50.0826773
+            ],
+            [
+              14.4413277,
+              50.0826755
+            ],
+            [
+              14.4413438,
+              50.0827281
+            ],
+            [
+              14.4412395,
+              50.0827411
+            ],
+            [
+              14.441219,
+              50.0826735
+            ]
+          ]
+        ]
+      },
+      "id": "way/1175138777"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1175138778",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "fee": "no",
+        "indoor": "room",
+        "level": "1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4413009,
+              50.0825933
+            ],
+            [
+              14.4413184,
+              50.0826448
+            ],
+            [
+              14.4413042,
+              50.0826466
+            ],
+            [
+              14.4412887,
+              50.0826485
+            ],
+            [
+              14.4412623,
+              50.0826516
+            ],
+            [
+              14.4412668,
+              50.0826676
+            ],
+            [
+              14.441219,
+              50.0826735
+            ],
+            [
+              14.4411989,
+              50.082606
+            ],
+            [
+              14.4413009,
+              50.0825933
+            ]
+          ]
+        ]
+      },
+      "id": "way/1175138778"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1266307407",
+        "amenity": "toilets",
+        "building": "yes",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4547298,
+              50.0806355
+            ],
+            [
+              14.4547412,
+              50.080603
+            ],
+            [
+              14.4547807,
+              50.0806087
+            ],
+            [
+              14.4547693,
+              50.0806412
+            ],
+            [
+              14.4547298,
+              50.0806355
+            ]
+          ]
+        ]
+      },
+      "id": "way/1266307407"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1279445796",
+        "amenity": "toilets",
+        "building": "yes",
+        "building:colour": "maroon",
+        "fee": "no",
+        "opening_hours": "\"Otevřeno během provozní doby bistra\"",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4908521,
+              50.125564
+            ],
+            [
+              14.4907419,
+              50.1254842
+            ],
+            [
+              14.4907778,
+              50.1254571
+            ],
+            [
+              14.49081,
+              50.1254758
+            ],
+            [
+              14.490797,
+              50.1254842
+            ],
+            [
+              14.4908714,
+              50.1255509
+            ],
+            [
+              14.4908521,
+              50.125564
+            ]
+          ]
+        ]
+      },
+      "id": "way/1279445796"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1303339345",
+        "access": "yes",
+        "amenity": "toilets",
+        "building": "yes",
+        "check_date": "2024-07-23",
+        "fee": "yes",
+        "opening_hours": "24/7",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.4555625,
+              50.0776436
+            ],
+            [
+              14.4555403,
+              50.0776436
+            ],
+            [
+              14.4555373,
+              50.0776224
+            ],
+            [
+              14.4555492,
+              50.0776097
+            ],
+            [
+              14.455574,
+              50.0776161
+            ],
+            [
+              14.4555625,
+              50.0776436
+            ]
+          ]
+        ]
+      },
+      "id": "way/1303339345"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/282973258",
+        "amenity": "toilets",
+        "check_date": "2024-01-23",
+        "fee": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5159366,
+          50.0763149
+        ]
+      },
+      "id": "node/282973258"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/289506229",
+        "amenity": "toilets",
+        "fee": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4168886,
+          50.0646173
+        ]
+      },
+      "id": "node/289506229"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/295168428",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "check_date": "2023-07-25",
+        "fee": "yes",
+        "female": "yes",
+        "male": "yes",
+        "opening_hours": "Mo-Su 07:30-20:00",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3999705,
+          50.0905129
+        ]
+      },
+      "id": "node/295168428"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/296763678",
+        "access": "customers",
+        "addr:conscriptionnumber": "225",
+        "addr:housenumber": "225/76",
+        "addr:place": "Dolní Měcholupy",
+        "addr:postcode": "11101",
+        "addr:street": "Kutnohorská",
+        "addr:streetnumber": "76",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "ref:ruian:addr": "22550682",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5672578,
+          50.0514359
+        ]
+      },
+      "id": "node/296763678"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/323138068",
+        "access": "customers",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "changing_table:location": "room",
+        "drinking_water": "yes",
+        "fee": "no",
+        "female": "yes",
+        "level": "3",
+        "male": "yes",
+        "operator": "OC Flóra",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.461581,
+          50.0785884
+        ]
+      },
+      "id": "node/323138068"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/331960311",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "yes",
+        "female": "yes",
+        "layer": "-1",
+        "male": "yes",
+        "note": "v podzemí",
+        "source": "survey",
+        "survey:date": "2022-05-20",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4186709,
+          50.0758313
+        ]
+      },
+      "id": "node/331960311"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/355624092",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "yes",
+        "female": "yes",
+        "layer": "-1",
+        "level": "-1",
+        "male": "yes",
+        "opening_hours": "Mo-Fr 06:00-20:00; PH,Sa,Su 08:00-20:00",
+        "operator": "DJ Praha, s. r. o.",
+        "portable": "no",
+        "toilets:disposal": "flush",
+        "toilets:position": "inside",
+        "unisex": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5076249,
+          50.0680629
+        ]
+      },
+      "id": "node/355624092"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/366415690",
+        "access": "yes",
+        "amenity": "toilets",
+        "description": "wc v sloupu",
+        "fee": "yes",
+        "opening_hours": "24/7",
+        "operator": "JCDecaux",
+        "operator:wikidata": "Q74877",
+        "source": "IPR Praha:DMP",
+        "toilets:wheelchair": "yes",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4386436,
+          50.0909233
+        ]
+      },
+      "id": "node/366415690"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/418869527",
+        "amenity": "toilets",
+        "fee": "yes",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4197843,
+          50.0704425
+        ]
+      },
+      "id": "node/418869527"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170328",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "yes",
+        "note": "Veřejné WC ve stanici metra - import z kml na stránkach praha.eu.",
+        "opening_hours": "Mo-Fr 07:00-20:00; Sa,Su,PH 08:00-19:00",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3709048,
+          50.0545541
+        ]
+      },
+      "id": "node/619170328"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170332",
+        "amenity": "toilets",
+        "description": "Veřejné WC ve stanici metra",
+        "description:en": "Public toilets in metro station",
+        "fee": "yes",
+        "layer": "-1",
+        "opening_hours": "Mo-Fr 06:00-21:00; PH,Sa,Su 08:00-20:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4035905,
+          50.0686409
+        ]
+      },
+      "id": "node/619170332"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170333",
+        "amenity": "toilets",
+        "fee": "no",
+        "name": "Veřejné WC",
+        "note": "Veřejné WC ve stanici metra - import z kml na stránkach praha.eu.",
+        "opening_hours": "Mo-Fr 07:00-20:00; Sa,Su,PH 08:00-19:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3314293,
+          50.0446705
+        ]
+      },
+      "id": "node/619170333"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170336",
+        "amenity": "toilets",
+        "check_date:opening_hours": "2024-06-12",
+        "fee": "yes",
+        "name": "Veřejné WC",
+        "note": "Veřejné WC ve stanici metra - import z kml na stránkach praha.eu.",
+        "opening_hours": "Sa,Su 08:00-20:00; Mo-Fr 06:00-21:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2911153,
+          50.0539327
+        ]
+      },
+      "id": "node/619170336"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170337",
+        "amenity": "toilets",
+        "check_date": "2024-06-19",
+        "description": "Veřejné WC ve stanici metra",
+        "description:en": "Public toilets in metro station",
+        "fee": "yes",
+        "layer": "-1",
+        "opening_hours": "Mo-Fr 07:00-20:00; Sa,Su 08:00-19:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3888628,
+          50.0579239
+        ]
+      },
+      "id": "node/619170337"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170348",
+        "amenity": "toilets",
+        "fee": "yes",
+        "female": "yes",
+        "layer": "-1",
+        "level": "-1",
+        "male": "yes",
+        "name": "Veřejné WC",
+        "unisex": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4477969,
+          50.0450001
+        ]
+      },
+      "id": "node/619170348"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170364",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "yes",
+        "opening_hours": "24/7",
+        "operator": "JCDecaux",
+        "operator:wikidata": "Q74877",
+        "source": "IPR Praha:DMP",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4219175,
+          50.0853793
+        ]
+      },
+      "id": "node/619170364"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170371",
+        "amenity": "toilets",
+        "check_date": "2024-05-11",
+        "fee": "yes",
+        "layer": "-1",
+        "name": "Veřejné WC",
+        "note": "Veřejné WC ve stanici metra - import z kml na stránkach praha.eu.",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa,Su,PH 08:00-21:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4489794,
+          50.0774085
+        ]
+      },
+      "id": "node/619170371"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170375",
+        "amenity": "toilets",
+        "check_date:opening_hours": "2024-11-19",
+        "drinking_water": "yes",
+        "fee": "yes",
+        "female": "no",
+        "male": "yes",
+        "name": "Veřejné WC",
+        "note": "Veřejné WC ve stanici metra - import z kml na stránkach praha.eu.",
+        "opening_hours": "Sa,Su,PH 08:00-19:00; Mo-Fr 07:00-20:00",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "toilets:wheelchair": "yes",
+        "unisex": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4517366,
+          50.093354
+        ]
+      },
+      "id": "node/619170375"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170388",
+        "amenity": "toilets",
+        "charge": "10 CZK",
+        "description": "little bit dirty",
+        "fee": "yes",
+        "layer": "0",
+        "level": "0",
+        "name": "Veřejné WC",
+        "note": "Veřejné WC ve stanici metra - import z kml na stránkach praha.eu.",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa,Su,PH 09:00-15:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5263222,
+          50.0304949
+        ]
+      },
+      "id": "node/619170388"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170391",
+        "amenity": "toilets",
+        "check_date": "2023-06-09",
+        "description": "Toalety se nacházejí ve 3. patře.",
+        "fee": "yes",
+        "level": "3",
+        "name": "Veřejné WC",
+        "note": "Veřejné WC ve stanici metra",
+        "opening_hours": "Mo-Fr 07:00-20:00; PH,Sa,Su 08:00-19:00",
+        "payment:cash": "yes",
+        "payment:coins": "yes",
+        "toilets:handwashing": "yes",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5600225,
+          50.1068183
+        ]
+      },
+      "id": "node/619170391"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170400",
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2023-06-06",
+        "fee": "yes",
+        "level": "0",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5156016,
+          50.1104151
+        ]
+      },
+      "id": "node/619170400"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170402",
+        "amenity": "toilets",
+        "check_date:opening_hours": "2025-05-13",
+        "fee": "yes",
+        "name": "Veřejné WC",
+        "note": "Veřejné WC ve stanici metra - import z kml na stránkach praha.eu.",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa,Su,PH 08:00-20:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4734032,
+          50.1033963
+        ]
+      },
+      "id": "node/619170402"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170403",
+        "access": "yes",
+        "amenity": "toilets",
+        "charge": "10 CZK",
+        "fee": "yes",
+        "layer": "-1",
+        "note": "Veřejné WC ve stanici metra - import z kml na stránkach praha.eu.",
+        "opening_hours": "Mo-Fr 06:30-20:00; Sa, Su 09:00-18:00; PH 09:00-15:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4688844,
+          50.1266362
+        ]
+      },
+      "id": "node/619170403"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/619170404",
+        "amenity": "toilets",
+        "check_date": "2025-08-04",
+        "check_date:wheelchair": "2025-08-04",
+        "fee": "yes",
+        "female": "yes",
+        "layer": "-1",
+        "level": "-1",
+        "male": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5376454,
+          50.1066011
+        ]
+      },
+      "id": "node/619170404"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1096688573",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "yes",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes",
+        "wheelchair:description": "PIN-Pad beside the Gate. PIN 3333#"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3984079,
+          50.0922708
+        ]
+      },
+      "id": "node/1096688573"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1488480864",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "yes",
+        "toilets:disposal": "flush",
+        "trigger_warning": "epilepsy (black light)",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4257408,
+          50.0875462
+        ]
+      },
+      "id": "node/1488480864"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1797215129",
+        "access": "customers",
+        "amenity": "toilets",
+        "female": "yes",
+        "male": "yes",
+        "unisex": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4935636,
+          50.0715872
+        ]
+      },
+      "id": "node/1797215129"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1948155705",
+        "access": "yes",
+        "amenity": "toilets",
+        "drinking_water": "yes",
+        "fee": "yes",
+        "female": "yes",
+        "male": "yes",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.407863,
+          50.08326
+        ]
+      },
+      "id": "node/1948155705"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2357131675",
+        "amenity": "toilets",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4354987,
+          50.0835545
+        ]
+      },
+      "id": "node/2357131675"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2408590748",
+        "access": "customers",
+        "amenity": "toilets",
+        "fee": "no",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4040941,
+          50.1163454
+        ]
+      },
+      "id": "node/2408590748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2525562757",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "name": "Veřejné WC",
+        "portable": "no",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4384262,
+          50.0509721
+        ]
+      },
+      "id": "node/2525562757"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2640708932",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "yes",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4401601,
+          50.0897705
+        ]
+      },
+      "id": "node/2640708932"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2792031912",
+        "amenity": "toilets",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4181952,
+          50.127551
+        ]
+      },
+      "id": "node/2792031912"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2794124047",
+        "amenity": "toilets",
+        "check_date": "2024-06-24",
+        "fee": "yes",
+        "layer": "-1",
+        "note": "v podchodu metra",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.502323,
+          50.1104923
+        ]
+      },
+      "id": "node/2794124047"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2909004799",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "yes",
+        "layer": "2",
+        "level": "1",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4019408,
+          50.0732538
+        ]
+      },
+      "id": "node/2909004799"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2914273729",
+        "access": "yes",
+        "amenity": "toilets",
+        "charge": "20 CZK; 1 EUR",
+        "check_date": "2023-06-17",
+        "fee": "yes",
+        "opening_hours": "09:00-19:00",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4060781,
+          50.0895056
+        ]
+      },
+      "id": "node/2914273729"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2940468641",
+        "access": "customers",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "check_date": "2021-10-13",
+        "fee": "no",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4108817,
+          50.1168814
+        ]
+      },
+      "id": "node/2940468641"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3269062581",
+        "amenity": "toilets",
+        "check_date:opening_hours": "2023-09-23",
+        "description": "Na autobusovém nádraží",
+        "fee": "yes",
+        "level": "-1",
+        "opening_hours": "Mo-Fr 06:00-21:00; PH,Sa,Su 08:00-20:00",
+        "payment:cash": "yes",
+        "payment:coins": "yes",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5781078,
+          50.1089897
+        ]
+      },
+      "id": "node/3269062581"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3298547462",
+        "access": "yes",
+        "addr:city": "Praha",
+        "addr:conscriptionnumber": "111",
+        "addr:country": "CZ",
+        "addr:housenumber": "111/25",
+        "addr:place": "Hradčany",
+        "addr:postcode": "11800",
+        "addr:street": "Pohořelec",
+        "addr:streetnumber": "25",
+        "addr:suburb": "Praha 1",
+        "amenity": "toilets",
+        "fee": "yes",
+        "female": "yes",
+        "male": "yes",
+        "source:addr": "cuzk:ruian",
+        "source:loc": "survey",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3901758,
+          50.0878662
+        ]
+      },
+      "id": "node/3298547462"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3298563305",
+        "access": "yes",
+        "amenity": "toilets",
+        "charge": "10 CZK",
+        "fee": "yes",
+        "female": "yes",
+        "level": "-1",
+        "male": "yes",
+        "payment:american_express": "no",
+        "payment:coins": "yes",
+        "payment:contactless": "no",
+        "payment:credit_cards": "no",
+        "payment:debit_cards": "no",
+        "payment:maestro": "no",
+        "payment:mastercard": "no",
+        "payment:notes": "no",
+        "payment:visa": "no",
+        "portable": "no",
+        "source": "local knowledge",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "unisex": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4171502,
+          50.0874113
+        ]
+      },
+      "id": "node/3298563305"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3370578354",
+        "access": "customers",
+        "amenity": "toilets",
+        "check_date": "2023-05-29",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5379185,
+          50.054632
+        ]
+      },
+      "id": "node/3370578354"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3407015306",
+        "access": "yes",
+        "amenity": "toilets",
+        "charge": "1 EUR;20 CZK",
+        "check_date": "2025-10-19",
+        "currency:CZK": "yes",
+        "currency:EUR": "yes",
+        "fee": "yes",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4088088,
+          50.0924788
+        ]
+      },
+      "id": "node/3407015306"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3443269558",
+        "amenity": "toilets",
+        "fee": "yes",
+        "opening_hours": "Mo-Fr 06:00-21:00, Sa-Su 08:00-21:00",
+        "source": "survey",
+        "underground": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3405566,
+          50.0748318
+        ]
+      },
+      "id": "node/3443269558"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3444747906",
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2025-05-24",
+        "check_date:opening_hours": "2025-05-24",
+        "fee": "no",
+        "opening_hours": "Apr-Nov: 07:00-21:00",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4435388,
+          50.0826327
+        ]
+      },
+      "id": "node/3444747906"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3474538098",
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2024-10-25",
+        "description": "vchod z boku budovy stanice metra v úrovni chodníku",
+        "fee": "yes",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa,Su 08:00-21:00",
+        "source": "survey",
+        "source:opening_hours": "survey",
+        "source:opening_hours:date": "2019-04-24",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3446925,
+          50.0876155
+        ]
+      },
+      "id": "node/3474538098"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3541488118",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "no",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5057443,
+          50.1508353
+        ]
+      },
+      "id": "node/3541488118"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3553798894",
+        "amenity": "toilets",
+        "name": "Toilette",
+        "wheelchair": "yes",
+        "wheelchair:description": "Im Restaurant Kornirna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4052974,
+          50.0866405
+        ]
+      },
+      "id": "node/3553798894"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3625093359",
+        "amenity": "toilets",
+        "fee": "no",
+        "source": "survey",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4969503,
+          50.0849337
+        ]
+      },
+      "id": "node/3625093359"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3671337795",
+        "access": "customers",
+        "amenity": "toilets",
+        "fee": "no",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4088137,
+          50.1166211
+        ]
+      },
+      "id": "node/3671337795"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3671626903",
+        "access": "customers",
+        "amenity": "toilets",
+        "fee": "no",
+        "source": "CZ:IPRPraha:ortofoto",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4008454,
+          50.1179761
+        ]
+      },
+      "id": "node/3671626903"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3749792288",
+        "amenity": "toilets",
+        "check_date": "2025-04-27",
+        "level": "1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2682157,
+          50.1084791
+        ]
+      },
+      "id": "node/3749792288"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3757073601",
+        "access": "customers",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "no",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4512209,
+          50.1361811
+        ]
+      },
+      "id": "node/3757073601"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3772866063",
+        "access": "yes",
+        "amenity": "toilets",
+        "centralkey": "eurokey",
+        "charge": "10 CZK",
+        "fee": "yes",
+        "opening_hours": "24/7",
+        "payment:coins": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4400781,
+          50.1097946
+        ]
+      },
+      "id": "node/3772866063"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3813716094",
+        "amenity": "toilets",
+        "fee": "yes",
+        "level:ref": "-2",
+        "payment:debit_cards": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4300545,
+          50.0893951
+        ]
+      },
+      "id": "node/3813716094"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3939123168",
+        "access": "customers",
+        "amenity": "toilets",
+        "drinking_water": "yes",
+        "fee": "no",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.418369,
+          50.1237994
+        ]
+      },
+      "id": "node/3939123168"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4118334762",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "no",
+        "opening_hours": "24/7",
+        "operator": "ÚMČ Praha 8",
+        "ref": "63797",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4653937,
+          50.1090506
+        ]
+      },
+      "id": "node/4118334762"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4153060446",
+        "access": "customers",
+        "amenity": "toilets",
+        "fee": "no",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4302785,
+          50.0931405
+        ]
+      },
+      "id": "node/4153060446"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4213598542",
+        "amenity": "toilets",
+        "check_date": "2024-04-24",
+        "fee": "yes",
+        "female": "yes",
+        "layer": "-1",
+        "level": "-1",
+        "male": "yes",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4508756,
+          50.0808959
+        ]
+      },
+      "id": "node/4213598542"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4245196349",
+        "amenity": "toilets",
+        "fee": "no",
+        "level": "0",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2892414,
+          50.0536681
+        ]
+      },
+      "id": "node/4245196349"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4245196350",
+        "amenity": "toilets",
+        "fee": "no",
+        "level": "0;1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2865082,
+          50.0538816
+        ]
+      },
+      "id": "node/4245196350"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4245196351",
+        "amenity": "toilets",
+        "level": "0",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2854407,
+          50.0532031
+        ]
+      },
+      "id": "node/4245196351"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4305061078",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4486701,
+          50.0760724
+        ]
+      },
+      "id": "node/4305061078"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4407424281",
+        "access": "customers",
+        "amenity": "toilets",
+        "drinking_water": "yes",
+        "fee": "no",
+        "female": "yes",
+        "level": "1",
+        "male": "yes",
+        "operator": "OC Flóra",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4615877,
+          50.0785518
+        ]
+      },
+      "id": "node/4407424281"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4407424282",
+        "access": "customers",
+        "amenity": "toilets",
+        "drinking_water": "yes",
+        "fee": "no",
+        "female": "yes",
+        "level": "2",
+        "male": "yes",
+        "operator": "OC Flóra",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4615838,
+          50.07857
+        ]
+      },
+      "id": "node/4407424282"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4706863276",
+        "amenity": "toilets",
+        "check_date:opening_hours": "2024-06-11",
+        "fee": "yes",
+        "female": "yes",
+        "level": "-1",
+        "location": "underground",
+        "male": "yes",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa,Su 08:00-21:00",
+        "toilets:disposal": "flush",
+        "website": "https://www.dpp.cz/cestovani/wc-v-metru",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3470053,
+          50.0957681
+        ]
+      },
+      "id": "node/4706863276"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4840673097",
+        "access": "customers",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "fee": "no",
+        "female": "yes",
+        "male": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4660806,
+          50.0238984
+        ]
+      },
+      "id": "node/4840673097"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4879098557",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4037593,
+          50.0286039
+        ]
+      },
+      "id": "node/4879098557"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4899417248",
+        "amenity": "toilets",
+        "check_date:opening_hours": "2025-01-09",
+        "drinking_water": "yes",
+        "fee": "yes",
+        "female": "yes",
+        "male": "no",
+        "name": "Veřejné WC",
+        "note": "Veřejné WC ve stanici metra - import z kml na stránkach praha.eu.",
+        "opening_hours": "Mo-Fr 07:00-20:00; Sa,Su,PH 08:00-19:00",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated",
+        "toilets:wheelchair": "yes",
+        "unisex": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4518745,
+          50.093375
+        ]
+      },
+      "id": "node/4899417248"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4973185803",
+        "amenity": "toilets",
+        "check_date": "2024-06-19",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2969097,
+          50.053015
+        ]
+      },
+      "id": "node/4973185803"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5129063559",
+        "amenity": "toilets",
+        "check_date": "2024-05-05",
+        "fee": "no",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5399587,
+          50.0280387
+        ]
+      },
+      "id": "node/5129063559"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5141272124",
+        "amenity": "toilets",
+        "charge": "20 CZK",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 10:00-18:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4221311,
+          50.0628022
+        ]
+      },
+      "id": "node/5141272124"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5157792621",
+        "amenity": "toilets",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4488679,
+          50.1002386
+        ]
+      },
+      "id": "node/5157792621"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5596477933",
+        "amenity": "toilets",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4162553,
+          50.068174
+        ]
+      },
+      "id": "node/5596477933"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5845625686",
+        "amenity": "toilets",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.264993,
+          50.1056199
+        ]
+      },
+      "id": "node/5845625686"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5863161631",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "level": "-1",
+        "male": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.516788,
+          50.0534634
+        ]
+      },
+      "id": "node/5863161631"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5871468573",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "no",
+        "female": "yes",
+        "level": "1",
+        "male": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5181149,
+          50.0531164
+        ]
+      },
+      "id": "node/5871468573"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5878335830",
+        "amenity": "toilets",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4032207,
+          50.0828926
+        ]
+      },
+      "id": "node/5878335830"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5917583421",
+        "amenity": "toilets",
+        "check_date": "2023-07-24",
+        "fee": "yes",
+        "level:ref": "2",
+        "payment:debit_cards": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4300136,
+          50.0893818
+        ]
+      },
+      "id": "node/5917583421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5966188944",
+        "amenity": "toilets",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4203907,
+          50.0959242
+        ]
+      },
+      "id": "node/5966188944"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6178496884",
+        "amenity": "toilets",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4187547,
+          50.1277508
+        ]
+      },
+      "id": "node/6178496884"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6461222669",
+        "access": "customers",
+        "amenity": "toilets",
+        "level": "1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4692325,
+          50.1272419
+        ]
+      },
+      "id": "node/6461222669"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6471967443",
+        "amenity": "toilets",
+        "fee": "yes",
+        "fee:conditional": "no@customers",
+        "layer": "1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.42003,
+          50.0812567
+        ]
+      },
+      "id": "node/6471967443"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6502182709",
+        "amenity": "toilets",
+        "fee": "yes",
+        "note": "poplatek za wc je vratny po nákupe v Kauflandu",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "operator": "Kaufland",
+        "operator:wikidata": "Q685967",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4990305,
+          50.0928916
+        ]
+      },
+      "id": "node/6502182709"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7071841763",
+        "access": "key",
+        "amenity": "toilets",
+        "fee": "no",
+        "indoor": "yes",
+        "note": "key can be borrowed for free",
+        "opening_hours": "24/7",
+        "supervised": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.464333,
+          50.1154713
+        ]
+      },
+      "id": "node/7071841763"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7215854688",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "fee": "yes",
+        "female": "yes",
+        "layer": "-1",
+        "level": "-1",
+        "location": "underground",
+        "male": "yes",
+        "opening_hours": "Mo-Fr 09:00-19:00",
+        "toilets:disposal": "flush",
+        "website": "https://www.dpp.cz/cestovani/wc-v-metru",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4994497,
+          50.1186556
+        ]
+      },
+      "id": "node/7215854688"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7379144521",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "yes",
+        "female": "yes",
+        "male": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.599777,
+          50.032185
+        ]
+      },
+      "id": "node/7379144521"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7836903686",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "no",
+        "opening_hours": "09:00-21:00",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5010311,
+          50.1355033
+        ]
+      },
+      "id": "node/7836903686"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7954242000",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "check_date:opening_hours": "2024-01-14",
+        "fee": "no",
+        "level": "1",
+        "opening_hours": "09:00-21:00",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.502262,
+          50.1381244
+        ]
+      },
+      "id": "node/7954242000"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8324246318",
+        "amenity": "toilets",
+        "description": "v metru",
+        "fee": "yes",
+        "level": "-1",
+        "opening_hours": "Mo-Fr 06:00-19:00; Sa,Su 08:00-17:00",
+        "phone": "+420 776761005",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4892867,
+          50.1259527
+        ]
+      },
+      "id": "node/8324246318"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8410636874",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "yes",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4682532,
+          50.102408
+        ]
+      },
+      "id": "node/8410636874"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8662174633",
+        "access": "customers",
+        "amenity": "toilets",
+        "level": "1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4993725,
+          50.1193739
+        ]
+      },
+      "id": "node/8662174633"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8680697639",
+        "access": "customers",
+        "amenity": "toilets",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.51701,
+          50.1030004
+        ]
+      },
+      "id": "node/8680697639"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8985356817",
+        "amenity": "toilets",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2639659,
+          50.1060328
+        ]
+      },
+      "id": "node/8985356817"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9327568428",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "yes",
+        "opening_hours": "Mo-Fr 07:00-20:00; Sa,Su,PH 08:00-19:00",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3529652,
+          50.0509893
+        ]
+      },
+      "id": "node/9327568428"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9379937698",
+        "access": "customers",
+        "amenity": "toilets",
+        "centralkey": "eurokey",
+        "fee": "no",
+        "level": "0",
+        "opening_hours": "Mo-Su 08:00-21:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.542754,
+          50.0724214
+        ]
+      },
+      "id": "node/9379937698"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9399787250",
+        "access": "customers",
+        "amenity": "toilets",
+        "centralkey": "eurokey",
+        "female": "yes",
+        "layer": "-1",
+        "level": "0",
+        "male": "yes",
+        "opening_hours": "Mo-Fr 06:05-17:55; Sa 06:20-15:20; Su 07:05-17:20",
+        "operator": "České dráhy",
+        "portable": "no",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "unisex": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5045217,
+          50.0621598
+        ]
+      },
+      "id": "node/9399787250"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9597830234",
+        "amenity": "toilets",
+        "fee": "yes",
+        "level": "0",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4182372,
+          50.0058741
+        ]
+      },
+      "id": "node/9597830234"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10034657628",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2630011,
+          50.1066662
+        ]
+      },
+      "id": "node/10034657628"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10060759041",
+        "access": "permissive",
+        "amenity": "toilets",
+        "drinking_water": "yes",
+        "fee": "no",
+        "female": "yes",
+        "male": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5358993,
+          50.1250579
+        ]
+      },
+      "id": "node/10060759041"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10099791101",
+        "access": "yes",
+        "amenity": "toilets",
+        "charge": "20 CZK",
+        "fee": "yes",
+        "opening_hours": "24/7",
+        "toilets:handwashing": "yes",
+        "toilets:paper_supplied": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4350137,
+          50.0827344
+        ]
+      },
+      "id": "node/10099791101"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10120629090",
+        "access": "customers",
+        "amenity": "toilets",
+        "fee": "no",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "toilets:wheelchair": "no",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4244229,
+          50.0812259
+        ]
+      },
+      "id": "node/10120629090"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10120638519",
+        "access": "customers",
+        "amenity": "toilets",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4242684,
+          50.0873309
+        ]
+      },
+      "id": "node/10120638519"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10120638940",
+        "access": "customers",
+        "amenity": "toilets",
+        "fee": "yes",
+        "level": "1",
+        "source": "survey",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4256312,
+          50.0852911
+        ]
+      },
+      "id": "node/10120638940"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10582772576",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "yes",
+        "female": "yes",
+        "male": "yes",
+        "portable": "no",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "toilets:position": "seated;urinal",
+        "unisex": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4396374,
+          50.0893004
+        ]
+      },
+      "id": "node/10582772576"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10614256358",
+        "amenity": "toilets",
+        "check_date": "2025-09-24",
+        "fee": "no",
+        "gender_segregated": "yes",
+        "hot_water": "yes",
+        "portable": "no",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "toilets:paper_supplied": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4049582,
+          50.0939714
+        ]
+      },
+      "id": "node/10614256358"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10766946024",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3906749,
+          50.1041601
+        ]
+      },
+      "id": "node/10766946024"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10767892560",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3906901,
+          50.1041521
+        ]
+      },
+      "id": "node/10767892560"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10767892561",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "male": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3907061,
+          50.1041441
+        ]
+      },
+      "id": "node/10767892561"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10767892562",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "male": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3907213,
+          50.1041359
+        ]
+      },
+      "id": "node/10767892562"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11036648978",
+        "access": "yes",
+        "addr:floor": "1",
+        "amenity": "toilets",
+        "charge": "20 CZK",
+        "check_date": "2023-06-17",
+        "fee": "yes",
+        "level": "1",
+        "operator": "WC",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4249363,
+          50.0858524
+        ]
+      },
+      "id": "node/11036648978"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11266317555",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4478998,
+          50.1091838
+        ]
+      },
+      "id": "node/11266317555"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11279288469",
+        "access": "customers",
+        "amenity": "toilets",
+        "fee": "yes",
+        "opening_hours": "We-Mo 09:00-22:00; Tu 09:00-15:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4492834,
+          50.102058
+        ]
+      },
+      "id": "node/11279288469"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11953716881",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "fee": "no",
+        "female": "yes",
+        "level": "2",
+        "male": "yes",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4177924,
+          50.1278859
+        ]
+      },
+      "id": "node/11953716881"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12000900970",
+        "amenity": "toilets",
+        "fee": "yes",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa-Su 08:00-20:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.440816,
+          50.1084965
+        ]
+      },
+      "id": "node/12000900970"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12229500905",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "yes",
+        "charge": "10",
+        "check_date": "2024-10-06",
+        "fee": "yes",
+        "opening_hours": "24/7",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3639948,
+          49.9854226
+        ]
+      },
+      "id": "node/12229500905"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12486413212",
+        "amenity": "toilets",
+        "fee": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3841699,
+          50.1161708
+        ]
+      },
+      "id": "node/12486413212"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12985469719",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "male": "yes",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6586661,
+          50.0781195
+        ]
+      },
+      "id": "node/12985469719"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13566859669",
+        "amenity": "toilets",
+        "fee": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3536732,
+          50.0473796
+        ]
+      },
+      "id": "node/13566859669"
+    }
+  ]
+}

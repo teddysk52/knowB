@@ -10,10 +10,7 @@ const PREFS = [
   { key: 'benches', Icon: Armchair, tKey: 'pref_benches' },
   { key: 'toilets', Icon: Bath, tKey: 'pref_toilets' },
   { key: 'elevators', Icon: ArrowUpDown, tKey: 'pref_elevators' },
-  { key: 'aed', Icon: HeartPulse, tKey: 'pref_aed' },
-  { key: 'pharmacies', Icon: Cross, tKey: 'pref_pharmacies' },
   { key: 'fountains', Icon: Droplets, tKey: 'pref_water' },
-  { key: 'transport', Icon: TrainFront, tKey: 'pref_transit' },
 ];
 
 export default function RoutePanel({

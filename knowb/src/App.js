@@ -77,6 +77,174 @@ function computeComfortAndJistota(routeCoords, preferences) {
   return { comfort, jistota, factors };
 }
 
+// ── Dijkstra comfort-aware routing ──────────────────────────────────
+// Collects comfort POIs (benches, toilets, fountains, etc.) within a corridor
+// between start and end, builds a weighted graph, and finds the path through
+// waypoints that maximizes comfort. Then fetches an OSRM walking route
+// through those waypoints.
+
+function getComfortPOIs(start, end, preferences) {
+  // Corridor width in meters around the straight line from start to end
+  const CORRIDOR = 500;
+  const allPOIs = [];
+
+  // Comfort-relevant keys
+  const COMFORT_KEYS = ['benches', 'toilets', 'fountains', 'elevators', 'pharmacies', 'aed', 'transport'];
+  // Weight: how much each type contributes to comfort for a senior
+  const COMFORT_WEIGHT = {
+    benches: 3,
+    toilets: 3,
+    fountains: 2,
+    elevators: 1,
+    pharmacies: 1,
+    aed: 1,
+    transport: 1,
+  };
+
+  COMFORT_KEYS.forEach((key) => {
+    if (!DATA_MAP[key]) return;
+    const weight = (preferences[key] ? COMFORT_WEIGHT[key] || 1 : 0.2);
+    DATA_MAP[key].forEach((item) => {
+      const dToStart = distanceMeters(start.lat, start.lng, item.lat, item.lng);
+      const dToEnd = distanceMeters(end.lat, end.lng, item.lat, item.lng);
+      const directDist = distanceMeters(start.lat, start.lng, end.lat, end.lng);
+      // Simple corridor check: POI must be within reasonable range
+      if (dToStart + dToEnd <= directDist * 1.6 + CORRIDOR) {
+        allPOIs.push({ ...item, comfortWeight: weight, category: key });
+      }
+    });
+  });
+
+  return allPOIs;
+}
+
+function dijkstraComfortRoute(start, end, pois) {
+  // Nodes: 0 = start, 1..n = pois, n+1 = end
+  const nodes = [
+    { lat: start.lat, lng: start.lng, comfortWeight: 0 },
+    ...pois,
+    { lat: end.lat, lng: end.lng, comfortWeight: 0 },
+  ];
+  const n = nodes.length;
+  const END_IDX = n - 1;
+
+  // Build adjacency: each node connects to nodes within MAX_EDGE_DIST
+  const MAX_EDGE_DIST = 800; // meters
+  const adj = Array.from({ length: n }, () => []);
+
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      const d = distanceMeters(nodes[i].lat, nodes[i].lng, nodes[j].lat, nodes[j].lng);
+      if (d <= MAX_EDGE_DIST || i === 0 || j === END_IDX) {
+        // Edge cost = distance - comfort bonus of destination
+        // Lower cost = better (shorter distance or more comfort)
+        const comfortBonus = nodes[j].comfortWeight * 80;
+        const cost = Math.max(1, d - comfortBonus);
+        adj[i].push({ to: j, cost });
+
+        const comfortBonusRev = nodes[i].comfortWeight * 80;
+        const costRev = Math.max(1, d - comfortBonusRev);
+        adj[j].push({ to: i, cost: costRev });
+      }
+    }
+  }
+
+  // Dijkstra from start (0) to end (END_IDX)
+  const dist = new Array(n).fill(Infinity);
+  const prev = new Array(n).fill(-1);
+  const visited = new Array(n).fill(false);
+  dist[0] = 0;
+
+  for (let iter = 0; iter < n; iter++) {
+    let u = -1;
+    let minDist = Infinity;
+    for (let i = 0; i < n; i++) {
+      if (!visited[i] && dist[i] < minDist) {
+        minDist = dist[i];
+        u = i;
+      }
+    }
+    if (u === -1 || u === END_IDX) break;
+    visited[u] = true;
+
+    for (const { to, cost } of adj[u]) {
+      if (!visited[to] && dist[u] + cost < dist[to]) {
+        dist[to] = dist[u] + cost;
+        prev[to] = u;
+      }
+    }
+  }
+
+  // Reconstruct path
+  const path = [];
+  let cur = END_IDX;
+  while (cur !== -1) {
+    path.unshift(nodes[cur]);
+    cur = prev[cur];
+  }
+
+  // If path doesn't start at start node, Dijkstra couldn't connect — return direct
+  if (path.length < 2 || distanceMeters(path[0].lat, path[0].lng, start.lat, start.lng) > 1) {
+    return [{ lat: start.lat, lng: start.lng }, { lat: end.lat, lng: end.lng }];
+  }
+
+  return path;
+}
+
+async function fetchOSRMRoute(waypoints) {
+  const coords = waypoints.map(w => `${w.lng},${w.lat}`).join(';');
+  const url = `https://router.project-osrm.org/route/v1/foot/${coords}?overview=full&geometries=geojson`;
+  const res = await fetch(url);
+  const data = await res.json();
+  if (data.routes && data.routes.length > 0) {
+    return {
+      coordinates: data.routes[0].geometry.coordinates,
+      duration: data.routes[0].duration,
+      distance: data.routes[0].distance,
+    };
+  }
+  return null;
+}
+
+async function computeComfortRoute(start, end, preferences) {
+  // 1. Get comfort POIs in corridor
+  const pois = getComfortPOIs(start, end, preferences);
+
+  // 2. Run Dijkstra to find optimal waypoints through comfort POIs
+  const optimalPath = dijkstraComfortRoute(start, end, pois);
+
+  // 3. Limit waypoints for OSRM (max ~8 intermediate points to avoid URL limits)
+  let waypoints = optimalPath;
+  if (waypoints.length > 10) {
+    const step = Math.ceil(waypoints.length / 8);
+    const sampled = [waypoints[0]];
+    for (let i = step; i < waypoints.length - 1; i += step) {
+      sampled.push(waypoints[i]);
+    }
+    sampled.push(waypoints[waypoints.length - 1]);
+    waypoints = sampled;
+  }
+
+  // 4. Fetch OSRM route through comfort waypoints
+  const comfortRoute = await fetchOSRMRoute(waypoints);
+
+  // 5. Also fetch direct route for comparison
+  const directRoute = await fetchOSRMRoute([
+    { lat: start.lat, lng: start.lng },
+    { lat: end.lat, lng: end.lng },
+  ]);
+
+  const routes = [];
+  if (comfortRoute) routes.push(comfortRoute);
+  if (directRoute && routes.length === 0) routes.push(directRoute);
+  // If comfort route is the same as direct, just return one
+  if (routes.length === 2 && comfortRoute.distance === directRoute.distance) {
+    routes.pop();
+  }
+
+  return routes;
+}
+
 async function reverseGeocode(lat, lng, lang) {
   try {
     const acceptLang = lang === 'cs' ? 'cs,en' : 'en,cs';
@@ -179,23 +347,18 @@ export default function App() {
     (async () => {
       setIsLoadingRoute(true);
       try {
-        const url = `https://router.project-osrm.org/route/v1/foot/${route.start.lng},${route.start.lat};${route.end.lng},${route.end.lat}?overview=full&geometries=geojson&alternatives=true`;
-        const res = await fetch(url);
-        const data = await res.json();
+        // Use Dijkstra comfort-aware routing
+        const routes = await computeComfortRoute(route.start, route.end, preferences);
         if (cancelled) return;
-        if (data.routes && data.routes.length > 0) {
-          setRouteData(data.routes.map((r) => ({
-            coordinates: r.geometry.coordinates,
-            duration: r.duration,
-            distance: r.distance,
-          })));
-          setSelectedRouteIndex(0);
+        if (routes.length > 0) {
+          setRouteData(routes);
+          setBestRouteIndex(0);
         } else { setRouteData([]); }
       } catch { if (!cancelled) setRouteData([]); }
       finally { if (!cancelled) setIsLoadingRoute(false); }
     })();
     return () => { cancelled = true; };
-  }, [route.start, route.end]);
+  }, [route.start, route.end, preferences]);
 
   useEffect(() => {
     if (routeData.length === 0) { setComfortData(null); return; }

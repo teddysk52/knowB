@@ -1,0 +1,945 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-03-06T18:24:01Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3145344959",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "layer": "1",
+        "note": "obvodní lékaři",
+        "phone": "+420 296 506 111"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4895891,
+          50.027723
+        ]
+      },
+      "id": "node/3145344959"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3145361376",
+        "emergency": "defibrillator",
+        "phone": "+420 267 902 209"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5318307,
+          50.0285481
+        ]
+      },
+      "id": "node/3145361376"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3145362838",
+        "defibrillator:location": "Přístroj umístěn v pracovně všeobecných sester.",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "phone": "+420 272 916 454"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5365233,
+          50.0312347
+        ]
+      },
+      "id": "node/3145362838"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4701113170",
+        "emergency": "defibrillator",
+        "start_date": "2016-12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4275565,
+          50.0816373
+        ]
+      },
+      "id": "node/4701113170"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5926470645",
+        "defibrillator:location": "Under the sign \"ALL GATES TERMINAL 2\", to the left of a door with the sign \"Staff Entry 26\"",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2670265,
+          50.105117
+        ]
+      },
+      "id": "node/5926470645"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5983122848",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "opening_hours": "08:00-21:00",
+        "operator": "Globus"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5063267,
+          50.1511762
+        ]
+      },
+      "id": "node/5983122848"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6083065126",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4226577,
+          50.085373
+        ]
+      },
+      "id": "node/6083065126"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6252086876",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4358637,
+          50.125854
+        ]
+      },
+      "id": "node/6252086876"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6497195584",
+        "defibrillator:location": "in the porter's lounge",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4687982,
+          50.1234641
+        ]
+      },
+      "id": "node/6497195584"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6685376300",
+        "defibrillator:location": "Mezi Policií ČR a Služebním vchodem 27.",
+        "emergency": "defibrillator",
+        "level": "0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2662666,
+          50.1056071
+        ]
+      },
+      "id": "node/6685376300"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7609431174",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.384695,
+          50.0942813
+        ]
+      },
+      "id": "node/7609431174"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7924045782",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4490468,
+          50.1147221
+        ]
+      },
+      "id": "node/7924045782"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8742476249",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.479441,
+          50.1303559
+        ]
+      },
+      "id": "node/8742476249"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8976722918",
+        "defibrillator:location": "Na zdi vpravo za vstupními dveřmi.",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "operator": "Česká spořitelna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4491616,
+          50.0452131
+        ]
+      },
+      "id": "node/8976722918"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9278733370",
+        "defibrillator:location": "vrátnice 24/7",
+        "emergency": "defibrillator",
+        "operator": "Elektrolinie"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4512388,
+          50.1352175
+        ]
+      },
+      "id": "node/9278733370"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9545099267",
+        "access": "yes",
+        "defibrillator:location": "Vrátnice, ORP centrum",
+        "description": "ve vstupní místnosti",
+        "description:en": "in the entrance hall, right back corner",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "location": "indoor"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3911497,
+          50.1104798
+        ]
+      },
+      "id": "node/9545099267"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9555914717",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3950315,
+          50.0834433
+        ]
+      },
+      "id": "node/9555914717"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9586308236",
+        "access": "yes",
+        "defibrillator:location": "Recepce.",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "opening_hours": "06:00-22:00",
+        "operator": "Česká spořitelna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4401132,
+          50.0405715
+        ]
+      },
+      "id": "node/9586308236"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9603168462",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "operator": "Česká spořitelna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4480709,
+          50.0441793
+        ]
+      },
+      "id": "node/9603168462"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9613274284",
+        "emergency": "defibrillator",
+        "location": "indoor"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4159798,
+          50.1266737
+        ]
+      },
+      "id": "node/9613274284"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9700017910",
+        "defibrillator:location": "lifeguard room",
+        "defibrillator:location:cs": "místnost plavčíků",
+        "emergency": "defibrillator"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4175733,
+          50.0512695
+        ]
+      },
+      "id": "node/9700017910"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9709096359",
+        "defibrillator:location": "Left to the entrance desk. Trough the double door",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4248778,
+          50.0973744
+        ]
+      },
+      "id": "node/9709096359"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10064083588",
+        "access": "customers",
+        "defibrillator:location": "Po vstupu do budovy rovnou vlevo. Na chodbě vedle WC",
+        "defibrillator:location:cs": "V přízemí u výtahů",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "manufacturer": "Physio Control",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5333551,
+          50.0820726
+        ]
+      },
+      "id": "node/10064083588"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10080648470",
+        "defibrillator:location": "Na vrátnici.",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3927829,
+          50.1024926
+        ]
+      },
+      "id": "node/10080648470"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10162515089",
+        "defibrillator:location": "u ostrahy",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "source": "czu.cz",
+        "website": "https://www.czu.cz/cs/r-7229-aktuality-czu/bezpecnejsi-czu-vsechny-fakulty-maji-nove-defibrilatory.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.373373,
+          50.1300188
+        ]
+      },
+      "id": "node/10162515089"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10255792101",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4259864,
+          50.0819512
+        ]
+      },
+      "id": "node/10255792101"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10617981549",
+        "access": "yes",
+        "addr:floor": "0",
+        "defibrillator:location": "indoor",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.498383,
+          50.1403075
+        ]
+      },
+      "id": "node/10617981549"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10804333573",
+        "defibrillator:location": "inside",
+        "emergency": "defibrillator"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4281334,
+          50.0701302
+        ]
+      },
+      "id": "node/10804333573"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10874105784",
+        "defibrillator:location": "customer reception desk",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "opening_hours": "Mo-Su 07:00-22:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4990972,
+          50.0929595
+        ]
+      },
+      "id": "node/10874105784"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10995789997",
+        "defibrillator:location": "V ordinaci praktického lékaře",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4333367,
+          50.0564738
+        ]
+      },
+      "id": "node/10995789997"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10996899597",
+        "access": "yes",
+        "defibrillator:location": "Recepce.",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "opening_hours": "06:00-22:00",
+        "operator": "Česká spořitelna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4479614,
+          50.0434622
+        ]
+      },
+      "id": "node/10996899597"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11248377517",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4920039,
+          50.0235172
+        ]
+      },
+      "id": "node/11248377517"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11379815182",
+        "defibrillator:location": "indoor",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "opening_hours": "24/7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4036137,
+          50.0884712
+        ]
+      },
+      "id": "node/11379815182"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11629923269",
+        "access": "customers",
+        "check_date": "2024-02-16",
+        "defibrillator:location:cs": "AED umístěn na infostánku nákupního centra",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2870311,
+          50.0536932
+        ]
+      },
+      "id": "node/11629923269"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11677816700",
+        "defibrillator:location": "indoor",
+        "emergency": "defibrillator"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4251305,
+          50.0787609
+        ]
+      },
+      "id": "node/11677816700"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11909129063",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4272634,
+          50.0731064
+        ]
+      },
+      "id": "node/11909129063"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11944326923",
+        "defibrillator:location": "indoor",
+        "emergency": "defibrillator"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4663513,
+          50.1245129
+        ]
+      },
+      "id": "node/11944326923"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11954014650",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4877441,
+          50.1235235
+        ]
+      },
+      "id": "node/11954014650"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12281445977",
+        "defibrillator:location": "Na kraji parku On the edge of park",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "source": "https://www.zachrankaapp.cz/en/aed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4335129,
+          50.083719
+        ]
+      },
+      "id": "node/12281445977"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12472089085",
+        "emergency": "defibrillator"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4084156,
+          50.1150068
+        ]
+      },
+      "id": "node/12472089085"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12492174856",
+        "addr:floor": "0",
+        "defibrillator:location": "Na recepci (občerstvení) ve skříňce, kde je nálepka AED",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "opening_hours": "07:00-22:00",
+        "operator": "Sportcentrum Radlice",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3935143,
+          50.0573166
+        ]
+      },
+      "id": "node/12492174856"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12509096184",
+        "emergency": "defibrillator"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4550039,
+          50.1214331
+        ]
+      },
+      "id": "node/12509096184"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12583166933",
+        "emergency": "defibrillator",
+        "operator": "ČZU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3727596,
+          50.1287735
+        ]
+      },
+      "id": "node/12583166933"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12741992430",
+        "defibrillator:location": "indoor",
+        "emergency": "defibrillator"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4718877,
+          50.1085616
+        ]
+      },
+      "id": "node/12741992430"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12898789064",
+        "defibrillator:location": "On the wall behind the front desk, at about head level",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4026235,
+          50.0709252
+        ]
+      },
+      "id": "node/12898789064"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12994415569",
+        "access": "private",
+        "check_date": "2025-07-11",
+        "defibrillator:cabinet": "vertical_door",
+        "defibrillator:location": "Next to aelia dutyfree store",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "1",
+        "manufacturer": "Zoll"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2645547,
+          50.1058189
+        ]
+      },
+      "id": "node/12994415569"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13016717621",
+        "access": "yes",
+        "defibrillator:location": "U kiosku informací, u vstupu doo prodejního prostoru",
+        "defibrillator:location:en": "Near the information desk",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "opening_hours": "07:00-22:00",
+        "survey:date": "2025-07-22",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3356077,
+          50.0517517
+        ]
+      },
+      "id": "node/13016717621"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13392524144",
+        "access": "yes",
+        "brand": "Philips",
+        "check_date": "2025-12-27",
+        "defibrillator:location": "K dispozici prostřednictvím zaměstnanců ochranky 24/7, umístěn za turnikety.",
+        "description": "K dispozici prostřednictvím zaměstnanců ochranky 24/7, umístěn za turnikety.",
+        "description:en": "Available via 24/7 security staff, located behind the turnstiles.",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "location": "indoor",
+        "model": "HeartStart FRx",
+        "opening_hours": "24/7",
+        "operator": "TV Nova"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3920981,
+          50.0298954
+        ]
+      },
+      "id": "node/13392524144"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13504813714",
+        "access": "yes",
+        "brand": "Philips",
+        "check_date": "2025-12-27",
+        "defibrillator:location": "K dispozici prostřednictvím zaměstnanců ochranky 24/7, umístěn u recepce security.",
+        "description": "K dispozici prostřednictvím zaměstnanců ochranky 24/7, umístěn u recepce security.",
+        "description:en": "Available via 24/7 security staff.",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "location": "indoor",
+        "model": "HeartStart FRx",
+        "opening_hours": "24/7",
+        "operator": "TV Nova"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3931843,
+          50.0295454
+        ]
+      },
+      "id": "node/13504813714"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13504813715",
+        "access": "yes",
+        "brand": "Philips",
+        "check_date": "2025-12-27",
+        "defibrillator:location": "K dispozici prostřednictvím zaměstnanců ochranky 24/7, umístěn za turnikety.",
+        "description": "K dispozici prostřednictvím zaměstnanců ochranky 24/7, umístěn za turnikety.",
+        "description:en": "Available via 24/7 security staff, located behind the turnstiles.",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "location": "indoor",
+        "model": "HeartStart FRx",
+        "opening_hours": "24/7",
+        "operator": "TV Nova"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3869099,
+          50.0296371
+        ]
+      },
+      "id": "node/13504813715"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13510400401",
+        "access": "yes",
+        "brand": "Philips",
+        "check_date": "2026-01-29",
+        "defibrillator:location": "K dispozici prostřednictvím zaměstnanců ochranky 24/7, na vrátnici.",
+        "description": "K dispozici prostřednictvím zaměstnanců ochranky 24/7, na vrátnici.",
+        "description:en": "Available via 24/7 security staff.",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "location": "indoor",
+        "opening_hours": "24/7",
+        "operator": "Barrandov Studio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3862558,
+          50.0325812
+        ]
+      },
+      "id": "node/13510400401"
+    }
+  ]
+}
