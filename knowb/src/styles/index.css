@@ -1534,6 +1534,119 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* GO / Start Navigation Button */
+.sheet__go-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 52px;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.sheet__go-btn:hover {
+  box-shadow: 0 6px 28px rgba(16, 185, 129, 0.45);
+  transform: translateY(-1px);
+}
+
+.sheet__go-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+.sheet__go-btn--full {
+  width: 100%;
+}
+
+/* Peek route row with Go button */
+.sheet__peek-route {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sheet__peek-route .sheet__row {
+  flex: 1;
+}
+
+.sheet__peek-route .sheet__go-btn {
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  min-height: 48px;
+  border-radius: var(--radius-md);
+}
+
+/* Navigation mode sheet */
+.sheet--nav {
+  max-height: 80px;
+  border-radius: 20px 20px 0 0;
+}
+
+.sheet__nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  gap: 16px;
+}
+
+.sheet__nav-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.sheet__nav-distance {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.sheet__nav-dest {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet__nav-stop {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sheet__nav-stop:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.sheet__nav-stop svg { width: 16px; height: 16px; }
+
 /* Peek with filters */
 .sheet__peek-filters {
   display: flex;

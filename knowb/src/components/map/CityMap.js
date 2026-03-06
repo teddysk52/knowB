@@ -42,9 +42,9 @@ function formatDistance(meters) {
 }
 
 export default function CityMap({
-  theme, activeMode, route, routeData, selectedRouteIndex, onRouteSelect,
+  theme, activeMode, route, routeData, bestRouteIndex,
   onMapClick, settingPoint, showHeatmap, showHelp, showPOIs, isLoadingRoute, t,
-  userPosition, routeLabels,
+  userPosition, navigating,
 }) {
   const [popupInfo, setPopupInfo] = useState(null);
   const [viewState, setViewState] = useState({
@@ -64,6 +64,18 @@ export default function CityMap({
       centeredOnUser.current = true;
     }
   }, [userPosition]);
+
+  // Follow user during navigation
+  useEffect(() => {
+    if (navigating && userPosition) {
+      setViewState(prev => ({
+        ...prev,
+        longitude: userPosition.lng,
+        latitude: userPosition.lat,
+        zoom: Math.max(prev.zoom, 16),
+      }));
+    }
+  }, [navigating, userPosition]);
 
   const modeConfig = MODES[activeMode];
   const activeLayers = modeConfig.layers;
@@ -129,14 +141,11 @@ export default function CityMap({
 
   const sortedRoutes = useMemo(() => {
     if (!routeData || routeData.length === 0) return [];
-    return routeData
-      .map((r, i) => ({ ...r, index: i }))
-      .sort((a, b) => {
-        if (a.index === selectedRouteIndex) return 1;
-        if (b.index === selectedRouteIndex) return -1;
-        return 0;
-      });
-  }, [routeData, selectedRouteIndex]);
+    // Only show the best (most comfortable) route
+    const best = routeData[bestRouteIndex];
+    if (!best) return [];
+    return [{ ...best, index: bestRouteIndex }];
+  }, [routeData, bestRouteIndex]);
 
   const allMarkers = [...markers, ...helpMarkers];
   const cursorStyle = settingPoint ? 'crosshair' : 'grab';
@@ -178,33 +187,30 @@ export default function CityMap({
         )}
 
         {sortedRoutes.map(({ coordinates, index }) => {
-          const isSelected = index === selectedRouteIndex;
           const geojson = {
             type: 'Feature',
             geometry: { type: 'LineString', coordinates },
           };
           return (
             <Source key={`route-${index}`} id={`route-${index}`} type="geojson" data={geojson}>
-              {isSelected && (
-                <Layer
-                  id={`route-glow-${index}`}
-                  type="line"
-                  paint={{
-                    'line-color': '#6366f1',
-                    'line-width': 14,
-                    'line-opacity': 0.12,
-                    'line-blur': 10,
-                  }}
-                  layout={{ 'line-cap': 'round', 'line-join': 'round' }}
-                />
-              )}
+              <Layer
+                id={`route-glow-${index}`}
+                type="line"
+                paint={{
+                  'line-color': '#6366f1',
+                  'line-width': 14,
+                  'line-opacity': 0.12,
+                  'line-blur': 10,
+                }}
+                layout={{ 'line-cap': 'round', 'line-join': 'round' }}
+              />
               <Layer
                 id={`route-line-${index}`}
                 type="line"
                 paint={{
-                  'line-color': isSelected ? '#6366f1' : '#94a3b8',
-                  'line-width': isSelected ? 5 : 4,
-                  'line-opacity': isSelected ? 1 : 0.5,
+                  'line-color': '#6366f1',
+                  'line-width': 5,
+                  'line-opacity': 1,
                 }}
                 layout={{ 'line-cap': 'round', 'line-join': 'round' }}
               />
@@ -267,27 +273,7 @@ export default function CityMap({
         )}
       </MapGL>
 
-      {routeData.length > 0 && (
-        <div className="route-alternatives">
-          {routeData.map((r, i) => (
-            <button
-              key={i}
-              className={`route-alt-btn ${i === selectedRouteIndex ? 'route-alt-btn--active' : ''}`}
-              onClick={() => onRouteSelect(i)}
-            >
-              <div className="route-alt-btn__info">
-                <Route size={14} />
-                <span className="route-alt-btn__time">{formatDistance(r.distance)}</span>
-              </div>
-              {routeLabels && routeLabels[i] && (
-                <span className="route-alt-btn__badge">{routeLabels[i]}</span>
-              )}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {settingPoint && (
+      {settingPoint && !navigating && (
         <div className="map-cursor-hint">
           {settingPoint === 'start' ? t.map_click_start : t.map_click_end}
         </div>

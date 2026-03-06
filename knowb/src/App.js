@@ -128,10 +128,12 @@ export default function App() {
   const [mapCenter] = useState(PRAGUE_CENTER);
   const [preferences, setPreferences] = useState(MODE_DEFAULT_PREFS.wheelchair);
   const [routeData, setRouteData] = useState([]);
-  const [selectedRouteIndex, setSelectedRouteIndex] = useState(0);
+  const [bestRouteIndex, setBestRouteIndex] = useState(0);
   const [isLoadingRoute, setIsLoadingRoute] = useState(false);
   const [comfortData, setComfortData] = useState(null);
   const [userPosition, setUserPosition] = useState(null);
+  const [navigating, setNavigating] = useState(false);
+  const watchIdRef = React.useRef(null);
 
   useEffect(() => { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
 
@@ -196,22 +198,18 @@ export default function App() {
   }, [route.start, route.end]);
 
   useEffect(() => {
-    if (routeData.length === 0 || !routeData[selectedRouteIndex]) { setComfortData(null); return; }
-    setComfortData(computeComfortAndJistota(routeData[selectedRouteIndex].coordinates, preferences));
-  }, [routeData, selectedRouteIndex, preferences]);
-
-  const routeLabels = useMemo(() => {
-    if (!routeData || routeData.length === 0) return [];
-    if (routeData.length === 1) return [t.fastest];
-    const comforts = routeData.map(r => computeComfortAndJistota(r.coordinates, preferences));
-    const fastestIdx = routeData.reduce((min, r, i) => r.distance < routeData[min].distance ? i : min, 0);
-    const comfortIdx = comforts.reduce((max, c, i) => c.comfort > comforts[max].comfort ? i : max, 0);
-    return routeData.map((_, i) => {
-      if (i === fastestIdx) return t.fastest;
-      if (i === comfortIdx) return t.route_comfortable;
-      return null;
-    });
-  }, [routeData, preferences, t]);
+    if (routeData.length === 0) { setComfortData(null); return; }
+    // Pick the most comfortable route
+    if (routeData.length > 1) {
+      const comforts = routeData.map(r => computeComfortAndJistota(r.coordinates, preferences));
+      const bestIdx = comforts.reduce((max, c, i) => c.comfort > comforts[max].comfort ? i : max, 0);
+      setBestRouteIndex(bestIdx);
+      setComfortData(comforts[bestIdx]);
+    } else {
+      setBestRouteIndex(0);
+      setComfortData(computeComfortAndJistota(routeData[0].coordinates, preferences));
+    }
+  }, [routeData, preferences]);
 
   const toggleTheme = useCallback(() => {
     setTheme((t) => {
@@ -258,7 +256,12 @@ export default function App() {
   const handleClearRoute = useCallback(() => {
     setRouteData([]);
     setComfortData(null);
-    setSelectedRouteIndex(0);
+    setBestRouteIndex(0);
+    setNavigating(false);
+    if (watchIdRef.current) {
+      navigator.geolocation.clearWatch(watchIdRef.current);
+      watchIdRef.current = null;
+    }
     if (userPosition) {
       reverseGeocode(userPosition.lat, userPosition.lng, lang).then(address => {
         setRoute({ start: { ...userPosition, address }, end: null });
@@ -269,6 +272,27 @@ export default function App() {
       setSettingPoint('start');
     }
   }, [userPosition, lang]);
+
+  const handleStartNav = useCallback(() => {
+    setNavigating(true);
+    if (navigator.geolocation) {
+      watchIdRef.current = navigator.geolocation.watchPosition(
+        (pos) => {
+          setUserPosition({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        },
+        () => {},
+        { enableHighAccuracy: true, maximumAge: 3000, timeout: 10000 }
+      );
+    }
+  }, []);
+
+  const handleStopNav = useCallback(() => {
+    setNavigating(false);
+    if (watchIdRef.current) {
+      navigator.geolocation.clearWatch(watchIdRef.current);
+      watchIdRef.current = null;
+    }
+  }, []);
 
   const handleTogglePref = useCallback((key) => {
     setPreferences((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -335,8 +359,7 @@ export default function App() {
         activeMode={activeMode}
         route={route}
         routeData={routeData}
-        selectedRouteIndex={selectedRouteIndex}
-        onRouteSelect={setSelectedRouteIndex}
+        bestRouteIndex={bestRouteIndex}
         onMapClick={handleMapClick}
         settingPoint={settingPoint}
         showHeatmap={false}
@@ -345,7 +368,7 @@ export default function App() {
         isLoadingRoute={isLoadingRoute}
         t={t}
         userPosition={userPosition}
-        routeLabels={routeLabels}
+        navigating={navigating}
       />
 
       {showHelp && <HelpNearbyPanel mapCenter={mapCenter} t={t} />}
@@ -355,14 +378,16 @@ export default function App() {
         settingPoint={settingPoint}
         onClear={handleClearRoute}
         routeData={routeData}
-        selectedRouteIndex={selectedRouteIndex}
-        onRouteSelect={setSelectedRouteIndex}
+        bestRouteIndex={bestRouteIndex}
         isLoadingRoute={isLoadingRoute}
         comfortData={comfortData}
         preferences={preferences}
         onTogglePref={handleTogglePref}
         onSelectAll={handleSelectAll}
         onClearAll={handleClearAll}
+        navigating={navigating}
+        onStartNav={handleStartNav}
+        onStopNav={handleStopNav}
         t={t}
       />
     </div>

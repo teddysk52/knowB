@@ -109,6 +109,9 @@ const translations = {
     dark: 'Dark',
     light: 'Light',
     my_location: 'My location',
+    start_nav: 'Go',
+    stop_nav: 'Stop',
+    navigating: 'Navigating…',
   },
 
   cs: {
@@ -221,6 +224,9 @@ const translations = {
     dark: 'Tmavý',
     light: 'Světlý',
     my_location: 'Moje poloha',
+    start_nav: 'V cestu',
+    stop_nav: 'Stop',
+    navigating: 'Navigace…',
   },
 
   ru: {
@@ -301,6 +307,9 @@ const translations = {
     dark: 'Тёмная',
     light: 'Светлая',
     my_location: 'Моё местоположение',
+    start_nav: 'В путь',
+    stop_nav: 'Стоп',
+    navigating: 'Навигация…',
   },
 
   uk: {
@@ -381,6 +390,9 @@ const translations = {
     dark: 'Темна',
     light: 'Світла',
     my_location: 'Моє місцезнаходження',
+    start_nav: 'В дорогу',
+    stop_nav: 'Стоп',
+    navigating: 'Навігація…',
   },
 };
 

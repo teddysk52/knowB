@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Navigation, MapPin, X, CheckCheck, XCircle,
-  ChevronUp, ChevronDown,
+  ChevronUp, ChevronDown, Play, Square,
   Armchair, Bath, ArrowUpDown, HeartPulse,
   Cross, TrainFront, Droplets,
 } from 'lucide-react';
@@ -18,12 +18,13 @@ const PREFS = [
 
 export default function RoutePanel({
   route, settingPoint, onClear,
-  routeData, selectedRouteIndex,
-  isLoadingRoute, comfortData, preferences, onTogglePref, onSelectAll, onClearAll, t,
+  routeData, bestRouteIndex,
+  isLoadingRoute, comfortData, preferences, onTogglePref, onSelectAll, onClearAll,
+  navigating, onStartNav, onStopNav, t,
 }) {
   const [open, setOpen] = useState(false);
   const hasRoute = routeData && routeData.length > 0;
-  const selected = hasRoute ? routeData[selectedRouteIndex] : null;
+  const selected = hasRoute ? routeData[bestRouteIndex] : null;
   const startAddr = route.start ? route.start.address : '';
   const endAddr = route.end ? route.end.address : '';
 
@@ -37,7 +38,6 @@ export default function RoutePanel({
     ? comfortData.jistota >= 70 ? 'high' : comfortData.jistota >= 50 ? 'med' : 'low'
     : null;
 
-  // Status hint for the user
   const hint = settingPoint === 'start'
     ? t.tap_start
     : settingPoint === 'end'
@@ -46,25 +46,46 @@ export default function RoutePanel({
     ? null
     : t.sheet_hint;
 
+  // Navigation mode — minimal UI
+  if (navigating && hasRoute && selected) {
+    return (
+      <div className="sheet sheet--nav">
+        <div className="sheet__nav-bar">
+          <div className="sheet__nav-info">
+            <span className="sheet__nav-distance">{(selected.distance / 1000).toFixed(1)} km</span>
+            <span className="sheet__nav-dest">{endAddr}</span>
+          </div>
+          <button className="sheet__nav-stop" onClick={onStopNav}>
+            <Square size={16} /> {t.stop_nav}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`sheet ${open ? 'sheet--open' : ''}`}>
       <button className="sheet__handle" onClick={() => setOpen(!open)} aria-label="Toggle">
         <span className="sheet__bar" />
       </button>
 
-      {/* Peek state — always shows filters + hint */}
       {!open && (
         <div className="sheet__peek">
           {hasRoute && comfortData ? (
-            <button className="sheet__row" onClick={() => setOpen(true)}>
-              <span className={`sheet__badge sheet__badge--${cLevel}`}>
-                {comfortData.comfort}%
-              </span>
-              <span className="sheet__info">
-                {(selected.distance / 1000).toFixed(1)} km
-              </span>
-              <ChevronUp size={18} className="sheet__chevron" />
-            </button>
+            <div className="sheet__peek-route">
+              <button className="sheet__row" onClick={() => setOpen(true)}>
+                <span className={`sheet__badge sheet__badge--${cLevel}`}>
+                  {comfortData.comfort}%
+                </span>
+                <span className="sheet__info">
+                  {(selected.distance / 1000).toFixed(1)} km
+                </span>
+                <ChevronUp size={18} className="sheet__chevron" />
+              </button>
+              <button className="sheet__go-btn" onClick={onStartNav}>
+                <Play size={20} /> {t.start_nav}
+              </button>
+            </div>
           ) : (
             <div className="sheet__peek-filters">
               {hint && <div className="sheet__hint">{hint}</div>}
@@ -93,10 +114,8 @@ export default function RoutePanel({
         </div>
       )}
 
-      {/* Expanded state */}
       {open && (
         <div className="sheet__body">
-          {/* Addresses */}
           <div className="sheet__addrs">
             <div className="sheet__addr">
               <Navigation size={16} className="sheet__addr-icon sheet__addr-icon--start" />
@@ -108,14 +127,12 @@ export default function RoutePanel({
             </div>
           </div>
 
-          {/* Clear button */}
           {(hasRoute || route.start) && (
             <button className="sheet__clear" onClick={onClear}>
               <X size={16} /> {t.clear_route}
             </button>
           )}
 
-          {/* Filters always visible */}
           <div className="sheet__prefs">
             {PREFS.map(({ key, Icon, tKey }) => (
               <button
@@ -137,7 +154,6 @@ export default function RoutePanel({
             </button>
           </div>
 
-          {/* Scores */}
           {hasRoute && comfortData && (
             <>
               <div className="sheet__scores">
@@ -168,6 +184,10 @@ export default function RoutePanel({
                   })}
                 </div>
               )}
+
+              <button className="sheet__go-btn sheet__go-btn--full" onClick={() => { onStartNav(); setOpen(false); }}>
+                <Play size={20} /> {t.start_nav}
+              </button>
             </>
           )}
 
