@@ -1,0 +1,2 @@
+knowb/public/datahacka/data/export.geojson filter=lfs diff=lfs merge=lfs -text
+knowb/public/prague-data/backend-data/prekazky.geojson filter=lfs diff=lfs merge=lfs -text
