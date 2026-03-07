@@ -115,6 +115,8 @@ const translations = {
     from_placeholder: 'From (address)',
     to_placeholder: 'Where to?',
     search_hint: 'Press Enter to search',
+    new_route: 'New route',
+    route_here: 'Route',
   },
 
   cs: {
@@ -233,6 +235,8 @@ const translations = {
     from_placeholder: 'Odkud (adresa)',
     to_placeholder: 'Kam chcete jít?',
     search_hint: 'Enter pro vyhledání',
+    new_route: 'Nový maršrut',
+    route_here: 'Navigovat',
   },
 
   ru: {
@@ -319,6 +323,8 @@ const translations = {
     search_hint: 'Enter для поиска',
     stop_nav: 'Стоп',
     navigating: 'Навигация…',
+    new_route: 'Новый маршрут',
+    route_here: 'Маршрут',
   },
 
   uk: {
@@ -402,6 +408,11 @@ const translations = {
     start_nav: 'В дорогу',
     stop_nav: 'Стоп',
     navigating: 'Навігація…',
+    new_route: 'Новий маршрут',
+    route_here: 'Маршрут',
+    from_placeholder: 'Звідки (адреса)',
+    to_placeholder: 'Куди йдемо?',
+    search_hint: 'Enter для пошуку',
   },
 };
 

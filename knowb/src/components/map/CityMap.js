@@ -16,13 +16,13 @@ const MAP_STYLES = {
 // Large datasets (benches/stairs) → native MapLibre circle layers only
 // Small datasets (rest) → circle clusters + React Marker icons at zoom
 const POI_LAYERS = {
-  benches:         { color: '#A0522D', label: 'Lavičky',       minZoom: 13, iconMinZoom: 16, Icon: Armchair,    iconSize: 14 },
-  stairs:          { color: '#EA580C', label: 'Schody',        minZoom: 14, iconMinZoom: 16, Icon: Footprints,  iconSize: 14 },
-  toilets:         { color: '#2563EB', label: 'WC',            minZoom: 12, iconMinZoom: 14, Icon: Bath,        iconSize: 16 },
-  elevators:       { color: '#7C3AED', label: 'Výtahy',        minZoom: 12, iconMinZoom: 14, Icon: ArrowUpDown, iconSize: 16 },
-  aed:             { color: '#DC2626', label: 'AED',           minZoom: 10, iconMinZoom: 12, Icon: HeartPulse,  iconSize: 18 },
-  clinics:         { color: '#E11D48', label: 'Kliniky',       minZoom: 10, iconMinZoom: 11, Icon: Hospital,    iconSize: 18 },
-  disabledParking: { color: '#0284C7', label: 'P-ZTP',        minZoom: 13, iconMinZoom: 14, Icon: Car,         iconSize: 16 },
+  benches:         { color: '#94a3b8', label: 'Lavičky',       minZoom: 13, iconMinZoom: 16, Icon: Armchair,    iconSize: 14 },
+  stairs:          { color: '#94a3b8', label: 'Schody',        minZoom: 14, iconMinZoom: 16, Icon: Footprints,  iconSize: 14 },
+  toilets:         { color: '#94a3b8', label: 'WC',            minZoom: 12, iconMinZoom: 14, Icon: Bath,        iconSize: 14 },
+  elevators:       { color: '#94a3b8', label: 'Výtahy',        minZoom: 12, iconMinZoom: 14, Icon: ArrowUpDown, iconSize: 14 },
+  aed:             { color: '#ef4444', label: 'AED',           minZoom: 10, iconMinZoom: 12, Icon: HeartPulse,  iconSize: 16 },
+  clinics:         { color: '#ef4444', label: 'Kliniky',       minZoom: 10, iconMinZoom: 11, Icon: Hospital,    iconSize: 16 },
+  disabledParking: { color: '#94a3b8', label: 'P-ZTP',        minZoom: 13, iconMinZoom: 14, Icon: Car,         iconSize: 14 },
 };
 
 // Keys with small enough datasets or high-zoom icon markers
@@ -150,12 +150,12 @@ export default function CityMap({
                 type="circle"
                 filter={['has', 'point_count']}
                 paint={{
-                  'circle-color': cfg.color,
-                  'circle-radius': ['step', ['get', 'point_count'], 16, 50, 22, 200, 30],
-                  'circle-opacity': 0.85,
-                  'circle-stroke-width': 2.5,
-                  'circle-stroke-color': '#fff',
-                  'circle-stroke-opacity': 0.8,
+                  'circle-color': '#94a3b8',
+                  'circle-radius': ['step', ['get', 'point_count'], 14, 50, 18, 200, 24],
+                  'circle-opacity': 0.65,
+                  'circle-stroke-width': 1.5,
+                  'circle-stroke-color': 'rgba(255,255,255,0.7)',
+                  'circle-stroke-opacity': 1,
                 }}
                 minzoom={cfg.minZoom}
               />

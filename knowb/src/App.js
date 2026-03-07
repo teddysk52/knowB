@@ -231,6 +231,7 @@ export default function App() {
   const [userPosition, setUserPosition] = useState(null);
   const [navigating, setNavigating] = useState(false);
   const watchIdRef = React.useRef(null);
+  const forceProfileRef = React.useRef(null);
   const [pragueData, setPragueData] = useState(null);
 
   // Load real GeoJSON data
@@ -267,23 +268,22 @@ export default function App() {
   // Auto-set route start from geolocation
   useEffect(() => {
     if (!userPosition || route.start) return;
-    (async () => {
-      const address = await reverseGeocode(userPosition.lat, userPosition.lng, lang);
-      setRoute(prev => {
-        if (prev.start) return prev;
-        return { ...prev, start: { ...userPosition, address } };
-      });
-      setSettingPoint('end');
-    })();
-  }, [userPosition, lang, route.start]);
+    setRoute(prev => {
+      if (prev.start) return prev;
+      return { ...prev, start: { ...userPosition, address: t.my_location } };
+    });
+    setSettingPoint('end');
+  }, [userPosition, route.start, t.my_location]);
 
   useEffect(() => {
     if (!route.start || !route.end) { setRouteData([]); setComfortData(null); return; }
     let cancelled = false;
+    const profile = forceProfileRef.current || activeMode;
+    forceProfileRef.current = null;
     (async () => {
       setIsLoadingRoute(true);
       try {
-        const routes = await computeComfortRoute(route.start, route.end, preferences, activeMode);
+        const routes = await computeComfortRoute(route.start, route.end, preferences, profile);
         if (cancelled) return;
         if (routes.length > 0) {
           setRouteData(routes);
@@ -361,15 +361,13 @@ export default function App() {
       watchIdRef.current = null;
     }
     if (userPosition) {
-      reverseGeocode(userPosition.lat, userPosition.lng, lang).then(address => {
-        setRoute({ start: { ...userPosition, address }, end: null });
-      });
+      setRoute({ start: { ...userPosition, address: t.my_location }, end: null });
       setSettingPoint('end');
     } else {
       setRoute({ start: null, end: null });
       setSettingPoint('start');
     }
-  }, [userPosition, lang]);
+  }, [userPosition, t.my_location]);
 
   const handleStartNav = useCallback(() => {
     setNavigating(true);
@@ -422,13 +420,31 @@ export default function App() {
     setSettingPoint(null);
   }, []);
 
-  const handleUseMyLocation = useCallback(async () => {
+  const handleUseMyLocation = useCallback(() => {
     if (userPosition) {
-      const address = await reverseGeocode(userPosition.lat, userPosition.lng, lang);
-      setRoute(prev => ({ ...prev, start: { ...userPosition, address } }));
+      setRoute(prev => ({ ...prev, start: { ...userPosition, address: t.my_location } }));
       setSettingPoint('end');
     }
-  }, [userPosition, lang]);
+  }, [userPosition, t.my_location]);
+
+  const handleEmergencyRoute = useCallback((destination) => {
+    if (!destination) return;
+    const startLoc = userPosition
+      ? { ...userPosition, address: t.my_location }
+      : route.start;
+    if (!startLoc) return;
+    forceProfileRef.current = 'standard';
+    setRoute({
+      start: startLoc,
+      end: { lat: destination.lat, lng: destination.lng, address: destination.name || '' },
+    });
+    setSettingPoint(null);
+    setShowHelp(false);
+  }, [userPosition, route.start, t.my_location]);
+
+  const handleSetSettingPoint = useCallback((point) => {
+    setSettingPoint(point);
+  }, []);
 
   if (!onboarded) {
     return <Onboarding onComplete={handleOnboardComplete} />;
@@ -488,7 +504,15 @@ export default function App() {
         pragueData={pragueData}
       />
 
-      {showHelp && <HelpNearbyPanel mapCenter={mapCenter} pragueData={pragueData} t={t} />}
+      {showHelp && (
+        <HelpNearbyPanel
+          mapCenter={mapCenter}
+          userPosition={userPosition}
+          pragueData={pragueData}
+          t={t}
+          onEmergencyRoute={handleEmergencyRoute}
+        />
+      )}
 
       <RoutePanel
         route={route}
@@ -505,6 +529,7 @@ export default function App() {
         onSetEnd={handleSetEnd}
         onUseMyLocation={handleUseMyLocation}
         userPosition={userPosition}
+        onSetSettingPoint={handleSetSettingPoint}
       />
     </div>
   );

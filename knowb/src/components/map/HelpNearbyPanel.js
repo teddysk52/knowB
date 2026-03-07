@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { HeartPulse, Hospital } from 'lucide-react';
+import { HeartPulse, Hospital, Navigation } from 'lucide-react';
 
 function distanceMeters(lat1, lng1, lat2, lng2) {
   const R = 6371000;
@@ -27,19 +27,21 @@ function findNearest(data, center) {
   return nearest;
 }
 
-export default function HelpNearbyPanel({ mapCenter, pragueData, t }) {
+export default function HelpNearbyPanel({ mapCenter, userPosition, pragueData, t, onEmergencyRoute }) {
+  const center = userPosition || mapCenter;
+
   const nearestAed = useMemo(
-    () => findNearest(pragueData?.aed, mapCenter),
-    [mapCenter, pragueData]
+    () => findNearest(pragueData?.aed, center),
+    [center, pragueData]
   );
   const nearestClinic = useMemo(
-    () => findNearest(pragueData?.clinics, mapCenter),
-    [mapCenter, pragueData]
+    () => findNearest(pragueData?.clinics, center),
+    [center, pragueData]
   );
 
   const items = [
-    { data: nearestAed, Icon: HeartPulse, label: t.nearest_aed, color: '#DC2626' },
-    { data: nearestClinic, Icon: Hospital, label: t.nearest_hospital, color: '#E11D48' },
+    { data: nearestAed, Icon: HeartPulse, label: t.nearest_aed, color: '#ef4444' },
+    { data: nearestClinic, Icon: Hospital, label: t.nearest_hospital, color: '#ef4444' },
   ];
 
   return (
@@ -50,7 +52,11 @@ export default function HelpNearbyPanel({ mapCenter, pragueData, t }) {
       <div className="floating-card__body">
         <ul className="floating-list">
           {items.map(({ data, Icon, label, color }) => (
-            <li key={label} className="floating-list-item">
+            <li
+              key={label}
+              className="floating-list-item floating-list-item--clickable"
+              onClick={() => data && onEmergencyRoute && onEmergencyRoute(data)}
+            >
               <div className="floating-list-item__icon" style={{ background: color }}>
                 <Icon size={16} />
               </div>
@@ -59,6 +65,11 @@ export default function HelpNearbyPanel({ mapCenter, pragueData, t }) {
                 <div className="floating-list-item__name">{data?.name || '—'}</div>
               </div>
               <span className="floating-list-item__distance">{data?.distance || '—'}m</span>
+              {data && onEmergencyRoute && (
+                <span className="floating-list-item__route">
+                  <Navigation size={12} />
+                </span>
+              )}
             </li>
           ))}
         </ul>
