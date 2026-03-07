@@ -19,5 +19,7 @@ Thumbs.db
 .env.test.local
 .env.production.local
 
-# Cache (graph-cache is rebuilt automatically)
+# Large data files (keep local, don't push to GitHub)
+knowb/public/datahacka/data/export.geojson
 knowb/public/datahacka/data/graph-cache.json
+knowb/public/prague-data/backend-data/prekazky.geojson

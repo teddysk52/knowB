@@ -136,7 +136,7 @@ function computeComfortAndJistota(routeCoords, preferences, routeInfo) {
 
 // ── Route via datahacka Dijkstra backend ────────────────────────────
 
-const ROUTING_API = process.env.REACT_APP_API_URL || `http://${window.location.hostname}:3001`;
+const ROUTING_API = `http://${window.location.hostname}:3001`;
 
 // Map frontend mode names to backend profile names
 const MODE_TO_PROFILE = {
