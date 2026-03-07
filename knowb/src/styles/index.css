@@ -272,6 +272,25 @@ body {
 
 [data-theme="light"] .poi-dot { border-color: rgba(0,0,0,0.12); opacity: 0.65; }
 
+/* POI Icon Markers — custom icon pins */
+.poi-icon-marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2.5px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.poi-icon-marker:hover {
+  transform: scale(1.3);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.45);
+  z-index: 10;
+}
+
 /* Route Markers */
 .route-marker {
   width: 44px;
@@ -1204,7 +1223,7 @@ body {
 .float-header__logo svg { width: 18px; height: 18px; }
 
 .float-header__logo-img {
-  height: 28px;
+  height: 44px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -1670,6 +1689,72 @@ body {
   padding: 8px 0;
   animation: pulse-hint 2s infinite;
 }
+
+/* ===== ADDRESS INPUT FIELDS ===== */
+.sheet__address-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.sheet__input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--overlay-bg);
+  border: 1.5px solid var(--overlay-border);
+  border-radius: var(--radius-sm);
+  padding: 0 10px;
+  min-height: 44px;
+  transition: border-color 0.15s;
+}
+
+.sheet__input-row:focus-within {
+  border-color: var(--color-primary);
+}
+
+.sheet__input-icon {
+  flex-shrink: 0;
+  color: var(--color-muted);
+}
+
+.sheet__input-icon--start { color: #22c55e; }
+.sheet__input-icon--end { color: #ef4444; }
+
+.sheet__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  outline: none;
+  padding: 8px 0;
+  min-width: 0;
+  font-family: inherit;
+}
+
+.sheet__input::placeholder {
+  color: var(--color-muted);
+  opacity: 0.7;
+}
+
+.sheet__loc-btn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.sheet__loc-btn:hover { opacity: 0.85; }
 
 @keyframes pulse-hint {
   0%, 100% { opacity: 1; }

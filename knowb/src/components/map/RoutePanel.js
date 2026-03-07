@@ -1,32 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import {
-  Navigation, MapPin, X, CheckCheck, XCircle,
+  Navigation, MapPin, X, Crosshair,
   ChevronUp, ChevronDown, Play, Square,
-  Armchair, Bath, ArrowUpDown, HeartPulse,
-  Cross, TrainFront, Droplets,
 } from 'lucide-react';
 
-const PREFS = [
-  { key: 'benches', Icon: Armchair, tKey: 'pref_benches' },
-  { key: 'toilets', Icon: Bath, tKey: 'pref_toilets' },
-  { key: 'elevators', Icon: ArrowUpDown, tKey: 'pref_elevators' },
-  { key: 'fountains', Icon: Droplets, tKey: 'pref_water' },
-];
-
 export default function RoutePanel({
-  route, settingPoint, onClear,
+  route, onClear,
   routeData, bestRouteIndex,
-  isLoadingRoute, comfortData, preferences, onTogglePref, onSelectAll, onClearAll,
+  isLoadingRoute, comfortData,
   navigating, onStartNav, onStopNav, t,
+  onSetStart, onSetEnd, onUseMyLocation, userPosition,
 }) {
   const [open, setOpen] = useState(false);
+  const [startInput, setStartInput] = useState('');
+  const [endInput, setEndInput] = useState('');
+
   const hasRoute = routeData && routeData.length > 0;
   const selected = hasRoute ? routeData[bestRouteIndex] : null;
   const startAddr = route.start ? route.start.address : '';
   const endAddr = route.end ? route.end.address : '';
 
-  const allOn = PREFS.every(({ key }) => preferences[key]);
-  const allOff = PREFS.every(({ key }) => !preferences[key]);
+  // Sync inputs with externally-set addresses (map click, geolocation)
+  useEffect(() => { if (startAddr) setStartInput(startAddr); }, [startAddr]);
+  useEffect(() => { if (endAddr) setEndInput(endAddr); }, [endAddr]);
 
   const cLevel = comfortData
     ? comfortData.comfort >= 70 ? 'high' : comfortData.comfort >= 50 ? 'med' : 'low'
@@ -35,13 +31,25 @@ export default function RoutePanel({
     ? comfortData.jistota >= 70 ? 'high' : comfortData.jistota >= 50 ? 'med' : 'low'
     : null;
 
-  const hint = settingPoint === 'start'
-    ? t.tap_start
-    : settingPoint === 'end'
-    ? t.tap_dest
-    : hasRoute
-    ? null
-    : t.sheet_hint;
+  const geocodeAndSet = useCallback(async (query, type) => {
+    if (!query.trim()) return;
+    try {
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query.trim() + ', Praha')}&format=json&limit=1&bounded=1&viewbox=14.22,49.94,14.71,50.18`,
+        { headers: { 'Accept-Language': 'cs,en' } }
+      );
+      const results = await res.json();
+      if (results.length > 0) {
+        const loc = {
+          lat: parseFloat(results[0].lat),
+          lng: parseFloat(results[0].lon),
+          address: results[0].display_name.split(',').slice(0, 2).join(', ').trim(),
+        };
+        if (type === 'start') onSetStart(loc);
+        else onSetEnd(loc);
+      }
+    } catch {}
+  }, [onSetStart, onSetEnd]);
 
   // Navigation mode — minimal UI
   if (navigating && hasRoute && selected) {
@@ -59,6 +67,36 @@ export default function RoutePanel({
       </div>
     );
   }
+
+  const addressInputs = (
+    <div className="sheet__address-inputs">
+      <div className="sheet__input-row">
+        <Navigation size={14} className="sheet__input-icon sheet__input-icon--start" />
+        <input
+          className="sheet__input"
+          placeholder={t.from_placeholder}
+          value={startInput}
+          onChange={e => setStartInput(e.target.value)}
+          onKeyDown={e => { if (e.key === 'Enter') geocodeAndSet(startInput, 'start'); }}
+        />
+        {userPosition && (
+          <button className="sheet__loc-btn" onClick={onUseMyLocation} title={t.my_location}>
+            <Crosshair size={14} />
+          </button>
+        )}
+      </div>
+      <div className="sheet__input-row">
+        <MapPin size={14} className="sheet__input-icon sheet__input-icon--end" />
+        <input
+          className="sheet__input"
+          placeholder={t.to_placeholder}
+          value={endInput}
+          onChange={e => setEndInput(e.target.value)}
+          onKeyDown={e => { if (e.key === 'Enter') geocodeAndSet(endInput, 'end'); }}
+        />
+      </div>
+    </div>
+  );
 
   return (
     <div className={`sheet ${open ? 'sheet--open' : ''}`}>
@@ -84,72 +122,24 @@ export default function RoutePanel({
               </button>
             </div>
           ) : (
-            <div className="sheet__peek-filters">
-              {hint && <div className="sheet__hint">{hint}</div>}
-              <div className="sheet__prefs">
-                {PREFS.map(({ key, Icon, tKey }) => (
-                  <button
-                    key={key}
-                    className={`sheet__pref ${preferences[key] ? 'sheet__pref--on' : ''}`}
-                    onClick={() => onTogglePref(key)}
-                  >
-                    <Icon size={15} />
-                    <span>{t[tKey]}</span>
-                  </button>
-                ))}
-              </div>
-              <div className="sheet__bulk">
-                <button className={`sheet__bulk-btn ${allOn ? 'sheet__bulk-btn--dim' : ''}`} onClick={onSelectAll}>
-                  <CheckCheck size={15} /> {t.select_all}
-                </button>
-                <button className={`sheet__bulk-btn ${allOff ? 'sheet__bulk-btn--dim' : ''}`} onClick={onClearAll}>
-                  <XCircle size={15} /> {t.clear_all}
-                </button>
-              </div>
-            </div>
+            addressInputs
           )}
         </div>
       )}
 
       {open && (
         <div className="sheet__body">
-          <div className="sheet__addrs">
-            <div className="sheet__addr">
-              <Navigation size={16} className="sheet__addr-icon sheet__addr-icon--start" />
-              <span className="sheet__addr-text">{startAddr || t.point_a}</span>
-            </div>
-            <div className="sheet__addr">
-              <MapPin size={16} className="sheet__addr-icon sheet__addr-icon--end" />
-              <span className="sheet__addr-text">{endAddr || t.point_b}</span>
-            </div>
-          </div>
+          {addressInputs}
 
           {(hasRoute || route.start) && (
-            <button className="sheet__clear" onClick={onClear}>
+            <button className="sheet__clear" onClick={() => {
+              onClear();
+              setStartInput('');
+              setEndInput('');
+            }}>
               <X size={16} /> {t.clear_route}
             </button>
           )}
-
-          <div className="sheet__prefs">
-            {PREFS.map(({ key, Icon, tKey }) => (
-              <button
-                key={key}
-                className={`sheet__pref ${preferences[key] ? 'sheet__pref--on' : ''}`}
-                onClick={() => onTogglePref(key)}
-              >
-                <Icon size={15} />
-                <span>{t[tKey]}</span>
-              </button>
-            ))}
-          </div>
-          <div className="sheet__bulk">
-            <button className={`sheet__bulk-btn ${allOn ? 'sheet__bulk-btn--dim' : ''}`} onClick={onSelectAll}>
-              <CheckCheck size={15} /> {t.select_all}
-            </button>
-            <button className={`sheet__bulk-btn ${allOff ? 'sheet__bulk-btn--dim' : ''}`} onClick={onClearAll}>
-              <XCircle size={15} /> {t.clear_all}
-            </button>
-          </div>
 
           {hasRoute && comfortData && (
             <>
@@ -167,20 +157,6 @@ export default function RoutePanel({
                   <span className="sheet__lbl">km</span>
                 </div>
               </div>
-
-              {Object.keys(comfortData.factors).length > 0 && (
-                <div className="sheet__facts">
-                  {Object.entries(comfortData.factors).map(([key, count]) => {
-                    const pref = PREFS.find((p) => p.key === key);
-                    return (
-                      <div key={key} className={`sheet__fact ${count > 0 ? 'sheet__fact--ok' : ''}`}>
-                        <span className="sheet__fact-n">{count}×</span>
-                        <span>{pref ? t[pref.tKey] : key}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
 
               <button className="sheet__go-btn sheet__go-btn--full" onClick={() => { onStartNav(); setOpen(false); }}>
                 <Play size={20} /> {t.start_nav}

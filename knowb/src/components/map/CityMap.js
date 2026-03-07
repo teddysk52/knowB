@@ -1,12 +1,10 @@
 import React, { useMemo, useCallback, useState, useEffect, useRef } from 'react';
 import MapGL, { Marker, Popup, Source, Layer, NavigationControl } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import { MODES, LAYER_CONFIG } from '../../data/modes';
-import * as mockData from '../../data/mockData';
+import { toGeoJsonFC } from '../../data/pragueData';
 import {
-  Armchair, Bath, ArrowUpDown, HeartPulse,
-  Cross, TrainFront, Droplets, Hospital,
-  Navigation as NavIcon, MapPin, Loader2, Route,
+  Navigation as NavIcon, MapPin, Loader2,
+  Armchair, Bath, ArrowUpDown, HeartPulse, Hospital, Car, Footprints,
 } from 'lucide-react';
 
 const MAP_STYLES = {
@@ -14,37 +12,26 @@ const MAP_STYLES = {
   light: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
 };
 
-const ICON_COMP = {
-  Armchair, Bath, ArrowUpDown, HeartPulse,
-  Cross, TrainFront, Droplets, Hospital,
+// ── POI layer configs ──────────────────────────────────────────────
+// Large datasets (benches/stairs) → native MapLibre circle layers only
+// Small datasets (rest) → circle clusters + React Marker icons at zoom
+const POI_LAYERS = {
+  benches:         { color: '#A0522D', label: 'Lavičky',       minZoom: 13, iconMinZoom: 16, Icon: Armchair,    iconSize: 14 },
+  stairs:          { color: '#EA580C', label: 'Schody',        minZoom: 14, iconMinZoom: 16, Icon: Footprints,  iconSize: 14 },
+  toilets:         { color: '#2563EB', label: 'WC',            minZoom: 12, iconMinZoom: 14, Icon: Bath,        iconSize: 16 },
+  elevators:       { color: '#7C3AED', label: 'Výtahy',        minZoom: 12, iconMinZoom: 14, Icon: ArrowUpDown, iconSize: 16 },
+  aed:             { color: '#DC2626', label: 'AED',           minZoom: 10, iconMinZoom: 12, Icon: HeartPulse,  iconSize: 18 },
+  clinics:         { color: '#E11D48', label: 'Kliniky',       minZoom: 10, iconMinZoom: 11, Icon: Hospital,    iconSize: 18 },
+  disabledParking: { color: '#0284C7', label: 'P-ZTP',        minZoom: 13, iconMinZoom: 14, Icon: Car,         iconSize: 16 },
 };
 
-const DATA_MAP = {
-  benches: mockData.benches,
-  toilets: mockData.toilets,
-  elevators: mockData.elevators,
-  aed: mockData.aed,
-  pharmacies: mockData.pharmacies,
-  transport: mockData.transport,
-  fountains: mockData.fountains,
-  hospitals: mockData.hospitals,
-};
-
-function scoreToColor(score) {
-  if (score >= 70) return '#059669';
-  if (score >= 50) return '#f59e0b';
-  return '#dc2626';
-}
-
-function formatDistance(meters) {
-  if (meters < 1000) return `${Math.round(meters)} m`;
-  return `${(meters / 1000).toFixed(1)} km`;
-}
+// Keys with small enough datasets or high-zoom icon markers
+const ICON_MARKER_KEYS = ['benches', 'toilets', 'elevators', 'aed', 'clinics', 'disabledParking'];
 
 export default function CityMap({
   theme, activeMode, route, routeData, bestRouteIndex,
   onMapClick, settingPoint, showHeatmap, showHelp, showPOIs, isLoadingRoute, t,
-  userPosition, navigating,
+  userPosition, navigating, pragueData,
 }) {
   const [popupInfo, setPopupInfo] = useState(null);
   const [viewState, setViewState] = useState({
@@ -65,7 +52,6 @@ export default function CityMap({
     }
   }, [userPosition]);
 
-  // Follow user during navigation
   useEffect(() => {
     if (navigating && userPosition) {
       setViewState(prev => ({
@@ -77,46 +63,41 @@ export default function CityMap({
     }
   }, [navigating, userPosition]);
 
-  const modeConfig = MODES[activeMode];
-  const activeLayers = modeConfig.layers;
-  const highlightLayers = modeConfig.highlight;
-
-  const markers = useMemo(() => {
-    if (!showPOIs) return [];
-    const result = [];
-    activeLayers.forEach((layerKey) => {
-      const data = DATA_MAP[layerKey];
-      const config = LAYER_CONFIG[layerKey];
-      if (!data || !config) return;
-      const isHighlight = highlightLayers.includes(layerKey);
-      data.forEach((item) => {
-        result.push({
-          ...item, layerKey, iconName: config.lucideIcon,
-          color: config.color, label: config.label, isHighlight,
-        });
-      });
+  // ── Build GeoJSON for clusters ──
+  const allGeoJsons = useMemo(() => {
+    if (!pragueData || !showPOIs) return {};
+    const result = {};
+    Object.keys(POI_LAYERS).forEach((key) => {
+      if (pragueData[key] && pragueData[key].length > 0) {
+        result[key] = toGeoJsonFC(pragueData[key], key);
+      }
     });
     return result;
-  }, [activeLayers, highlightLayers, showPOIs]);
+  }, [pragueData, showPOIs]);
 
-  const helpMarkers = useMemo(() => {
-    if (!showHelp) return [];
-    const helpLayers = ['aed', 'pharmacies', 'hospitals'];
-    const result = [];
-    helpLayers.forEach((layerKey) => {
-      const data = DATA_MAP[layerKey];
-      const config = LAYER_CONFIG[layerKey];
-      if (!data || !config) return;
-      if (activeLayers.includes(layerKey)) return;
-      data.forEach((item) => {
-        result.push({
-          ...item, layerKey, iconName: config.lucideIcon,
-          color: config.color, label: config.label, isHighlight: true,
-        });
+  // ── Visible individual markers for small datasets ──
+  const visibleMarkers = useMemo(() => {
+    if (!pragueData || !showPOIs) return [];
+    const markers = [];
+    const zoom = viewState.zoom;
+    ICON_MARKER_KEYS.forEach((key) => {
+      const cfg = POI_LAYERS[key];
+      if (zoom < cfg.iconMinZoom) return;
+      const items = pragueData[key];
+      if (!items) return;
+      // Only show markers within viewport bounds (rough filter)
+      const lngRange = 360 / Math.pow(2, zoom) * 0.7;
+      const latRange = 180 / Math.pow(2, zoom) * 0.7;
+      const cLng = viewState.longitude;
+      const cLat = viewState.latitude;
+      items.forEach((item) => {
+        if (Math.abs(item.lng - cLng) < lngRange && Math.abs(item.lat - cLat) < latRange) {
+          markers.push({ ...item, layerKey: key });
+        }
       });
     });
-    return result;
-  }, [showHelp, activeLayers]);
+    return markers;
+  }, [pragueData, showPOIs, viewState.zoom, viewState.longitude, viewState.latitude]);
 
   const handleClick = useCallback(
     (e) => {
@@ -127,27 +108,13 @@ export default function CityMap({
     [onMapClick, settingPoint]
   );
 
-  const heatmapGeoJson = useMemo(() => {
-    if (!showHeatmap) return null;
-    return {
-      type: 'FeatureCollection',
-      features: mockData.heatmapZones.map((z) => ({
-        type: 'Feature',
-        geometry: { type: 'Point', coordinates: [z.lng, z.lat] },
-        properties: { radius: z.radius, score: z.score, color: scoreToColor(z.score) },
-      })),
-    };
-  }, [showHeatmap]);
-
   const sortedRoutes = useMemo(() => {
     if (!routeData || routeData.length === 0) return [];
-    // Only show the best (most comfortable) route
     const best = routeData[bestRouteIndex];
     if (!best) return [];
     return [{ ...best, index: bestRouteIndex }];
   }, [routeData, bestRouteIndex]);
 
-  const allMarkers = [...markers, ...helpMarkers];
   const cursorStyle = settingPoint ? 'crosshair' : 'grab';
 
   return (
@@ -163,28 +130,92 @@ export default function CityMap({
       >
         <NavigationControl position="top-left" />
 
-        {heatmapGeoJson && (
-          <Source id="heatmap-zones" type="geojson" data={heatmapGeoJson}>
-            <Layer
-              id="heatmap-circles"
-              type="circle"
-              paint={{
-                'circle-radius': [
-                  'interpolate', ['exponential', 2], ['zoom'],
-                  10, ['*', ['get', 'radius'], 0.012],
-                  14, ['*', ['get', 'radius'], 0.16],
-                  18, ['*', ['get', 'radius'], 2.5],
-                ],
-                'circle-color': ['get', 'color'],
-                'circle-opacity': 0.15,
-                'circle-stroke-width': 1.5,
-                'circle-stroke-color': ['get', 'color'],
-                'circle-stroke-opacity': 0.35,
-              }}
-            />
-          </Source>
-        )}
+        {/* ── POI cluster layers (native MapLibre) ── */}
+        {Object.entries(allGeoJsons).map(([key, geojson]) => {
+          const cfg = POI_LAYERS[key];
+          const isIconLayer = ICON_MARKER_KEYS.includes(key);
+          return (
+            <Source
+              key={`poi-${key}`}
+              id={`poi-${key}`}
+              type="geojson"
+              data={geojson}
+              cluster={true}
+              clusterMaxZoom={isIconLayer ? cfg.iconMinZoom - 1 : 17}
+              clusterRadius={45}
+            >
+              {/* Cluster circles */}
+              <Layer
+                id={`poi-${key}-cluster`}
+                type="circle"
+                filter={['has', 'point_count']}
+                paint={{
+                  'circle-color': cfg.color,
+                  'circle-radius': ['step', ['get', 'point_count'], 16, 50, 22, 200, 30],
+                  'circle-opacity': 0.85,
+                  'circle-stroke-width': 2.5,
+                  'circle-stroke-color': '#fff',
+                  'circle-stroke-opacity': 0.8,
+                }}
+                minzoom={cfg.minZoom}
+              />
+              {/* Cluster count */}
+              <Layer
+                id={`poi-${key}-count`}
+                type="symbol"
+                filter={['has', 'point_count']}
+                layout={{
+                  'text-field': '{point_count_abbreviated}',
+                  'text-size': 12,
+                  'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+                }}
+                paint={{ 'text-color': '#fff' }}
+                minzoom={cfg.minZoom}
+              />
+              {/* Individual dots — only for large datasets (benches/stairs) */}
+              {!isIconLayer && (
+                <Layer
+                  id={`poi-${key}-dot`}
+                  type="circle"
+                  filter={['!', ['has', 'point_count']]}
+                  paint={{
+                    'circle-color': cfg.color,
+                    'circle-radius': 5,
+                    'circle-opacity': 0.8,
+                    'circle-stroke-width': 1.5,
+                    'circle-stroke-color': '#fff',
+                    'circle-stroke-opacity': 0.8,
+                  }}
+                  minzoom={cfg.minZoom}
+                />
+              )}
+            </Source>
+          );
+        })}
 
+        {/* ── Individual POI markers with icons (small datasets) ── */}
+        {visibleMarkers.map((item) => {
+          const cfg = POI_LAYERS[item.layerKey];
+          const IconComp = cfg.Icon;
+          return (
+            <Marker
+              key={`${item.layerKey}-${item.id}`}
+              longitude={item.lng}
+              latitude={item.lat}
+              anchor="center"
+              onClick={(e) => {
+                e.originalEvent.stopPropagation();
+                setPopupInfo({ lat: item.lat, lng: item.lng, name: item.name, label: cfg.label });
+              }}
+            >
+              <div className="poi-icon-marker" style={{ background: cfg.color }}>
+                <IconComp size={cfg.iconSize} color="#fff" strokeWidth={2.5} />
+              </div>
+            </Marker>
+          );
+        })}
+
+        {/* ── Route line ── */}
         {sortedRoutes.map(({ coordinates, index }) => {
           const geojson = {
             type: 'Feature',
@@ -217,24 +248,6 @@ export default function CityMap({
           );
         })}
 
-        {allMarkers.map((item) => (
-          <Marker
-            key={`${item.layerKey}-${item.id}`}
-            longitude={item.lng}
-            latitude={item.lat}
-            anchor="center"
-            onClick={(e) => {
-              e.originalEvent.stopPropagation();
-              setPopupInfo(item);
-            }}
-          >
-            <div
-              className={`poi-dot ${item.isHighlight ? 'poi-dot--highlight' : ''}`}
-              style={{ '--dot-color': item.color }}
-            />
-          </Marker>
-        ))}
-
         {route.start && (
           <Marker longitude={route.start.lng} latitude={route.start.lat} anchor="center">
             <div className="route-marker route-marker--start">
@@ -266,17 +279,13 @@ export default function CityMap({
             closeOnClick={false}
             offset={14}
           >
-            <div className="popup-name">{popupInfo.name}</div>
-            <div className="popup-type">{popupInfo.label}</div>
+            <div className="popup-name">{popupInfo.name || popupInfo.label}</div>
+            {popupInfo.label && popupInfo.name && (
+              <div className="popup-type">{popupInfo.label}</div>
+            )}
           </Popup>
         )}
       </MapGL>
-
-      {settingPoint && !navigating && (
-        <div className="map-cursor-hint">
-          {settingPoint === 'start' ? t.map_click_start : t.map_click_end}
-        </div>
-      )}
 
       {isLoadingRoute && (
         <div className="map-loading">

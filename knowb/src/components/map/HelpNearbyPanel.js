@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
-import { HeartPulse, Cross, Hospital } from 'lucide-react';
-import * as mockData from '../../data/mockData';
+import { HeartPulse, Hospital } from 'lucide-react';
 
 function distanceMeters(lat1, lng1, lat2, lng2) {
   const R = 6371000;
@@ -15,6 +14,7 @@ function distanceMeters(lat1, lng1, lat2, lng2) {
 }
 
 function findNearest(data, center) {
+  if (!data || data.length === 0) return null;
   let nearest = null;
   let minDist = Infinity;
   data.forEach((item) => {
@@ -27,15 +27,19 @@ function findNearest(data, center) {
   return nearest;
 }
 
-export default function HelpNearbyPanel({ mapCenter, t }) {
-  const nearestAed = useMemo(() => findNearest(mockData.aed, mapCenter), [mapCenter]);
-  const nearestPharmacy = useMemo(() => findNearest(mockData.pharmacies, mapCenter), [mapCenter]);
-  const nearestHospital = useMemo(() => findNearest(mockData.hospitals, mapCenter), [mapCenter]);
+export default function HelpNearbyPanel({ mapCenter, pragueData, t }) {
+  const nearestAed = useMemo(
+    () => findNearest(pragueData?.aed, mapCenter),
+    [mapCenter, pragueData]
+  );
+  const nearestClinic = useMemo(
+    () => findNearest(pragueData?.clinics, mapCenter),
+    [mapCenter, pragueData]
+  );
 
   const items = [
     { data: nearestAed, Icon: HeartPulse, label: t.nearest_aed, color: '#DC2626' },
-    { data: nearestPharmacy, Icon: Cross, label: t.nearest_pharmacy, color: '#059669' },
-    { data: nearestHospital, Icon: Hospital, label: t.nearest_hospital, color: '#E11D48' },
+    { data: nearestClinic, Icon: Hospital, label: t.nearest_hospital, color: '#E11D48' },
   ];
 
   return (

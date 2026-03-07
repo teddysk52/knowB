@@ -1,19 +1,19 @@
-import React, { useState, useCallback, useEffect, useMemo } from 'react';
+import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react';
 import { Sun, Moon, ShieldAlert, Eye, EyeOff } from 'lucide-react';
 import Onboarding from './components/onboarding/Onboarding';
 import CityMap from './components/map/CityMap';
 import RoutePanel from './components/map/RoutePanel';
 import HelpNearbyPanel from './components/map/HelpNearbyPanel';
 import translations from './data/i18n';
-import * as mockData from './data/mockData';
+import { loadBackendData, loadFrontendData } from './data/pragueData';
 
 const PRAGUE_CENTER = { lat: 50.0755, lng: 14.4378 };
 
 const MODE_DEFAULT_PREFS = {
-  wheelchair: { benches: true, toilets: true, elevators: true, aed: true, pharmacies: false, fountains: false, transport: true },
-  senior:     { benches: true, toilets: true, elevators: false, aed: true, pharmacies: true, fountains: true, transport: false },
-  tourist:    { benches: false, toilets: true, elevators: false, aed: false, pharmacies: false, fountains: true, transport: true },
-  standard:   { benches: true, toilets: true, elevators: false, aed: false, pharmacies: false, fountains: false, transport: false },
+  wheelchair: { benches: true, toilets: true, elevators: true },
+  senior:     { benches: true, toilets: true, elevators: false },
+  tourist:    { benches: false, toilets: true, elevators: false },
+  standard:   { benches: true, toilets: true, elevators: false },
 };
 
 function distanceMeters(lat1, lng1, lat2, lng2) {
@@ -25,32 +25,91 @@ function distanceMeters(lat1, lng1, lat2, lng2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-const DATA_MAP = {
-  benches: mockData.benches,
-  toilets: mockData.toilets,
-  elevators: mockData.elevators,
-  aed: mockData.aed,
-  pharmacies: mockData.pharmacies,
-  transport: mockData.transport,
-  fountains: mockData.fountains,
-  hospitals: mockData.hospitals,
+// DATA_MAP will be populated dynamically from real GeoJSON data
+let DATA_MAP = {
+  benches: [],
+  toilets: [],
+  elevators: [],
+  stairs: [],
+  aed: [],
+  clinics: [],
+  disabledParking: [],
 };
 
-function computeComfortAndJistota(routeCoords, preferences) {
+let _dataLoaded = false;
+let _dataPromise = null;
+
+function ensureDataLoaded() {
+  if (_dataPromise) return _dataPromise;
+  _dataPromise = Promise.all([loadBackendData(), loadFrontendData()]).then(([backend, frontend]) => {
+    DATA_MAP = {
+      benches: backend.benches,
+      toilets: backend.toilets,
+      elevators: backend.elevators,
+      stairs: backend.stairs,
+      aed: frontend.aed,
+      clinics: frontend.clinics,
+      disabledParking: frontend.disabledParking,
+    };
+    _dataLoaded = true;
+    return DATA_MAP;
+  });
+  return _dataPromise;
+}
+
+function computeComfortAndJistota(routeCoords, preferences, routeInfo) {
   if (!routeCoords || routeCoords.length === 0) return { comfort: 0, jistota: 0, factors: {} };
 
-  const BUFFER = 200;
-  const step = Math.max(1, Math.floor(routeCoords.length / 40));
+  const stats = routeInfo?.routeStats || {};
+  const nearbyPOI = routeInfo?.nearbyPOI || {};
+
+  // Start high, penalize issues
+  let score = 82;
+
+  // Surface penalties
+  const badSurfaces = (stats.surfaces || []).filter(s =>
+    ['cobblestone', 'sett', 'gravel', 'unpaved', 'dirt'].includes(s)
+  );
+  score -= badSurfaces.length * 4;
+
+  // Steps penalty
+  if (stats.stepsCount > 0) {
+    score -= Math.min(15, stats.stepsCount * 4);
+  }
+
+  // Incline penalty
+  if (stats.maxInclinePercent && stats.maxInclinePercent > 5) {
+    score -= Math.min(12, (stats.maxInclinePercent - 5) * 2);
+  }
+
+  // Unlit penalty
+  const totalMeters = (stats.litMeters || 0) + (stats.unlitMeters || 0);
+  if (totalMeters > 0 && stats.unlitMeters > 0) {
+    score -= Math.min(8, (stats.unlitMeters / totalMeters) * 10);
+  }
+
+  // POI bonuses from backend
+  if (nearbyPOI.benches && nearbyPOI.benches.length > 0) {
+    score += Math.min(8, nearbyPOI.benches.length * 2);
+  }
+  if (nearbyPOI.toilets && nearbyPOI.toilets.length > 0) {
+    score += 4;
+  }
+  if (nearbyPOI.wheelchairToilets && nearbyPOI.wheelchairToilets.length > 0) {
+    score += 3;
+  }
+
+  // Also check frontend POI proximity
+  const BUFFER = 300;
+  const step = Math.max(1, Math.floor(routeCoords.length / 30));
   const samples = [];
   for (let i = 0; i < routeCoords.length; i += step) samples.push(routeCoords[i]);
 
   const factors = {};
-  let activePrefs = 0;
-  let coveredPrefs = 0;
+  let poisNearRoute = 0;
 
   Object.keys(preferences).forEach((key) => {
     if (!preferences[key]) return;
-    activePrefs++;
     const data = DATA_MAP[key];
     if (!data) return;
     let count = 0;
@@ -58,191 +117,61 @@ function computeComfortAndJistota(routeCoords, preferences) {
       if (samples.some(([lng, lat]) => distanceMeters(lat, lng, item.lat, item.lng) <= BUFFER)) count++;
     });
     factors[key] = count;
-    if (count > 0) coveredPrefs++;
+    if (count > 0) poisNearRoute++;
   });
 
-  let raw = 50;
-  Object.values(factors).forEach((c) => {
-    if (c >= 3) raw += 10;
-    else if (c >= 2) raw += 7;
-    else if (c >= 1) raw += 4;
-    else raw -= 5;
-  });
-  const comfort = Math.min(100, Math.max(10, Math.round(raw)));
+  score += poisNearRoute * 3;
 
-  const ratio = activePrefs > 0 ? coveredPrefs / activePrefs : 0.5;
-  const density = Math.min(15, routeCoords.length / 10);
-  const jistota = Math.min(95, Math.max(25, Math.round(40 + ratio * 35 + density)));
+  const comfort = Math.min(98, Math.max(20, Math.round(score)));
+
+  // Jistota based on POI coverage + route quality
+  const activePrefs = Object.keys(preferences).filter(k => preferences[k]).length;
+  const ratio = activePrefs > 0 ? poisNearRoute / activePrefs : 0.5;
+  const jistota = Math.min(95, Math.max(35, Math.round(55 + ratio * 25 + Math.min(15, routeCoords.length / 20))));
 
   return { comfort, jistota, factors };
 }
 
-// ── Dijkstra comfort-aware routing ──────────────────────────────────
-// Collects comfort POIs (benches, toilets, fountains, etc.) within a corridor
-// between start and end, builds a weighted graph, and finds the path through
-// waypoints that maximizes comfort. Then fetches an OSRM walking route
-// through those waypoints.
+// ── Route via datahacka Dijkstra backend ────────────────────────────
 
-function getComfortPOIs(start, end, preferences) {
-  // Corridor width in meters around the straight line from start to end
-  const CORRIDOR = 500;
-  const allPOIs = [];
+const ROUTING_API = 'http://localhost:3001';
 
-  // Comfort-relevant keys
-  const COMFORT_KEYS = ['benches', 'toilets', 'fountains', 'elevators', 'pharmacies', 'aed', 'transport'];
-  // Weight: how much each type contributes to comfort for a senior
-  const COMFORT_WEIGHT = {
-    benches: 3,
-    toilets: 3,
-    fountains: 2,
-    elevators: 1,
-    pharmacies: 1,
-    aed: 1,
-    transport: 1,
-  };
+// Map frontend mode names to backend profile names
+const MODE_TO_PROFILE = {
+  wheelchair: 'wheelchair',
+  senior: 'senior',
+  tourist: 'default',
+  standard: 'default',
+};
 
-  COMFORT_KEYS.forEach((key) => {
-    if (!DATA_MAP[key]) return;
-    const weight = (preferences[key] ? COMFORT_WEIGHT[key] || 1 : 0.2);
-    DATA_MAP[key].forEach((item) => {
-      const dToStart = distanceMeters(start.lat, start.lng, item.lat, item.lng);
-      const dToEnd = distanceMeters(end.lat, end.lng, item.lat, item.lng);
-      const directDist = distanceMeters(start.lat, start.lng, end.lat, end.lng);
-      // Simple corridor check: POI must be within reasonable range
-      if (dToStart + dToEnd <= directDist * 1.6 + CORRIDOR) {
-        allPOIs.push({ ...item, comfortWeight: weight, category: key });
-      }
-    });
+async function computeComfortRoute(start, end, preferences, activeMode) {
+  const profile = MODE_TO_PROFILE[activeMode] || 'default';
+
+  const res = await fetch(`${ROUTING_API}/route`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: { lat: start.lat, lon: start.lng },
+      to: { lat: end.lat, lon: end.lng },
+      profile,
+    }),
   });
 
-  return allPOIs;
-}
+  if (!res.ok) return [];
 
-function dijkstraComfortRoute(start, end, pois) {
-  // Nodes: 0 = start, 1..n = pois, n+1 = end
-  const nodes = [
-    { lat: start.lat, lng: start.lng, comfortWeight: 0 },
-    ...pois,
-    { lat: end.lat, lng: end.lng, comfortWeight: 0 },
-  ];
-  const n = nodes.length;
-  const END_IDX = n - 1;
-
-  // Build adjacency: each node connects to nodes within MAX_EDGE_DIST
-  const MAX_EDGE_DIST = 800; // meters
-  const adj = Array.from({ length: n }, () => []);
-
-  for (let i = 0; i < n; i++) {
-    for (let j = i + 1; j < n; j++) {
-      const d = distanceMeters(nodes[i].lat, nodes[i].lng, nodes[j].lat, nodes[j].lng);
-      if (d <= MAX_EDGE_DIST || i === 0 || j === END_IDX) {
-        // Edge cost = distance - comfort bonus of destination
-        // Lower cost = better (shorter distance or more comfort)
-        const comfortBonus = nodes[j].comfortWeight * 80;
-        const cost = Math.max(1, d - comfortBonus);
-        adj[i].push({ to: j, cost });
-
-        const comfortBonusRev = nodes[i].comfortWeight * 80;
-        const costRev = Math.max(1, d - comfortBonusRev);
-        adj[j].push({ to: i, cost: costRev });
-      }
-    }
-  }
-
-  // Dijkstra from start (0) to end (END_IDX)
-  const dist = new Array(n).fill(Infinity);
-  const prev = new Array(n).fill(-1);
-  const visited = new Array(n).fill(false);
-  dist[0] = 0;
-
-  for (let iter = 0; iter < n; iter++) {
-    let u = -1;
-    let minDist = Infinity;
-    for (let i = 0; i < n; i++) {
-      if (!visited[i] && dist[i] < minDist) {
-        minDist = dist[i];
-        u = i;
-      }
-    }
-    if (u === -1 || u === END_IDX) break;
-    visited[u] = true;
-
-    for (const { to, cost } of adj[u]) {
-      if (!visited[to] && dist[u] + cost < dist[to]) {
-        dist[to] = dist[u] + cost;
-        prev[to] = u;
-      }
-    }
-  }
-
-  // Reconstruct path
-  const path = [];
-  let cur = END_IDX;
-  while (cur !== -1) {
-    path.unshift(nodes[cur]);
-    cur = prev[cur];
-  }
-
-  // If path doesn't start at start node, Dijkstra couldn't connect — return direct
-  if (path.length < 2 || distanceMeters(path[0].lat, path[0].lng, start.lat, start.lng) > 1) {
-    return [{ lat: start.lat, lng: start.lng }, { lat: end.lat, lng: end.lng }];
-  }
-
-  return path;
-}
-
-async function fetchOSRMRoute(waypoints) {
-  const coords = waypoints.map(w => `${w.lng},${w.lat}`).join(';');
-  const url = `https://router.project-osrm.org/route/v1/foot/${coords}?overview=full&geometries=geojson`;
-  const res = await fetch(url);
   const data = await res.json();
-  if (data.routes && data.routes.length > 0) {
-    return {
-      coordinates: data.routes[0].geometry.coordinates,
-      duration: data.routes[0].duration,
-      distance: data.routes[0].distance,
-    };
-  }
-  return null;
-}
+  if (!data.geometry || !data.geometry.coordinates) return [];
 
-async function computeComfortRoute(start, end, preferences) {
-  // 1. Get comfort POIs in corridor
-  const pois = getComfortPOIs(start, end, preferences);
+  const route = {
+    coordinates: data.geometry.coordinates,
+    distance: data.distanceMeters,
+    duration: (data.distanceMeters / 1.2), // ~walking speed 1.2 m/s estimate
+    explanation: data.explanation || [],
+    routeStats: data.routeStats || {},
+    nearbyPOI: data.nearbyPOI || {},
+  };
 
-  // 2. Run Dijkstra to find optimal waypoints through comfort POIs
-  const optimalPath = dijkstraComfortRoute(start, end, pois);
-
-  // 3. Limit waypoints for OSRM (max ~8 intermediate points to avoid URL limits)
-  let waypoints = optimalPath;
-  if (waypoints.length > 10) {
-    const step = Math.ceil(waypoints.length / 8);
-    const sampled = [waypoints[0]];
-    for (let i = step; i < waypoints.length - 1; i += step) {
-      sampled.push(waypoints[i]);
-    }
-    sampled.push(waypoints[waypoints.length - 1]);
-    waypoints = sampled;
-  }
-
-  // 4. Fetch OSRM route through comfort waypoints
-  const comfortRoute = await fetchOSRMRoute(waypoints);
-
-  // 5. Also fetch direct route for comparison
-  const directRoute = await fetchOSRMRoute([
-    { lat: start.lat, lng: start.lng },
-    { lat: end.lat, lng: end.lng },
-  ]);
-
-  const routes = [];
-  if (comfortRoute) routes.push(comfortRoute);
-  if (directRoute && routes.length === 0) routes.push(directRoute);
-  // If comfort route is the same as direct, just return one
-  if (routes.length === 2 && comfortRoute.distance === directRoute.distance) {
-    routes.pop();
-  }
-
-  return routes;
+  return [route];
 }
 
 async function reverseGeocode(lat, lng, lang) {
@@ -302,6 +231,13 @@ export default function App() {
   const [userPosition, setUserPosition] = useState(null);
   const [navigating, setNavigating] = useState(false);
   const watchIdRef = React.useRef(null);
+  const [pragueData, setPragueData] = useState(null);
+
+  // Load real GeoJSON data
+  useEffect(() => {
+    if (!onboarded) return;
+    ensureDataLoaded().then((data) => setPragueData(data)).catch(() => {});
+  }, [onboarded]);
 
   useEffect(() => { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
 
@@ -347,8 +283,7 @@ export default function App() {
     (async () => {
       setIsLoadingRoute(true);
       try {
-        // Use Dijkstra comfort-aware routing
-        const routes = await computeComfortRoute(route.start, route.end, preferences);
+        const routes = await computeComfortRoute(route.start, route.end, preferences, activeMode);
         if (cancelled) return;
         if (routes.length > 0) {
           setRouteData(routes);
@@ -358,19 +293,19 @@ export default function App() {
       finally { if (!cancelled) setIsLoadingRoute(false); }
     })();
     return () => { cancelled = true; };
-  }, [route.start, route.end, preferences]);
+  }, [route.start, route.end, preferences, activeMode]);
 
   useEffect(() => {
     if (routeData.length === 0) { setComfortData(null); return; }
     // Pick the most comfortable route
     if (routeData.length > 1) {
-      const comforts = routeData.map(r => computeComfortAndJistota(r.coordinates, preferences));
+      const comforts = routeData.map(r => computeComfortAndJistota(r.coordinates, preferences, r));
       const bestIdx = comforts.reduce((max, c, i) => c.comfort > comforts[max].comfort ? i : max, 0);
       setBestRouteIndex(bestIdx);
       setComfortData(comforts[bestIdx]);
     } else {
       setBestRouteIndex(0);
-      setComfortData(computeComfortAndJistota(routeData[0].coordinates, preferences));
+      setComfortData(computeComfortAndJistota(routeData[0].coordinates, preferences, routeData[0]));
     }
   }, [routeData, preferences]);
 
@@ -477,6 +412,24 @@ export default function App() {
     });
   }, []);
 
+  const handleSetStart = useCallback((location) => {
+    setRoute(prev => ({ ...prev, start: location }));
+    setSettingPoint('end');
+  }, []);
+
+  const handleSetEnd = useCallback((location) => {
+    setRoute(prev => ({ ...prev, end: location }));
+    setSettingPoint(null);
+  }, []);
+
+  const handleUseMyLocation = useCallback(async () => {
+    if (userPosition) {
+      const address = await reverseGeocode(userPosition.lat, userPosition.lng, lang);
+      setRoute(prev => ({ ...prev, start: { ...userPosition, address } }));
+      setSettingPoint('end');
+    }
+  }, [userPosition, lang]);
+
   if (!onboarded) {
     return <Onboarding onComplete={handleOnboardComplete} />;
   }
@@ -532,26 +485,26 @@ export default function App() {
         t={t}
         userPosition={userPosition}
         navigating={navigating}
+        pragueData={pragueData}
       />
 
-      {showHelp && <HelpNearbyPanel mapCenter={mapCenter} t={t} />}
+      {showHelp && <HelpNearbyPanel mapCenter={mapCenter} pragueData={pragueData} t={t} />}
 
       <RoutePanel
         route={route}
-        settingPoint={settingPoint}
         onClear={handleClearRoute}
         routeData={routeData}
         bestRouteIndex={bestRouteIndex}
         isLoadingRoute={isLoadingRoute}
         comfortData={comfortData}
-        preferences={preferences}
-        onTogglePref={handleTogglePref}
-        onSelectAll={handleSelectAll}
-        onClearAll={handleClearAll}
         navigating={navigating}
         onStartNav={handleStartNav}
         onStopNav={handleStopNav}
         t={t}
+        onSetStart={handleSetStart}
+        onSetEnd={handleSetEnd}
+        onUseMyLocation={handleUseMyLocation}
+        userPosition={userPosition}
       />
     </div>
   );

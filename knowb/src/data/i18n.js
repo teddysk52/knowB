@@ -112,6 +112,9 @@ const translations = {
     start_nav: 'Go',
     stop_nav: 'Stop',
     navigating: 'Navigating…',
+    from_placeholder: 'From (address)',
+    to_placeholder: 'Where to?',
+    search_hint: 'Press Enter to search',
   },
 
   cs: {
@@ -227,6 +230,9 @@ const translations = {
     start_nav: 'V cestu',
     stop_nav: 'Stop',
     navigating: 'Navigace…',
+    from_placeholder: 'Odkud (adresa)',
+    to_placeholder: 'Kam chcete jít?',
+    search_hint: 'Enter pro vyhledání',
   },
 
   ru: {
@@ -308,6 +314,9 @@ const translations = {
     light: 'Светлая',
     my_location: 'Моё местоположение',
     start_nav: 'В путь',
+    from_placeholder: 'Откуда (адрес)',
+    to_placeholder: 'Куда идём?',
+    search_hint: 'Enter для поиска',
     stop_nav: 'Стоп',
     navigating: 'Навигация…',
   },
