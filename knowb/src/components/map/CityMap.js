@@ -4,7 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { toGeoJsonFC } from '../../data/pragueData';
 import {
   Navigation as NavIcon, MapPin, Loader2, Crosshair,
-  Armchair, Bath, ArrowUpDown, HeartPulse, Hospital, Car, Footprints,
+  Armchair, ArrowUpDown, HeartPulse, Hospital, Car, Footprints, Droplets,
 } from 'lucide-react';
 
 const MAP_STYLES = {
@@ -15,18 +15,28 @@ const MAP_STYLES = {
 // ── POI layer configs ──────────────────────────────────────────────
 // Large datasets (benches/stairs) → native MapLibre circle layers only
 // Small datasets (rest) → circle clusters + React Marker icons at zoom
+// WC icon as inline SVG component (lucide doesn't have a toilet icon)
+const ToiletIcon = ({ size = 14, color = 'currentColor', strokeWidth = 2.5 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M7 12h10a2 2 0 0 1 2 2v1a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-1a2 2 0 0 1 2-2z"/>
+    <path d="M6 8v4"/><path d="M18 8v4"/>
+    <path d="M8 4h8v4H8z" fill={color} stroke="none"/>
+  </svg>
+);
+
 const POI_LAYERS = {
   benches:         { color: '#92400e', label: 'Lavičky',       minZoom: 13, iconMinZoom: 16, Icon: Armchair,    iconSize: 14 },
   stairs:          { color: '#6b7280', label: 'Schody',        minZoom: 14, iconMinZoom: 16, Icon: Footprints,  iconSize: 14 },
-  toilets:         { color: '#3b82f6', label: 'WC',            minZoom: 12, iconMinZoom: 14, Icon: Bath,        iconSize: 14 },
+  toilets:         { color: '#3b82f6', label: 'WC',            minZoom: 12, iconMinZoom: 14, Icon: ToiletIcon,  iconSize: 14 },
   elevators:       { color: '#8b5cf6', label: 'Výtahy',        minZoom: 12, iconMinZoom: 14, Icon: ArrowUpDown, iconSize: 14 },
+  drinkingWater:   { color: '#06b6d4', label: 'Pitka',         minZoom: 12, iconMinZoom: 14, Icon: Droplets,    iconSize: 14 },
   aed:             { color: '#ef4444', label: 'AED',           minZoom: 10, iconMinZoom: 12, Icon: HeartPulse,  iconSize: 16 },
   clinics:         { color: '#dc2626', label: 'Kliniky',       minZoom: 10, iconMinZoom: 11, Icon: Hospital,    iconSize: 16 },
   disabledParking: { color: '#1e3a5f', label: 'P-ZTP',        minZoom: 13, iconMinZoom: 14, Icon: Car,         iconSize: 14 },
 };
 
 // Keys with small enough datasets or high-zoom icon markers
-const ICON_MARKER_KEYS = ['benches', 'toilets', 'elevators', 'aed', 'clinics', 'disabledParking'];
+const ICON_MARKER_KEYS = ['benches', 'toilets', 'elevators', 'drinkingWater', 'aed', 'clinics', 'disabledParking'];
 
 export default function CityMap({
   theme, activeMode, route, routeData, bestRouteIndex,

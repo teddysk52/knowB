@@ -34,6 +34,7 @@ let DATA_MAP = {
   aed: [],
   clinics: [],
   disabledParking: [],
+  drinkingWater: [],
 };
 
 let _dataLoaded = false;
@@ -50,6 +51,7 @@ function ensureDataLoaded() {
       aed: frontend.aed,
       clinics: frontend.clinics,
       disabledParking: frontend.disabledParking,
+      drinkingWater: frontend.drinkingWater,
     };
     _dataLoaded = true;
     return DATA_MAP;

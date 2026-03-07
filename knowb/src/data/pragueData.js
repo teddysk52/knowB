@@ -82,16 +82,18 @@ let _frontendCache = null;
 export async function loadFrontendData() {
   if (_frontendCache) return _frontendCache;
 
-  const [aed, kliniki, parkovaniZTP] = await Promise.all([
+  const [aed, kliniki, parkovaniZTP, pitka] = await Promise.all([
     loadGeoJson('/prague-data/frontend-data/aed.geojson'),
     loadGeoJson('/prague-data/frontend-data/kliniki.geojson'),
     loadGeoJson('/prague-data/frontend-data/parkovaniZTP.geojson'),
+    loadGeoJson('/prague-data/frontend-data/pitka.geojson'),
   ]);
 
   _frontendCache = {
     aed: normalizeFeatures(aed, 'note'),
     clinics: normalizeFeatures(kliniki, 'name'),
     disabledParking: normalizeFeatures(parkovaniZTP, 'name'),
+    drinkingWater: normalizeFeatures(pitka, 'name'),
   };
 
   return _frontendCache;

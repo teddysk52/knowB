@@ -1,0 +1,4753 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "created_by": "JOSM",
+        "name": "studánka / podivné vodní dílo",
+        "@id": "node/25314361"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.294482,
+          50.1318907
+        ]
+      },
+      "id": "node/25314361"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "wikidata": "Q98381459",
+        "wikimedia_commons": "Category:Pítko u stanice Karlovo náměstí (Luboš Růžička)",
+        "@id": "node/290650248"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4151449,
+          50.0725018
+        ]
+      },
+      "id": "node/290650248"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "survey;CZ:IPRPraha:ortofoto",
+        "@id": "node/302839058"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3980409,
+          50.078051
+        ]
+      },
+      "id": "node/302839058"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "artist:wikidata": "Q64462197",
+        "artist_name": "Miroslav Vystrčil",
+        "dog": "no",
+        "drinking_water:seasonal": "yes",
+        "fee": "no",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "note": "funguje pouze v létě / operating only in summer",
+        "seasonal": "yes",
+        "source": "CZ:IPRPraha:ortofoto",
+        "wikidata": "Q98381453",
+        "wikimedia_commons": "Category:Pítko u stanice Malostranská (Miroslav Vystrčil)",
+        "@id": "node/303442567"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4095988,
+          50.0907804
+        ]
+      },
+      "id": "node/303442567"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/358463973"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3745499,
+          50.0984627
+        ]
+      },
+      "id": "node/358463973"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto;local knowledge",
+        "@id": "node/391273451"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4251602,
+          50.0959655
+        ]
+      },
+      "id": "node/391273451"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/503309229"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4357215,
+          50.0748054
+        ]
+      },
+      "id": "node/503309229"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "source": "CZ:IPRPraha:ortofoto",
+        "wheelchair": "yes",
+        "@id": "node/503309230"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4354516,
+          50.0757007
+        ]
+      },
+      "id": "node/503309230"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "operator": "Praha 4",
+        "wheelchair": "yes",
+        "@id": "node/503341679"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.422444,
+          50.0585497
+        ]
+      },
+      "id": "node/503341679"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2022-04-08",
+        "fountain": "bubbler",
+        "@id": "node/776060457"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4305033,
+          50.0455908
+        ]
+      },
+      "id": "node/776060457"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/919509114"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4323601,
+          50.0859194
+        ]
+      },
+      "id": "node/919509114"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2025-04-20",
+        "note": "moc na pití to není",
+        "@id": "node/963907988"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2554409,
+          49.9450202
+        ]
+      },
+      "id": "node/963907988"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2021-08-21",
+        "source": "survey",
+        "wheelchair": "yes",
+        "@id": "node/1239698662"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4651981,
+          50.0908448
+        ]
+      },
+      "id": "node/1239698662"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2022-11-04",
+        "man_made": "water_tap",
+        "source": "survey",
+        "@id": "node/1240083566"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4342972,
+          50.0914594
+        ]
+      },
+      "id": "node/1240083566"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2021-08-13",
+        "@id": "node/1358756042"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.43456,
+          50.0853839
+        ]
+      },
+      "id": "node/1358756042"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2021-08-13",
+        "@id": "node/1358756046"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4340167,
+          50.0850773
+        ]
+      },
+      "id": "node/1358756046"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "cold_water": "yes",
+        "description": "funguje pouze v létě/functional only in summer",
+        "drinking_water:legal": "yes",
+        "drinking_water:seasonal": "yes",
+        "fee": "no",
+        "fountain": "bubbler",
+        "hot_water": "no",
+        "opening_hours": "24/7; Oct-Apr off",
+        "seasonal": "yes",
+        "source": "CZ:IPRPraha:ortofoto",
+        "warm_water": "no",
+        "wikimedia_commons": "File:Praha Stare Mesto Havirska Na prikope pitko.jpg",
+        "@id": "node/1408428564"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4246316,
+          50.0851563
+        ]
+      },
+      "id": "node/1408428564"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2021-10-13",
+        "fountain": "bubbler",
+        "@id": "node/1469855405"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4307786,
+          50.0930647
+        ]
+      },
+      "id": "node/1469855405"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "operator": "Praha 10",
+        "wheelchair": "yes",
+        "@id": "node/1512477089"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4783988,
+          50.0712336
+        ]
+      },
+      "id": "node/1512477089"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "source": "survey",
+        "@id": "node/1775805228"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4291271,
+          50.0257745
+        ]
+      },
+      "id": "node/1775805228"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "fountain": "bubbler",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/1787426874"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4233636,
+          50.0835356
+        ]
+      },
+      "id": "node/1787426874"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "artist_name": "Stanislav Hanzík",
+        "fountain": "drinking",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "start_date": "1992",
+        "wikidata": "Q64712085",
+        "wikimedia_commons": "Category:Chlapec s mušlí (Stanislav Hanzík)",
+        "@id": "node/1787443449"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4240236,
+          50.0824082
+        ]
+      },
+      "id": "node/1787443449"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 1",
+        "@id": "node/1787443450"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4188373,
+          50.0847372
+        ]
+      },
+      "id": "node/1787443450"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2023-08-06",
+        "man_made": "water_tap",
+        "@id": "node/1792408841"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4292107,
+          50.0973287
+        ]
+      },
+      "id": "node/1792408841"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/1849697375"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4904902,
+          50.0440753
+        ]
+      },
+      "id": "node/1849697375"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/1852483604"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2968062,
+          50.0216776
+        ]
+      },
+      "id": "node/1852483604"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/1952521702"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3964636,
+          50.0866877
+        ]
+      },
+      "id": "node/1952521702"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "check_date": "2025-12-17",
+        "fee": "no",
+        "man_made": "water_tap",
+        "seasonal": "summer",
+        "@id": "node/1964281856"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4196288,
+          50.0551972
+        ]
+      },
+      "id": "node/1964281856"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/2155637176"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4229362,
+          50.0599502
+        ]
+      },
+      "id": "node/2155637176"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "personal",
+        "@id": "node/2197114879"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4301706,
+          50.048966
+        ]
+      },
+      "id": "node/2197114879"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "source": "survey",
+        "@id": "node/2212953283"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4482434,
+          50.0688615
+        ]
+      },
+      "id": "node/2212953283"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "drinking",
+        "source": "survey",
+        "@id": "node/2212953409"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.442347,
+          50.0696347
+        ]
+      },
+      "id": "node/2212953409"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "check_date": "2021-08-20",
+        "fee": "no",
+        "source": "survey",
+        "@id": "node/2213334809"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4547493,
+          50.0705287
+        ]
+      },
+      "id": "node/2213334809"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/2255741137"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.369869,
+          50.1720806
+        ]
+      },
+      "id": "node/2255741137"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/2255741138"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3740296,
+          50.1731228
+        ]
+      },
+      "id": "node/2255741138"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2021-11-02",
+        "man_made": "water_tap",
+        "@id": "node/2286089957"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4488475,
+          50.0782507
+        ]
+      },
+      "id": "node/2286089957"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/2329559538"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4345226,
+          50.0555695
+        ]
+      },
+      "id": "node/2329559538"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "source": "survey",
+        "@id": "node/2351011059"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4213454,
+          50.0710563
+        ]
+      },
+      "id": "node/2351011059"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/2375435872"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4322443,
+          50.0498408
+        ]
+      },
+      "id": "node/2375435872"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "fountain": "bubbler",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/2408590747"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4100697,
+          50.1166865
+        ]
+      },
+      "id": "node/2408590747"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2025-05-03",
+        "@id": "node/3127534835"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3741224,
+          50.1691945
+        ]
+      },
+      "id": "node/3127534835"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/3208290389"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4968458,
+          50.0358845
+        ]
+      },
+      "id": "node/3208290389"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "@id": "node/3208290390"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4971332,
+          50.0362571
+        ]
+      },
+      "id": "node/3208290390"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/3213675728"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4146272,
+          50.1192225
+        ]
+      },
+      "id": "node/3213675728"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 10",
+        "wheelchair": "yes",
+        "@id": "node/3248975337"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5021249,
+          50.0571041
+        ]
+      },
+      "id": "node/3248975337"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/3270062087"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4471385,
+          50.0697551
+        ]
+      },
+      "id": "node/3270062087"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/3276828565"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4264699,
+          50.0961324
+        ]
+      },
+      "id": "node/3276828565"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "check_date": "2023-06-29",
+        "fee": "no",
+        "man_made": "water_tap",
+        "@id": "node/3445261012"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4136696,
+          50.0620885
+        ]
+      },
+      "id": "node/3445261012"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fee": "no",
+        "fountain": "drinking",
+        "name": "Libušina studánka",
+        "wheelchair": "no",
+        "@id": "node/3613600346"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.425081,
+          50.0588418
+        ]
+      },
+      "id": "node/3613600346"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "seasonal": "spring-autumn",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/3650765694"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4090555,
+          50.0894137
+        ]
+      },
+      "id": "node/3650765694"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "operator": "Praha 1",
+        "source": "https://www.prazskekasny.cz/pitko-nad-sachtou-kolektoru/",
+        "start_date": "2007",
+        "wheelchair": "yes",
+        "@id": "node/3651114828"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4223403,
+          50.0795738
+        ]
+      },
+      "id": "node/3651114828"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "man_made": "water_well",
+        "pump": "manual",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/3670590094"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4193853,
+          50.0708203
+        ]
+      },
+      "id": "node/3670590094"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fee": "no",
+        "indoor": "no",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/3681899834"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3928621,
+          50.0771227
+        ]
+      },
+      "id": "node/3681899834"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "artist:wikidata": "Q18746011",
+        "artist_name": "Jan Bartoš",
+        "drinking_water": "yes",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "source": "CZ:IPRPraha:ortofoto",
+        "start_date": "1988",
+        "wikidata": "Q94443199",
+        "wikimedia_commons": "File:Praha Stare Mesto Celetna Stupartska pitko.jpg",
+        "@id": "node/3681899836"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4229653,
+          50.0873335
+        ]
+      },
+      "id": "node/3681899836"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/3681899837"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4298335,
+          50.0878383
+        ]
+      },
+      "id": "node/3681899837"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2023-07-25",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "@id": "node/3681899838"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4237661,
+          50.0879647
+        ]
+      },
+      "id": "node/3681899838"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "indoor": "no",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/3681899839"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3673399,
+          50.1013831
+        ]
+      },
+      "id": "node/3681899839"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2023-04-27",
+        "man_made": "water_tap",
+        "@id": "node/3762000728"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.44873,
+          50.0803194
+        ]
+      },
+      "id": "node/3762000728"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/3809563992"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4210688,
+          50.063622
+        ]
+      },
+      "id": "node/3809563992"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/3812775562"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.409874,
+          50.1051573
+        ]
+      },
+      "id": "node/3812775562"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "pump:status": "broken",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/3870431360"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4045017,
+          50.0764986
+        ]
+      },
+      "id": "node/3870431360"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/3902942538"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4168419,
+          50.086642
+        ]
+      },
+      "id": "node/3902942538"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "description": "v zimě mimo provoz",
+        "source": "gps",
+        "@id": "node/3939122651"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4151837,
+          50.1208056
+        ]
+      },
+      "id": "node/3939122651"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "description": "v zimě mimo provoz",
+        "man_made": "water_tap",
+        "source": "gps",
+        "@id": "node/3939122655"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4172273,
+          50.1225075
+        ]
+      },
+      "id": "node/3939122655"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/3995893512"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3910299,
+          50.0990975
+        ]
+      },
+      "id": "node/3995893512"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/4005175380"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3913228,
+          50.0996206
+        ]
+      },
+      "id": "node/4005175380"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/4157907156"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4034719,
+          50.079245
+        ]
+      },
+      "id": "node/4157907156"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "source": "s",
+        "wheelchair": "no",
+        "@id": "node/4174087521"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4943165,
+          50.0707815
+        ]
+      },
+      "id": "node/4174087521"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "man_made": "water_tap",
+        "source": "gps",
+        "@id": "node/4188877391"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3457385,
+          50.089019
+        ]
+      },
+      "id": "node/4188877391"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/4253464152"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4225005,
+          50.1028939
+        ]
+      },
+      "id": "node/4253464152"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "description": "voda se spouští tlačítkem",
+        "fountain": "drinking",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "wikidata": "Q64816034",
+        "@id": "node/4291535462"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4039389,
+          50.0817403
+        ]
+      },
+      "id": "node/4291535462"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/4305061077"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4487081,
+          50.076062
+        ]
+      },
+      "id": "node/4305061077"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "check_date": "2022-09-18",
+        "cold_water": "yes",
+        "fee": "no",
+        "operational_status": "broken",
+        "@id": "node/4305072956"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4164501,
+          50.0636474
+        ]
+      },
+      "id": "node/4305072956"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/4317595066"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4130668,
+          50.0776357
+        ]
+      },
+      "id": "node/4317595066"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "drinking",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/4317595067"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4236712,
+          50.0825312
+        ]
+      },
+      "id": "node/4317595067"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/4317595071"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4257046,
+          50.0917099
+        ]
+      },
+      "id": "node/4317595071"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "survey",
+        "@id": "node/4317651933"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4161765,
+          50.0681792
+        ]
+      },
+      "id": "node/4317651933"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/4319204985"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4572672,
+          50.0649975
+        ]
+      },
+      "id": "node/4319204985"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/4319204986"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4482251,
+          50.0665996
+        ]
+      },
+      "id": "node/4319204986"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "wheelchair": "yes",
+        "@id": "node/4319204987"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.447972,
+          50.0928488
+        ]
+      },
+      "id": "node/4319204987"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/4338231776"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4030507,
+          50.0835023
+        ]
+      },
+      "id": "node/4338231776"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "drinking",
+        "source": "survey",
+        "@id": "node/4342247851"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4206103,
+          50.084608
+        ]
+      },
+      "id": "node/4342247851"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/4349048321"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.421324,
+          50.1054189
+        ]
+      },
+      "id": "node/4349048321"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/4411670345"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4211217,
+          50.1030355
+        ]
+      },
+      "id": "node/4411670345"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/4426509413"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.496859,
+          50.084922
+        ]
+      },
+      "id": "node/4426509413"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "indoor": "no",
+        "source": "CZ:IPRPraha:ortofoto",
+        "wikidata": "Q94440109",
+        "@id": "node/4716314662"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3911107,
+          50.0893216
+        ]
+      },
+      "id": "node/4716314662"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "drinking_water": "yes",
+        "fee": "no",
+        "indoor": "no",
+        "lit": "yes",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto;local knowledge",
+        "@id": "node/4716314664"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4199031,
+          50.0959691
+        ]
+      },
+      "id": "node/4716314664"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/4723574035"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4232026,
+          50.102956
+        ]
+      },
+      "id": "node/4723574035"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "@id": "node/4727468258"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4153866,
+          50.1177491
+        ]
+      },
+      "id": "node/4727468258"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/4832601041"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4797819,
+          50.0432468
+        ]
+      },
+      "id": "node/4832601041"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "survey",
+        "wheelchair": "yes",
+        "@id": "node/5020390154"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4469196,
+          50.0929163
+        ]
+      },
+      "id": "node/5020390154"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/5046424425"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6695129,
+          50.0950537
+        ]
+      },
+      "id": "node/5046424425"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "fountain": "bubbler",
+        "wheelchair": "yes",
+        "@id": "node/5065564736"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.350755,
+          50.0508752
+        ]
+      },
+      "id": "node/5065564736"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "man_made": "water_tap",
+        "source": "survey",
+        "@id": "node/5072313903"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4079163,
+          50.0832149
+        ]
+      },
+      "id": "node/5072313903"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/5135376140"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4356268,
+          50.098688
+        ]
+      },
+      "id": "node/5135376140"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 3",
+        "wheelchair": "yes",
+        "@id": "node/5520369673"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4645142,
+          50.0856462
+        ]
+      },
+      "id": "node/5520369673"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/5563964491"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4830645,
+          50.0135383
+        ]
+      },
+      "id": "node/5563964491"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "note": "Mimo provoz 12.6.2019",
+        "source": "survey;CZ:IPRPraha:ortofoto",
+        "@id": "node/5604939695"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3930877,
+          50.0857517
+        ]
+      },
+      "id": "node/5604939695"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/6316788766"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.393155,
+          49.976392
+        ]
+      },
+      "id": "node/6316788766"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/6538854575"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4980612,
+          50.0851818
+        ]
+      },
+      "id": "node/6538854575"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "wheelchair": "yes",
+        "@id": "node/6571875561"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4248563,
+          50.0815921
+        ]
+      },
+      "id": "node/6571875561"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/6713018241"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4087842,
+          50.0793931
+        ]
+      },
+      "id": "node/6713018241"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/6713025901"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4092291,
+          50.0778642
+        ]
+      },
+      "id": "node/6713025901"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "covered": "no",
+        "description": "Drinking fountain in shape of „P\" (pítko in Czech)",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 7",
+        "source": "https://www.praha7.cz/na-rezacove-namesti-bylo-zprovozneno-nove-pitko/",
+        "start_date": "2019",
+        "wheelchair": "yes",
+        "@id": "node/6718363620"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4359496,
+          50.1007936
+        ]
+      },
+      "id": "node/6718363620"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "description": "pítko na nádvoří paláce",
+        "historic": "yes",
+        "source": "survey",
+        "@id": "node/6982799134"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.405833,
+          50.0901156
+        ]
+      },
+      "id": "node/6982799134"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "source": "survey",
+        "@id": "node/7016578041"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4219171,
+          50.0879143
+        ]
+      },
+      "id": "node/7016578041"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/7016578062"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4372908,
+          50.0639851
+        ]
+      },
+      "id": "node/7016578062"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "@id": "node/7138853386"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3479101,
+          50.0487223
+        ]
+      },
+      "id": "node/7138853386"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "charge": "no",
+        "fountain": "bubbler",
+        "@id": "node/7138853485"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3460908,
+          50.0487358
+        ]
+      },
+      "id": "node/7138853485"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/7200713071"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3457881,
+          50.0930228
+        ]
+      },
+      "id": "node/7200713071"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/7529528178"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.558702,
+          50.0001535
+        ]
+      },
+      "id": "node/7529528178"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "material": "limestone",
+        "natural": "stone",
+        "@id": "node/7623810233"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4221567,
+          50.1070378
+        ]
+      },
+      "id": "node/7623810233"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/7691422642"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6140939,
+          50.0817871
+        ]
+      },
+      "id": "node/7691422642"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "fountain": "bubbler",
+        "note": "shape of „P\"",
+        "operator": "Praha 7",
+        "start_date": "2020",
+        "@id": "node/7714323225"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4483057,
+          50.1017294
+        ]
+      },
+      "id": "node/7714323225"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "check_date": "2025-09-20",
+        "covered": "no",
+        "fee": "no",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "lit": "yes",
+        "@id": "node/7734773958"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5037761,
+          50.0734819
+        ]
+      },
+      "id": "node/7734773958"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "@id": "node/7756026483"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5038561,
+          50.0740073
+        ]
+      },
+      "id": "node/7756026483"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "check_date": "2023-09-20",
+        "@id": "node/7868852123"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4487559,
+          50.0802973
+        ]
+      },
+      "id": "node/7868852123"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fee": "no",
+        "@id": "node/7893474109"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3761899,
+          50.1737217
+        ]
+      },
+      "id": "node/7893474109"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "operator": "Praha 10",
+        "wheelchair": "yes",
+        "@id": "node/8032110696"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.490548,
+          50.0719503
+        ]
+      },
+      "id": "node/8032110696"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 3",
+        "start_date": "2018",
+        "@id": "node/8068707115"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4481044,
+          50.0858067
+        ]
+      },
+      "id": "node/8068707115"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "permissive",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "@id": "node/8121804593"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3845733,
+          50.1162965
+        ]
+      },
+      "id": "node/8121804593"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/8197731855"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3993303,
+          50.0976863
+        ]
+      },
+      "id": "node/8197731855"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "fountain": "drinking",
+        "@id": "node/8260343848"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3129954,
+          50.0320512
+        ]
+      },
+      "id": "node/8260343848"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "man_made": "water_tap",
+        "seasonal": "spring-autumn",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/8278444955"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4025786,
+          50.0843481
+        ]
+      },
+      "id": "node/8278444955"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto",
+        "@id": "node/8424839443"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4411433,
+          50.0849867
+        ]
+      },
+      "id": "node/8424839443"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "man_made": "water_tap",
+        "@id": "node/8513063363"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4990994,
+          50.0833237
+        ]
+      },
+      "id": "node/8513063363"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/8564616904"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4813553,
+          50.0751788
+        ]
+      },
+      "id": "node/8564616904"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/8564622245"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4817613,
+          50.0751689
+        ]
+      },
+      "id": "node/8564622245"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/8564622246"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4842736,
+          50.0764419
+        ]
+      },
+      "id": "node/8564622246"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "covered": "no",
+        "indoor": "no",
+        "@id": "node/8564623336"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4839277,
+          50.0752299
+        ]
+      },
+      "id": "node/8564623336"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/8564631326"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4841231,
+          50.0760906
+        ]
+      },
+      "id": "node/8564631326"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/8580630172"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.602196,
+          50.078699
+        ]
+      },
+      "id": "node/8580630172"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 10",
+        "@id": "node/8912037566"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4967896,
+          50.0567061
+        ]
+      },
+      "id": "node/8912037566"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "indoor": "yes",
+        "lit": "yes",
+        "note": "Pítko za kontrolami",
+        "operator": "Letiště Praha",
+        "source": "https://www.facebook.com/prague.airport.letiste.praha/photos/a.683289145019669/2966969683318259/",
+        "start_date": "2019",
+        "@id": "node/8972081600"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2674877,
+          50.1045606
+        ]
+      },
+      "id": "node/8972081600"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "name": "Voda pro psy",
+        "@id": "node/9020762329"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4019949,
+          50.1186378
+        ]
+      },
+      "id": "node/9020762329"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "yes",
+        "fee": "no",
+        "fountain": "bubbler",
+        "indoor": "yes",
+        "lit": "yes",
+        "@id": "node/9060759065"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2652087,
+          50.1056637
+        ]
+      },
+      "id": "node/9060759065"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "covered": "no",
+        "fee": "no",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "@id": "node/9064330689"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5135558,
+          50.0124196
+        ]
+      },
+      "id": "node/9064330689"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 3",
+        "@id": "node/9082683839"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4547355,
+          50.0808428
+        ]
+      },
+      "id": "node/9082683839"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "source": "https://www.prazskekasny.cz/pitko-u-detskeho-hriste-zidovske-pece/",
+        "@id": "node/9082685345"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4811192,
+          50.0897775
+        ]
+      },
+      "id": "node/9082685345"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "fountain": "bubbler",
+        "operator": "Praha 3",
+        "wheelchair": "yes",
+        "@id": "node/9082787319"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4578645,
+          50.0846273
+        ]
+      },
+      "id": "node/9082787319"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "fee": "no",
+        "operator": "Praha 3",
+        "wheelchair": "yes",
+        "@id": "node/9082809847"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4664551,
+          50.0773796
+        ]
+      },
+      "id": "node/9082809847"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "fountain": "bubbler",
+        "operator": "Praha 3",
+        "@id": "node/9082812232"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.45089,
+          50.0842536
+        ]
+      },
+      "id": "node/9082812232"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "wheelchair": "yes",
+        "@id": "node/9082938586"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4553627,
+          50.0691343
+        ]
+      },
+      "id": "node/9082938586"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "wheelchair": "yes",
+        "@id": "node/9082938588"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4535775,
+          50.0690672
+        ]
+      },
+      "id": "node/9082938588"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "operator": "Praha 10",
+        "wheelchair": "yes",
+        "@id": "node/9082976084"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5011432,
+          50.0570986
+        ]
+      },
+      "id": "node/9082976084"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "fountain": "bubbler",
+        "operator": "Praha 10",
+        "start_date": "2019",
+        "wheelchair": "yes",
+        "@id": "node/9082976090"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5072701,
+          50.056587
+        ]
+      },
+      "id": "node/9082976090"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 10",
+        "@id": "node/9082999005"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4612305,
+          50.0723332
+        ]
+      },
+      "id": "node/9082999005"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "wheelchair": "yes",
+        "@id": "node/9082999133"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.458498,
+          50.0683478
+        ]
+      },
+      "id": "node/9082999133"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "operator": "Vestec",
+        "wheelchair": "limited",
+        "@id": "node/9083526616"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5078028,
+          49.9864931
+        ]
+      },
+      "id": "node/9083526616"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "fountain": "bubbler",
+        "operator": "Dolní Břežany",
+        "wheelchair": "yes",
+        "@id": "node/9083528262"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4558476,
+          49.9627994
+        ]
+      },
+      "id": "node/9083528262"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Dolní Břežany",
+        "source": "https://www.dolnibrezany.cz/oprava-pitka-v-centru-obce/d-10573",
+        "wheelchair": "yes",
+        "@id": "node/9083528274"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4590428,
+          49.9637368
+        ]
+      },
+      "id": "node/9083528274"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "operator": "Praha 12",
+        "source": "https://www.venkazdyden.cz/detail-hriste/-pisovicich/11284;https://mapy.cz/zakladni?x=14.4263294&y=50.0124775&z=19&base=ophoto&source=base&id=2216917",
+        "@id": "node/9083539905"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4258696,
+          50.0121129
+        ]
+      },
+      "id": "node/9083539905"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "check_date": "2025",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 4",
+        "source": "https://mapy.cz/zakladni?x=14.4213387&y=50.0568861&z=19&pano=1&q=p%C3%ADtko&source=base&id=2191975&pid=70294070&yaw=0.174&fov=1.029&pitch=-0.052",
+        "wheelchair": "yes",
+        "@id": "node/9083655348"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4213272,
+          50.0571351
+        ]
+      },
+      "id": "node/9083655348"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "fountain": "bubbler",
+        "operator": "Praha 7",
+        "source": "https://www.nasepraha.cz/praha-7-ma-prvni-pitko-p-najdete-ho-na-ortenove-namesti/",
+        "start_date": "2016",
+        "@id": "node/9083766968"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4477192,
+          50.1081364
+        ]
+      },
+      "id": "node/9083766968"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "fountain": "bubbler",
+        "operator": "Praha 7",
+        "source": "https://www.pvk.cz/aktuality/pitko-p-miri-za-financni-podpory-pvk-do-prazskych-ulic/",
+        "start_date": "2017",
+        "@id": "node/9083768797"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4509895,
+          50.1000542
+        ]
+      },
+      "id": "node/9083768797"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 1",
+        "source": "local knowledge",
+        "start_date": "2021",
+        "wheelchair": "yes",
+        "@id": "node/9102077590"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4242488,
+          50.0838576
+        ]
+      },
+      "id": "node/9102077590"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "fountain": "drinking",
+        "man_made": "water_tap",
+        "survey:date": "2021-10-02",
+        "@id": "node/9118252417"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6614632,
+          49.9956143
+        ]
+      },
+      "id": "node/9118252417"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "man_made": "water_tap",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/9125005096"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3944097,
+          50.0834427
+        ]
+      },
+      "id": "node/9125005096"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fountain": "bubbler",
+        "source": "CZ:IPRPraha:ortofoto;survey",
+        "@id": "node/9132002355"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4028345,
+          50.0823805
+        ]
+      },
+      "id": "node/9132002355"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "indoor": "no",
+        "opening_hours": "24/7; Oct-Mar off",
+        "operator": "ÚMČ Praha 21",
+        "@id": "node/9165141580"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6766868,
+          50.0690925
+        ]
+      },
+      "id": "node/9165141580"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "drinking",
+        "@id": "node/9165785387"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.450779,
+          50.0910356
+        ]
+      },
+      "id": "node/9165785387"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "fixme": "location_approximate",
+        "source": "https://prazska.drbna.cz/z-kraje/praha-7/7624-ve-vnitrobloku-u-vody-jsou-nove-cesty-lavicky-pitka-i-osvetleni",
+        "start_date": "2021",
+        "wheelchair": "yes",
+        "@id": "node/9335746315"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4476533,
+          50.1112908
+        ]
+      },
+      "id": "node/9335746315"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fee": "no",
+        "man_made": "water_tap",
+        "survey:date": "2022-01-03",
+        "wheelchair": "yes",
+        "@id": "node/9389008119"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6539859,
+          49.9916368
+        ]
+      },
+      "id": "node/9389008119"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "operator": "Praha 5",
+        "source": "https://twitter.com/Prazska5/status/1483695722448961543/photo/1",
+        "start_date": "2022",
+        "@id": "node/9430806572"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3945297,
+          50.0414423
+        ]
+      },
+      "id": "node/9430806572"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "fee": "no",
+        "start_date": "2021",
+        "wheelchair": "yes",
+        "@id": "node/9455972727"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4070305,
+          50.1127639
+        ]
+      },
+      "id": "node/9455972727"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "fee": "no",
+        "start_date": "2021",
+        "wheelchair": "yes",
+        "@id": "node/9455972730"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4081645,
+          50.1122226
+        ]
+      },
+      "id": "node/9455972730"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "fee": "no",
+        "start_date": "2021",
+        "wheelchair": "yes",
+        "@id": "node/9455972739"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4095752,
+          50.1119696
+        ]
+      },
+      "id": "node/9455972739"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "fee": "no",
+        "start_date": "2021",
+        "wheelchair": "yes",
+        "@id": "node/9455972751"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4109489,
+          50.1119752
+        ]
+      },
+      "id": "node/9455972751"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "fee": "no",
+        "start_date": "2021",
+        "wheelchair": "yes",
+        "@id": "node/9455972760"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4121402,
+          50.1115241
+        ]
+      },
+      "id": "node/9455972760"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "fountain": "bubbler",
+        "operator": "Správa železnic",
+        "start_date": "2021",
+        "@id": "node/9785743006"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4473773,
+          50.0649242
+        ]
+      },
+      "id": "node/9785743006"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "description": "mlhopítko, na zimu se demontuje",
+        "fee": "no",
+        "fountain": "drinking",
+        "name": "Brčko",
+        "seasonal": "yes",
+        "start_date": "2022",
+        "wheelchair": "yes",
+        "@id": "node/9955034081"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4048735,
+          50.0976106
+        ]
+      },
+      "id": "node/9955034081"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/9964248075"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3326463,
+          50.0374021
+        ]
+      },
+      "id": "node/9964248075"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/9988082187"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4475837,
+          50.0698486
+        ]
+      },
+      "id": "node/9988082187"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "covered": "no",
+        "fee": "no",
+        "fountain": "bottle_refill",
+        "operator": "Praha 7",
+        "source": "https://www.facebook.com/JiriKnitlPraha/photos/a.106944190723626/784312292986809/",
+        "start_date": "2022",
+        "wheelchair": "yes",
+        "@id": "node/10020360896"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4229052,
+          50.1000438
+        ]
+      },
+      "id": "node/10020360896"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "man_made": "water_tap",
+        "name": "Pítko u Kuličkového hřiště",
+        "source": "local knowledge;estudanky.eu",
+        "website": "https://www.estudanky.eu/",
+        "@id": "node/10021317359"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3073838,
+          50.0907013
+        ]
+      },
+      "id": "node/10021317359"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "name": "pítko U Hvězdné cesty",
+        "website": "https://www.estudanky.eu/",
+        "@id": "node/10024864085"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3056264,
+          50.0897666
+        ]
+      },
+      "id": "node/10024864085"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "operator": "Praha 2",
+        "start_date": "2022",
+        "wheelchair": "yes",
+        "@id": "node/10047865698"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4309261,
+          50.0671826
+        ]
+      },
+      "id": "node/10047865698"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/10077585067"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3081731,
+          50.0896444
+        ]
+      },
+      "id": "node/10077585067"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "@id": "node/10124959677"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3065913,
+          50.0886212
+        ]
+      },
+      "id": "node/10124959677"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "fountain": "bubbler",
+        "wheelchair": "yes",
+        "@id": "node/10231434339"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3447572,
+          50.0487206
+        ]
+      },
+      "id": "node/10231434339"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "@id": "node/10291329744"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3623714,
+          50.0303804
+        ]
+      },
+      "id": "node/10291329744"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "source": "survey",
+        "@id": "node/10711152255"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4080434,
+          50.0908386
+        ]
+      },
+      "id": "node/10711152255"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "seasonal": "summer",
+        "wheelchair": "no",
+        "@id": "node/10711152257"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4038884,
+          50.0919312
+        ]
+      },
+      "id": "node/10711152257"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "man_made": "water_tap",
+        "mapillary": "666977803140854",
+        "note": "Neteče",
+        "wheelchair": "yes",
+        "@id": "node/10732907748"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3782529,
+          50.0366416
+        ]
+      },
+      "id": "node/10732907748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "covered": "no",
+        "fee": "no",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "lit": "no",
+        "opening_hours": "24/7",
+        "panoramax": "d98ac8ee-5d85-41fe-8b93-7d2c6ba3fbd6",
+        "@id": "node/10858275447"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6204289,
+          50.1095147
+        ]
+      },
+      "id": "node/10858275447"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "lit": "no",
+        "@id": "node/10858275455"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6174607,
+          50.1102797
+        ]
+      },
+      "id": "node/10858275455"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "indoor": "no",
+        "man_made": "water_tap",
+        "@id": "node/10866790354"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3047812,
+          50.0891577
+        ]
+      },
+      "id": "node/10866790354"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "fountain": "nozzle",
+        "man_made": "water_tap",
+        "@id": "node/10875207381"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3877957,
+          50.0611519
+        ]
+      },
+      "id": "node/10875207381"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "fountain": "nozzle",
+        "man_made": "water_tap",
+        "seasonal": "yes",
+        "@id": "node/10875240950"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3852223,
+          50.0609201
+        ]
+      },
+      "id": "node/10875240950"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "fountain": "nozzle",
+        "man_made": "water_tap",
+        "@id": "node/10875283476"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3856557,
+          50.0616977
+        ]
+      },
+      "id": "node/10875283476"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "fountain": "nozzle",
+        "man_made": "water_tap",
+        "@id": "node/10875288459"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3870205,
+          50.0611347
+        ]
+      },
+      "id": "node/10875288459"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "fountain": "nozzle",
+        "man_made": "water_tap",
+        "@id": "node/10875428989"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.389368,
+          50.0618126
+        ]
+      },
+      "id": "node/10875428989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "drinking",
+        "@id": "node/10879583805"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2664967,
+          50.1047029
+        ]
+      },
+      "id": "node/10879583805"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "name:de": "Trinkwasserbrunnen",
+        "name:en": "Drinking Fountain",
+        "operator": "Fata Morgana Botanical Garden",
+        "@id": "node/11050598505"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4139242,
+          50.1217047
+        ]
+      },
+      "id": "node/11050598505"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "fee": "no",
+        "man_made": "water_tap",
+        "seasonal": "summer",
+        "@id": "node/11079612636"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3754644,
+          50.0330227
+        ]
+      },
+      "id": "node/11079612636"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "@id": "node/11079628179"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3714299,
+          50.0315469
+        ]
+      },
+      "id": "node/11079628179"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "wheelchair": "yes",
+        "@id": "node/11079632435"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3769493,
+          50.0342416
+        ]
+      },
+      "id": "node/11079632435"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "description": "mlžítko",
+        "@id": "node/11148011402"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4974953,
+          50.0357213
+        ]
+      },
+      "id": "node/11148011402"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/11158546771"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4504054,
+          50.0942623
+        ]
+      },
+      "id": "node/11158546771"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "fountain": "drinking",
+        "man_made": "water_tap",
+        "@id": "node/11176437911"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5222762,
+          50.057342
+        ]
+      },
+      "id": "node/11176437911"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/11177200127"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4241049,
+          50.1084621
+        ]
+      },
+      "id": "node/11177200127"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no",
+        "wheelchair": "yes",
+        "@id": "node/11182091299"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.483071,
+          50.1054929
+        ]
+      },
+      "id": "node/11182091299"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "wheelchair": "yes",
+        "@id": "node/11182125240"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4254814,
+          50.0826381
+        ]
+      },
+      "id": "node/11182125240"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "fee": "no",
+        "man_made": "water_tap",
+        "operator": "Praha 7",
+        "wheelchair": "no",
+        "@id": "node/11219765969"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4202878,
+          50.1001599
+        ]
+      },
+      "id": "node/11219765969"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "customers",
+        "amenity": "drinking_water",
+        "@id": "node/11299903439"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4032925,
+          50.1205843
+        ]
+      },
+      "id": "node/11299903439"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "cold_water": "yes",
+        "@id": "node/11816767058"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5324666,
+          50.0288801
+        ]
+      },
+      "id": "node/11816767058"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/11821339362"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4384783,
+          50.1527364
+        ]
+      },
+      "id": "node/11821339362"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "dog": "yes",
+        "@id": "node/11848442087"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4720949,
+          50.1305732
+        ]
+      },
+      "id": "node/11848442087"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fee": "no",
+        "man_made": "water_tap",
+        "@id": "node/11882220901"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4149913,
+          50.1217284
+        ]
+      },
+      "id": "node/11882220901"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fee": "no",
+        "man_made": "water_tap",
+        "@id": "node/11882220928"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.416078,
+          50.1197762
+        ]
+      },
+      "id": "node/11882220928"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fee": "no",
+        "man_made": "water_tap",
+        "@id": "node/11882220929"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4154125,
+          50.1196129
+        ]
+      },
+      "id": "node/11882220929"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "no",
+        "access:conditional": "yes @ (May-Sep)",
+        "amenity": "drinking_water",
+        "fountain": "bottle_refill",
+        "@id": "node/11903879303"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3878845,
+          50.087753
+        ]
+      },
+      "id": "node/11903879303"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/11963471310"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4964033,
+          50.0842044
+        ]
+      },
+      "id": "node/11963471310"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "name": "Pítko",
+        "note": "občas nefunkční / sometimes not functional",
+        "@id": "node/12014917170"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3866821,
+          50.1656202
+        ]
+      },
+      "id": "node/12014917170"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "@id": "node/12041353876"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4918236,
+          50.1250934
+        ]
+      },
+      "id": "node/12041353876"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "@id": "node/12075071020"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4964285,
+          50.0578954
+        ]
+      },
+      "id": "node/12075071020"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12075533050"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4939061,
+          50.1090476
+        ]
+      },
+      "id": "node/12075533050"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "fee": "no",
+        "fountain": "bubbler",
+        "opening_hours": "24/7",
+        "panoramax": "c34c4e10-9cc2-4a9f-8a19-d9a3e52e3057",
+        "@id": "node/12075654079"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6204266,
+          50.1094247
+        ]
+      },
+      "id": "node/12075654079"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/12116439278"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4086009,
+          50.0841841
+        ]
+      },
+      "id": "node/12116439278"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12118613601"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4459655,
+          50.1125307
+        ]
+      },
+      "id": "node/12118613601"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "seasonal": "summer",
+        "@id": "node/12244372169"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.404203,
+          50.0735905
+        ]
+      },
+      "id": "node/12244372169"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "no",
+        "check_date": "2024",
+        "covered": "no",
+        "fee": "no",
+        "fountain": "bubbler",
+        "indoor": "no",
+        "level": "0",
+        "opening_hours": "24/7",
+        "operator": "Trigema",
+        "start_date": "2024",
+        "wheelchair": "yes",
+        "@id": "node/12309066444"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4097952,
+          50.0531176
+        ]
+      },
+      "id": "node/12309066444"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12373672336"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3955903,
+          50.0542384
+        ]
+      },
+      "id": "node/12373672336"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12373714476"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3964228,
+          50.0451612
+        ]
+      },
+      "id": "node/12373714476"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fee": "no",
+        "@id": "node/12401029375"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3723484,
+          50.1317058
+        ]
+      },
+      "id": "node/12401029375"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fee": "no",
+        "@id": "node/12401029376"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.376923,
+          50.1325232
+        ]
+      },
+      "id": "node/12401029376"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "covered": "no",
+        "fee": "no",
+        "indoor": "no",
+        "lit": "no",
+        "name": "Pítko",
+        "source": "survey",
+        "wheelchair": "limited",
+        "@id": "node/12404441185"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3856248,
+          49.9692939
+        ]
+      },
+      "id": "node/12404441185"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12452990846"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3898394,
+          50.0416952
+        ]
+      },
+      "id": "node/12452990846"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/12467117450"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.422973,
+          50.0907901
+        ]
+      },
+      "id": "node/12467117450"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12478397701"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4675248,
+          50.0810755
+        ]
+      },
+      "id": "node/12478397701"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12478401202"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4661872,
+          50.0817552
+        ]
+      },
+      "id": "node/12478401202"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "seasonal": "yes",
+        "@id": "node/12478403601"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4667666,
+          50.081466
+        ]
+      },
+      "id": "node/12478403601"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12478406201"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.464271,
+          50.0819998
+        ]
+      },
+      "id": "node/12478406201"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12478411901"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4625497,
+          50.0821175
+        ]
+      },
+      "id": "node/12478411901"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "dog": "no",
+        "fee": "yes",
+        "fountain": "bottle_refill",
+        "indoor": "yes",
+        "name": "Lokni",
+        "@id": "node/12587947882"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4331876,
+          50.0879171
+        ]
+      },
+      "id": "node/12587947882"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "drinking",
+        "@id": "node/12624268499"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3099576,
+          50.0469586
+        ]
+      },
+      "id": "node/12624268499"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/12791578492"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3710947,
+          50.1436835
+        ]
+      },
+      "id": "node/12791578492"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12802316783"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4611189,
+          50.0844971
+        ]
+      },
+      "id": "node/12802316783"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "@id": "node/12813866990"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3713379,
+          50.0215094
+        ]
+      },
+      "id": "node/12813866990"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "@id": "node/12819591978"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4163279,
+          50.1210674
+        ]
+      },
+      "id": "node/12819591978"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/12875985969"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4319631,
+          50.0581838
+        ]
+      },
+      "id": "node/12875985969"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "@id": "node/12962109997"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4478962,
+          50.0881945
+        ]
+      },
+      "id": "node/12962109997"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "drinking_water": "yes",
+        "fountain": "drinking",
+        "man_made": "water_tap",
+        "@id": "node/12980130833"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6559597,
+          49.9974141
+        ]
+      },
+      "id": "node/12980130833"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "seasonal": "yes",
+        "@id": "node/12985469713"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6582562,
+          50.0774922
+        ]
+      },
+      "id": "node/12985469713"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "seasonal": "yes",
+        "@id": "node/12985469718"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6580196,
+          50.0776405
+        ]
+      },
+      "id": "node/12985469718"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13041979482"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2630042,
+          50.1066595
+        ]
+      },
+      "id": "node/13041979482"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13045455065"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4027764,
+          50.1029245
+        ]
+      },
+      "id": "node/13045455065"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13048471974"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.540274,
+          50.0743252
+        ]
+      },
+      "id": "node/13048471974"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13058239700"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.397691,
+          50.0981426
+        ]
+      },
+      "id": "node/13058239700"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13073880983"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6506135,
+          49.9897785
+        ]
+      },
+      "id": "node/13073880983"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "man_made": "water_tap",
+        "wikimedia_commons": "File:Obora Hvězda - pítko u Petřin.jpg",
+        "@id": "node/13084387839"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.336166,
+          50.084762
+        ]
+      },
+      "id": "node/13084387839"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13084991876"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.39635,
+          50.086659
+        ]
+      },
+      "id": "node/13084991876"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "bubbler",
+        "@id": "node/13088983178"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.410939,
+          50.1161934
+        ]
+      },
+      "id": "node/13088983178"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13093898824"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5842242,
+          50.0893811
+        ]
+      },
+      "id": "node/13093898824"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "water_tap",
+        "operational_status": "closed",
+        "panoramax": "e3d8dfbc-52a8-4dfe-908e-c1af2728f132",
+        "@id": "node/13157590905"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4834832,
+          50.1645615
+        ]
+      },
+      "id": "node/13157590905"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13177480661"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4480229,
+          50.108632
+        ]
+      },
+      "id": "node/13177480661"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13296631523"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4280752,
+          50.0694208
+        ]
+      },
+      "id": "node/13296631523"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13429021025"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4407538,
+          50.0803054
+        ]
+      },
+      "id": "node/13429021025"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13429021026"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4416383,
+          50.0809891
+        ]
+      },
+      "id": "node/13429021026"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13429131130"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4484441,
+          50.1121709
+        ]
+      },
+      "id": "node/13429131130"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "dog": "yes",
+        "fee": "no",
+        "@id": "node/13439360432"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.506677,
+          50.1347206
+        ]
+      },
+      "id": "node/13439360432"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13446552690"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3963396,
+          50.0866447
+        ]
+      },
+      "id": "node/13446552690"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "access": "yes",
+        "amenity": "drinking_water",
+        "bottle": "yes",
+        "check_date": "2025",
+        "fee": "no",
+        "seasonal": "yes",
+        "@id": "node/13521376208"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4252903,
+          50.1095792
+        ]
+      },
+      "id": "node/13521376208"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "fountain": "drinking",
+        "indoor": "no",
+        "man_made": "water_tap",
+        "@id": "node/13550903199"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.48611,
+          50.0498897
+        ]
+      },
+      "id": "node/13550903199"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13551112560"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.455678,
+          50.0393994
+        ]
+      },
+      "id": "node/13551112560"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "drinking_water",
+        "@id": "node/13584826126"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.6676375,
+          49.9982373
+        ]
+      },
+      "id": "node/13584826126"
+    }
+  ]
+}
