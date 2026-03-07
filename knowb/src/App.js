@@ -134,7 +134,7 @@ function computeComfortAndJistota(routeCoords, preferences, routeInfo) {
 
 // ── Route via datahacka Dijkstra backend ────────────────────────────
 
-const ROUTING_API = 'http://localhost:3001';
+const ROUTING_API = `http://${window.location.hostname}:3001`;
 
 // Map frontend mode names to backend profile names
 const MODE_TO_PROFILE = {
@@ -183,16 +183,30 @@ async function reverseGeocode(lat, lng, lang) {
     );
     const data = await res.json();
     if (data.address) {
-      const road = data.address.road || data.address.pedestrian || data.address.path || '';
-      const num = data.address.house_number || '';
-      const sub = data.address.suburb || data.address.neighbourhood || data.address.quarter || '';
-      if (road) return num ? `${road} ${num}` : road;
+      const a = data.address;
+      const road = a.road || a.pedestrian || a.path || a.cycleway || a.footway || a.bridge || a.construction || '';
+      const num = a.house_number || '';
+      const sub = a.suburb || a.neighbourhood || a.quarter || a.city_district || '';
+      const place = a.amenity || a.building || a.leisure || a.tourism || '';
+      // Best: street + number
+      if (road && num) return `${road} ${num}${sub ? ', ' + sub : ''}`;
+      if (road) return sub ? `${road}, ${sub}` : road;
+      // Named place (park, building, etc.)
+      if (place) return sub ? `${place}, ${sub}` : place;
+      // At least suburb/district
       if (sub) return sub;
     }
-    if (data.display_name) return data.display_name.split(',').slice(0, 2).join(', ').trim();
-    return `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+    // Fallback: take first 3 meaningful parts from display_name, skip city-level
+    if (data.display_name) {
+      const parts = data.display_name.split(',').map(s => s.trim());
+      const meaningful = parts.filter(p => !/(Praha|Prague|Česko|Czech|Hlavní město)/i.test(p));
+      if (meaningful.length >= 2) return meaningful.slice(0, 2).join(', ');
+      if (meaningful.length === 1) return meaningful[0];
+      return parts.slice(0, 2).join(', ');
+    }
+    return `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
   } catch {
-    return `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+    return `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
   }
 }
 
@@ -222,7 +236,6 @@ export default function App() {
   const [settingPoint, setSettingPoint] = useState('start');
   const [showHelp, setShowHelp] = useState(false);
   const [showPOIs, setShowPOIs] = useState(true);
-  const [mapCenter] = useState(PRAGUE_CENTER);
   const [preferences, setPreferences] = useState(MODE_DEFAULT_PREFS.wheelchair);
   const [routeData, setRouteData] = useState([]);
   const [bestRouteIndex, setBestRouteIndex] = useState(0);
@@ -230,6 +243,7 @@ export default function App() {
   const [comfortData, setComfortData] = useState(null);
   const [userPosition, setUserPosition] = useState(null);
   const [navigating, setNavigating] = useState(false);
+  const [gpsError, setGpsError] = useState(null);
   const watchIdRef = React.useRef(null);
   const forceProfileRef = React.useRef(null);
   const [pragueData, setPragueData] = useState(null);
@@ -259,7 +273,10 @@ export default function App() {
           const loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
           setUserPosition(loc);
         },
-        () => {},
+        () => {
+          setGpsError(t.gps_error);
+          setTimeout(() => setGpsError(null), 5000);
+        },
         { enableHighAccuracy: true, timeout: 10000 }
       );
     }
@@ -268,12 +285,16 @@ export default function App() {
   // Auto-set route start from geolocation
   useEffect(() => {
     if (!userPosition || route.start) return;
-    setRoute(prev => {
-      if (prev.start) return prev;
-      return { ...prev, start: { ...userPosition, address: t.my_location } };
-    });
-    setSettingPoint('end');
-  }, [userPosition, route.start, t.my_location]);
+    (async () => {
+      const street = await reverseGeocode(userPosition.lat, userPosition.lng, lang);
+      const address = `${street} (${t.my_location})`;
+      setRoute(prev => {
+        if (prev.start) return prev;
+        return { ...prev, start: { ...userPosition, address } };
+      });
+      setSettingPoint('end');
+    })();
+  }, [userPosition, route.start, t.my_location, lang]);
 
   useEffect(() => {
     if (!route.start || !route.end) { setRouteData([]); setComfortData(null); return; }
@@ -351,7 +372,7 @@ export default function App() {
     [settingPoint, lang]
   );
 
-  const handleClearRoute = useCallback(() => {
+  const handleClearRoute = useCallback(async () => {
     setRouteData([]);
     setComfortData(null);
     setBestRouteIndex(0);
@@ -361,13 +382,15 @@ export default function App() {
       watchIdRef.current = null;
     }
     if (userPosition) {
-      setRoute({ start: { ...userPosition, address: t.my_location }, end: null });
+      const street = await reverseGeocode(userPosition.lat, userPosition.lng, lang);
+      const address = `${street} (${t.my_location})`;
+      setRoute({ start: { ...userPosition, address }, end: null });
       setSettingPoint('end');
     } else {
       setRoute({ start: null, end: null });
       setSettingPoint('start');
     }
-  }, [userPosition, t.my_location]);
+  }, [userPosition, t.my_location, lang]);
 
   const handleStartNav = useCallback(() => {
     setNavigating(true);
@@ -420,27 +443,70 @@ export default function App() {
     setSettingPoint(null);
   }, []);
 
-  const handleUseMyLocation = useCallback(() => {
-    if (userPosition) {
-      setRoute(prev => ({ ...prev, start: { ...userPosition, address: t.my_location } }));
+  const handleUseMyLocation = useCallback(async () => {
+    const setFromGps = async (loc) => {
+      setUserPosition(loc);
+      setRoute(prev => ({ ...prev, start: { ...loc, address: t.my_location } }));
       setSettingPoint('end');
-    }
-  }, [userPosition, t.my_location]);
+      const street = await reverseGeocode(loc.lat, loc.lng, lang);
+      const address = `${street} (${t.my_location})`;
+      setRoute(prev => {
+        if (!prev.start) return prev;
+        return { ...prev, start: { ...prev.start, address } };
+      });
+    };
 
-  const handleEmergencyRoute = useCallback((destination) => {
+    // Always re-request fresh GPS position
+    if (navigator.geolocation) {
+      // If we already have a position, use it instantly then refresh
+      if (userPosition) {
+        setRoute(prev => ({ ...prev, start: { ...userPosition, address: t.my_location } }));
+        setSettingPoint('end');
+      }
+      navigator.geolocation.getCurrentPosition(
+        (pos) => setFromGps({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+        () => {
+          // GPS failed — if we had old position, still use it
+          if (userPosition) {
+            setFromGps(userPosition);
+          } else {
+            setGpsError(t.gps_error);
+            setTimeout(() => setGpsError(null), 5000);
+          }
+        },
+        { enableHighAccuracy: true, timeout: 10000 }
+      );
+    } else if (userPosition) {
+      setFromGps(userPosition);
+    }
+  }, [userPosition, t.my_location, lang, t.gps_error]);
+
+  const handleEmergencyRoute = useCallback(async (destination) => {
     if (!destination) return;
-    const startLoc = userPosition
-      ? { ...userPosition, address: t.my_location }
-      : route.start;
+    let startLoc;
+    if (userPosition) {
+      const street = await reverseGeocode(userPosition.lat, userPosition.lng, lang);
+      startLoc = { ...userPosition, address: `${street} (${t.my_location})` };
+    } else {
+      startLoc = route.start;
+    }
     if (!startLoc) return;
+    const destName = destination.name
+      || destination.props?.note
+      || destination.props?.['defibrillator:location']
+      || '';
+    let address = destName;
+    if (!address) {
+      address = await reverseGeocode(destination.lat, destination.lng, lang);
+    }
     forceProfileRef.current = 'standard';
     setRoute({
       start: startLoc,
-      end: { lat: destination.lat, lng: destination.lng, address: destination.name || '' },
+      end: { lat: destination.lat, lng: destination.lng, address },
     });
     setSettingPoint(null);
     setShowHelp(false);
-  }, [userPosition, route.start, t.my_location]);
+  }, [userPosition, route.start, t.my_location, lang]);
 
   const handleSetSettingPoint = useCallback((point) => {
     setSettingPoint(point);
@@ -502,11 +568,19 @@ export default function App() {
         userPosition={userPosition}
         navigating={navigating}
         pragueData={pragueData}
+        onLocateMe={handleUseMyLocation}
+        setUserPosition={setUserPosition}
+        setGpsError={setGpsError}
       />
+
+      {gpsError && (
+        <div className="gps-toast" onClick={() => setGpsError(null)}>
+          {gpsError}
+        </div>
+      )}
 
       {showHelp && (
         <HelpNearbyPanel
-          mapCenter={mapCenter}
           userPosition={userPosition}
           pragueData={pragueData}
           t={t}

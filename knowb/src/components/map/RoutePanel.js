@@ -20,8 +20,8 @@ export default function RoutePanel({
   const startAddr = route.start ? route.start.address : '';
   const endAddr = route.end ? route.end.address : '';
 
-  useEffect(() => { if (startAddr) setStartInput(startAddr); }, [startAddr]);
-  useEffect(() => { if (endAddr) setEndInput(endAddr); }, [endAddr]);
+  useEffect(() => { setStartInput(startAddr); }, [startAddr]);
+  useEffect(() => { setEndInput(endAddr); }, [endAddr]);
 
   const cLevel = comfortData
     ? comfortData.comfort >= 70 ? 'high' : comfortData.comfort >= 50 ? 'med' : 'low'
@@ -53,7 +53,7 @@ export default function RoutePanel({
       <div className="bbar bbar--nav">
         <div className="bbar__nav-top">
           <span className={`bbar__comfort bbar__comfort--${cLevel}`}>
-            {comfortData ? comfortData.comfort : '—'}%
+            {t.comfort} {comfortData ? comfortData.comfort : '—'}%
           </span>
           <span className="bbar__dot">·</span>
           <span className="bbar__km">{(selected.distance / 1000).toFixed(1)} km</span>
@@ -84,11 +84,9 @@ export default function RoutePanel({
             onKeyDown={e => { if (e.key === 'Enter') geocodeAndSet(startInput, 'start'); }}
             onFocus={() => onSetSettingPoint && onSetSettingPoint('start')}
           />
-          {userPosition && (
-            <button className="bbar__gps" onClick={onUseMyLocation} title={t.my_location}>
-              <Crosshair size={16} />
-            </button>
-          )}
+          <button className="bbar__gps" onClick={onUseMyLocation} title={t.my_location}>
+            <Crosshair size={16} />
+          </button>
         </div>
         <div className="bbar__row">
           <MapPin size={16} className="bbar__icon bbar__icon--end" />

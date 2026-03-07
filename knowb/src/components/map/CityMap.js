@@ -3,7 +3,7 @@ import MapGL, { Marker, Popup, Source, Layer, NavigationControl } from 'react-ma
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { toGeoJsonFC } from '../../data/pragueData';
 import {
-  Navigation as NavIcon, MapPin, Loader2,
+  Navigation as NavIcon, MapPin, Loader2, Crosshair,
   Armchair, Bath, ArrowUpDown, HeartPulse, Hospital, Car, Footprints,
 } from 'lucide-react';
 
@@ -16,13 +16,13 @@ const MAP_STYLES = {
 // Large datasets (benches/stairs) → native MapLibre circle layers only
 // Small datasets (rest) → circle clusters + React Marker icons at zoom
 const POI_LAYERS = {
-  benches:         { color: '#94a3b8', label: 'Lavičky',       minZoom: 13, iconMinZoom: 16, Icon: Armchair,    iconSize: 14 },
-  stairs:          { color: '#94a3b8', label: 'Schody',        minZoom: 14, iconMinZoom: 16, Icon: Footprints,  iconSize: 14 },
-  toilets:         { color: '#94a3b8', label: 'WC',            minZoom: 12, iconMinZoom: 14, Icon: Bath,        iconSize: 14 },
-  elevators:       { color: '#94a3b8', label: 'Výtahy',        minZoom: 12, iconMinZoom: 14, Icon: ArrowUpDown, iconSize: 14 },
+  benches:         { color: '#92400e', label: 'Lavičky',       minZoom: 13, iconMinZoom: 16, Icon: Armchair,    iconSize: 14 },
+  stairs:          { color: '#6b7280', label: 'Schody',        minZoom: 14, iconMinZoom: 16, Icon: Footprints,  iconSize: 14 },
+  toilets:         { color: '#3b82f6', label: 'WC',            minZoom: 12, iconMinZoom: 14, Icon: Bath,        iconSize: 14 },
+  elevators:       { color: '#8b5cf6', label: 'Výtahy',        minZoom: 12, iconMinZoom: 14, Icon: ArrowUpDown, iconSize: 14 },
   aed:             { color: '#ef4444', label: 'AED',           minZoom: 10, iconMinZoom: 12, Icon: HeartPulse,  iconSize: 16 },
-  clinics:         { color: '#ef4444', label: 'Kliniky',       minZoom: 10, iconMinZoom: 11, Icon: Hospital,    iconSize: 16 },
-  disabledParking: { color: '#94a3b8', label: 'P-ZTP',        minZoom: 13, iconMinZoom: 14, Icon: Car,         iconSize: 14 },
+  clinics:         { color: '#dc2626', label: 'Kliniky',       minZoom: 10, iconMinZoom: 11, Icon: Hospital,    iconSize: 16 },
+  disabledParking: { color: '#1e3a5f', label: 'P-ZTP',        minZoom: 13, iconMinZoom: 14, Icon: Car,         iconSize: 14 },
 };
 
 // Keys with small enough datasets or high-zoom icon markers
@@ -31,7 +31,7 @@ const ICON_MARKER_KEYS = ['benches', 'toilets', 'elevators', 'aed', 'clinics', '
 export default function CityMap({
   theme, activeMode, route, routeData, bestRouteIndex,
   onMapClick, settingPoint, showHeatmap, showHelp, showPOIs, isLoadingRoute, t,
-  userPosition, navigating, pragueData,
+  userPosition, navigating, pragueData, onLocateMe, setUserPosition, setGpsError,
 }) {
   const [popupInfo, setPopupInfo] = useState(null);
   const [viewState, setViewState] = useState({
@@ -39,6 +39,9 @@ export default function CityMap({
     latitude: 50.0755,
     zoom: 14,
   });
+
+  const mapRef = useRef(null);
+  const preNavZoom = useRef(14);
 
   const centeredOnUser = useRef(false);
   useEffect(() => {
@@ -52,16 +55,33 @@ export default function CityMap({
     }
   }, [userPosition]);
 
+  // Zoom into navigation mode or zoom back out
+  const prevNavigating = useRef(false);
   useEffect(() => {
-    if (navigating && userPosition) {
+    if (navigating && !prevNavigating.current) {
+      // Entering navigation — snap to route start (green arrow)
+      preNavZoom.current = viewState.zoom;
+      const center = route.start ? { lng: route.start.lng, lat: route.start.lat } : null;
+      if (center) {
+        // Force React viewState so no re-render can override this
+        setViewState({
+          longitude: center.lng,
+          latitude: center.lat,
+          zoom: 18,
+          pitch: 0,
+          bearing: 0,
+        });
+      }
+    } else if (!navigating && prevNavigating.current) {
+      // Leaving navigation — zoom back out
       setViewState(prev => ({
         ...prev,
-        longitude: userPosition.lng,
-        latitude: userPosition.lat,
-        zoom: Math.max(prev.zoom, 16),
+        zoom: 14,
+        pitch: 0,
       }));
     }
-  }, [navigating, userPosition]);
+    prevNavigating.current = navigating;
+  }, [navigating]);
 
   // ── Build GeoJSON for clusters ──
   const allGeoJsons = useMemo(() => {
@@ -120,6 +140,7 @@ export default function CityMap({
   return (
     <div className="map-container">
       <MapGL
+        ref={mapRef}
         {...viewState}
         onMove={(e) => setViewState(e.viewState)}
         style={{ width: '100%', height: '100%' }}
@@ -129,6 +150,47 @@ export default function CityMap({
         attributionControl={true}
       >
         <NavigationControl position="top-left" />
+
+        {/* ── Locate me button ── */}
+        <div className="map-locate-btn-wrap">
+          <button
+            className="map-locate-btn"
+            onClick={() => {
+              if (userPosition) {
+                setViewState(prev => ({
+                  ...prev,
+                  longitude: userPosition.lng,
+                  latitude: userPosition.lat,
+                  zoom: Math.max(prev.zoom, 16),
+                }));
+              } else if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                  (pos) => {
+                    const loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+                    setUserPosition(loc);
+                    setViewState(prev => ({
+                      ...prev,
+                      longitude: loc.lng,
+                      latitude: loc.lat,
+                      zoom: Math.max(prev.zoom, 16),
+                    }));
+                  },
+                  () => {
+                    if (setGpsError) {
+                      setGpsError(t.gps_error);
+                      setTimeout(() => setGpsError(null), 5000);
+                    }
+                  },
+                  { enableHighAccuracy: true, timeout: 10000 }
+                );
+              }
+            }}
+            aria-label={t.my_location}
+            title={t.my_location}
+          >
+            <Crosshair size={18} />
+          </button>
+        </div>
 
         {/* ── POI cluster layers (native MapLibre) ── */}
         {Object.entries(allGeoJsons).map(([key, geojson]) => {
@@ -150,11 +212,11 @@ export default function CityMap({
                 type="circle"
                 filter={['has', 'point_count']}
                 paint={{
-                  'circle-color': '#94a3b8',
+                  'circle-color': cfg.color,
                   'circle-radius': ['step', ['get', 'point_count'], 14, 50, 18, 200, 24],
-                  'circle-opacity': 0.65,
+                  'circle-opacity': 0.75,
                   'circle-stroke-width': 1.5,
-                  'circle-stroke-color': 'rgba(255,255,255,0.7)',
+                  'circle-stroke-color': 'rgba(255,255,255,0.8)',
                   'circle-stroke-opacity': 1,
                 }}
                 minzoom={cfg.minZoom}

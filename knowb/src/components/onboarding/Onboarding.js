@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Accessibility, Heart, Map, LayoutGrid, ChevronRight, ChevronLeft, Type } from 'lucide-react';
+import { Accessibility, Heart, ChevronRight, ChevronLeft, Type } from 'lucide-react';
 import translations from '../../data/i18n';
 
 const LANGUAGES = [
@@ -12,15 +12,13 @@ const LANGUAGES = [
 const USER_TYPES = [
   { id: 'wheelchair', Icon: Accessibility, color: '#6366f1' },
   { id: 'senior', Icon: Heart, color: '#ef4444' },
-  { id: 'tourist', Icon: Map, color: '#f59e0b' },
-  { id: 'standard', Icon: LayoutGrid, color: '#10b981' },
 ];
 
 export default function Onboarding({ onComplete }) {
   const [step, setStep] = useState(0);
   const [lang, setLang] = useState(null);
   const [userType, setUserType] = useState(null);
-  const [fontSize, setFontSize] = useState('medium');
+  const [fontSize, setFontSize] = useState('xl');
 
   const t = translations[lang] || translations.cs;
 

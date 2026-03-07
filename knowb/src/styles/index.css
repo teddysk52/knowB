@@ -1139,7 +1139,7 @@ body {
 
 /* ===== MAPLIBRE CONTROLS ===== */
 .maplibregl-ctrl-top-left {
-  top: 72px !important;
+  top: 80px !important;
 }
 
 .maplibregl-ctrl-group {
@@ -1243,7 +1243,7 @@ body {
 .float-header__logo svg { width: 18px; height: 18px; }
 
 .float-header__logo-img {
-  height: 44px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -2157,6 +2157,62 @@ body {
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* ===== LOCATE ME BUTTON ===== */
+.map-locate-btn-wrap {
+  position: absolute;
+  top: 260px;
+  left: 10px;
+  z-index: 1050;
+}
+
+.map-locate-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  border: none;
+  background: var(--card-bg, #fff);
+  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: background 0.15s;
+}
+
+.map-locate-btn:hover {
+  background: #f0f0f0;
+}
+
+[data-theme="dark"] .map-locate-btn {
+  background: #1a1a2e;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .map-locate-btn:hover {
+  background: #2a2a4e;
+}
+
+/* ===== GPS ERROR TOAST ===== */
+.gps-toast {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background: #ef4444;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  cursor: pointer;
+  animation: fadeIn 0.3s ease;
+  max-width: 90vw;
+  text-align: center;
 }
 
 /* ===== USER POSITION DOT ===== */

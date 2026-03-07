@@ -109,7 +109,7 @@ const translations = {
     dark: 'Dark',
     light: 'Light',
     my_location: 'My location',
-    start_nav: 'Go',
+    start_nav: 'Start route',
     stop_nav: 'Stop',
     navigating: 'Navigating…',
     from_placeholder: 'From (address)',
@@ -117,6 +117,7 @@ const translations = {
     search_hint: 'Press Enter to search',
     new_route: 'New route',
     route_here: 'Route',
+    gps_error: 'Location unavailable — use HTTPS or click on the map',
   },
 
   cs: {
@@ -229,14 +230,15 @@ const translations = {
     dark: 'Tmavý',
     light: 'Světlý',
     my_location: 'Moje poloha',
-    start_nav: 'V cestu',
+    start_nav: 'Začít trasu',
     stop_nav: 'Stop',
     navigating: 'Navigace…',
     from_placeholder: 'Odkud (adresa)',
     to_placeholder: 'Kam chcete jít?',
     search_hint: 'Enter pro vyhledání',
-    new_route: 'Nový maršrut',
+    new_route: 'Nová trasa',
     route_here: 'Navigovat',
+    gps_error: 'Poloha nedostupná — použijte HTTPS nebo klikněte na mapu',
   },
 
   ru: {
@@ -317,7 +319,7 @@ const translations = {
     dark: 'Тёмная',
     light: 'Светлая',
     my_location: 'Моё местоположение',
-    start_nav: 'В путь',
+    start_nav: 'Начать маршрут',
     from_placeholder: 'Откуда (адрес)',
     to_placeholder: 'Куда идём?',
     search_hint: 'Enter для поиска',
@@ -325,6 +327,7 @@ const translations = {
     navigating: 'Навигация…',
     new_route: 'Новый маршрут',
     route_here: 'Маршрут',
+    gps_error: 'Местоположение недоступно — используйте HTTPS или нажмите на карту',
   },
 
   uk: {
@@ -405,7 +408,7 @@ const translations = {
     dark: 'Темна',
     light: 'Світла',
     my_location: 'Моє місцезнаходження',
-    start_nav: 'В дорогу',
+    start_nav: 'Почати маршрут',
     stop_nav: 'Стоп',
     navigating: 'Навігація…',
     new_route: 'Новий маршрут',
@@ -413,6 +416,7 @@ const translations = {
     from_placeholder: 'Звідки (адреса)',
     to_placeholder: 'Куди йдемо?',
     search_hint: 'Enter для пошуку',
+    gps_error: 'Місцезнаходження недоступне — використовуйте HTTPS або натисніть на карту',
   },
 };
 

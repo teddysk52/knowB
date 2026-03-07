@@ -43,7 +43,7 @@ function normalizeFeatures(geojson, nameField) {
       if (!point) return null;
       const [lng, lat] = point;
       const props = f.properties || {};
-      const name = props[nameField] || props.name || props.note || '';
+      const name = props[nameField] || props.name || props.note || props['defibrillator:location'] || '';
       return { id: props['@id'] || props.objectid || `f${i}`, lat, lng, name, props };
     })
     .filter(Boolean);
